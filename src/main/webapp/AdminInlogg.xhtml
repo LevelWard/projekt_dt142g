@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: gianf
+  Date: 2023-12-04
+  Time: 18:51
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Title</title>
+</h:head>
+
+<h:body>
+    <f:view>
+        <!--<h:outputLabel value="Hello, world"/>-->
+        <link rel="stylesheet" type="text/css" href="style.css" media="all" />
+
+        <h1>Admin sida</h1>
+        <div class="inloggning">
+            <h:form>
+                <p>Användarnamn</p>
+                <h:inputText id="username"/>
+                <br/>
+                <p>Lösenord</p>
+                <h:inputText id="password"/>
+                <br/>
+                <h:button id="submit" value="Logga in" outcome="LaCarte"/>
+            </h:form>
+        </div>
+    </f:view>
+</h:body>
+
+</html>
