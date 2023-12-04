@@ -16,3 +16,48 @@ h1{
 .alternativ{
     font-size: 180%;
 }
+.header{
+    font-size: 20px;
+}
+.pris{
+    float: right;
+    margin-right: 60%;
+    margin-top: -3.3%;
+    font-size: 20px;
+}
+
+.box{
+    width: 600px;
+    height: 30px;
+    background-color:green;
+}
+
+.box1{
+    width: 600px;
+    height: 30px;
+    background-color:aqua;
+}
+.box2{
+    width: 600px;
+    height: 30px;
+    background-color:burlywood;
+}
+/*#uppdate{
+    font-size: 20px;
+    margin-left: 105%;
+    margin-top: -2px;
+}
+
+#delete{
+    font-size: 20px;
+    margin-left: 130%;
+    margin-top: -2px;
+}*/
+.buttons{
+    display: flex;
+    font-size: 23px;
+    margin-left: 105%;
+    margin-top: -2px;
+    gap:10px;
+
+}
