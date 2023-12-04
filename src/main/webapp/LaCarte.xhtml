@@ -13,12 +13,14 @@
       xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-    <title>Title</title>
+    <title>A la Carte</title>
 </h:head>
 
 <h:body>
     <f:view>
-        <h1>Lunch Meny</h1>
+        <link rel="stylesheet" type="text/css" href="style.css" media="all" />
+
+        <h1>A la Carte</h1>
 
         <label class="vecka_nummer">Vecka nr:</label>
         <select class="alternativ">
@@ -27,6 +29,27 @@
             <option>3</option>
             <option>4</option>
         </select>
+
+
+        <p class="header">Förrätt</p>
+        <p class="pris">Pris</p>
+
+        <div class="box">
+            <div class="buttons">
+            <h:button id="uppdate" value="uppdatera"/>
+            <h:button id="delete" value="delete"/>
+            </div>
+        </div>
+
+        <br/>
+        <div class="box1">
+
+        </div>
+        <br/>
+        <div class="box2">
+
+        </div>
+
     </f:view>
 </h:body>
 
