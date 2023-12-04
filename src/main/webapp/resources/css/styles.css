@@ -1,0 +1,80 @@
+:root{
+    --antonGray: rgb(35,35,35);
+}
+
+html {
+    max-width: 1200px;
+}
+
+body {
+    margin: 0;
+    background-color: var(--antonGray);
+}
+p {
+    color: white;
+}
+
+h1 {
+    color: white;
+}
+
+.StartButton {
+    min-width: 300px;
+    min-height: 150px;
+    border-color: black;
+    font-size: xxx-large;
+    border-radius: 20px;
+}
+
+.BackButton {
+    min-width: 300px;
+    min-height: 100px;
+    background-color: rgb(189,189,189);
+    margin: 3%;
+    font-size: xx-large;
+}
+
+#homeButtonDiv {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    min-height: 100px;
+}
+
+#kitchenButton {
+    background-image: linear-gradient(to bottom, rgb(100, 215, 115), white );
+}
+#bookingsButton {
+    background-image: linear-gradient(to bottom, rgb(255, 138, 0), white );
+}
+#orderingButton {
+    background-image: linear-gradient(to bottom, rgb(161, 215, 233), white );
+}
+
+#startImage {
+    width: 100%;
+}
+
+#versionText {
+    margin: 3%;
+    color: white;
+    font-family: fantasy;
+    font-size: large;
+    text-decoration: underline;
+
+}
+
+#kitchenOverviewContent {
+    width: 94%;
+    min-height: 550px;
+    border-style: solid;
+    border-color: white;
+    margin: 3%;
+}
+
+#kitchenOverviewBack {
+    width: 94%;
+    margin: 3%;
+    border-style: solid;
+    border-color: white;
+}

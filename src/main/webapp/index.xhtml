@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="templates/masterTemplate.xhtml">
+    <ui:define name="title">Antons-Skafferi</ui:define>
+    <ui:define name="content">
+
+        <h:graphicImage id="startImage" library="images" name="startPagePhoto.png"/>
+
+        <div id="homeButtonDiv">
+            <h:button styleClass="StartButton" id="kitchenButton" value="Kitchen" outcome="kitchenOverview" />
+            <h:button styleClass="StartButton" id="bookingsButton" value="Bookings" outcome="orderOverview" />
+            <h:button styleClass="StartButton" id="orderingButton" value="Ordering" outcome="bookingCalendar" />
+        </div>
+    </ui:define>
+</ui:composition>
