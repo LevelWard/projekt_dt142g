@@ -1,14 +1,13 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-}
-body.a_la_carte{
-    margin: 0;
-    min-height:100vh; /*minimum page height*/
-    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     font-size: 17px;
     color: #f2f2f2;
+}
+body.a_la_carte{
+    min-height:100vh; /*minimum page height*/
+
 
     display:grid;
     grid-template-rows: auto 1fr; /*only on a la carte*/
@@ -38,6 +37,8 @@ body.a_la_carte{
 
 }
 body.index {
+    display:grid;
+    grid-template-rows: auto 1fr 1fr 0.5fr 0.10fr 1fr ;
     background-color: #3a1313;
 }
 
@@ -211,5 +212,140 @@ body.index {
     font-style: normal;
     font-weight: 700;
     line-height: 2vh; /* 281.25% */
+}
+
+#musicue{
+    background-color: #3a1313;
+
+    height: auto;
+    width: auto;
+    margin: 5vh 0 5vh;
+
+    display:grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+#left_containing_songs{
+    background-color: #380b0b;
+
+    height: auto;
+    width: auto;
+
+    border-top-left-radius: 4vw;
+    border-bottom-left-radius: 4vw;
+}
+
+#right_containing_musician_image{
+    background-color: #210505;
+
+    height: auto;
+    width: auto;
+
+
+}
+
+#book_table{
+    background-color: #210505;
+
+    height: auto;
+    width: auto;
+    margin: 5vh 5vw 1vh 5vw;
+    padding: 1vh 1vw;
+
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+
+    border-radius: 4vw;
+}
+
+#contacts{
+    background-color: #3a1313;
+
+    height: auto;
+    width: auto;
+    margin: 5vh 5vw 5vh 5vw;
+
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+}
+#Form_teaser{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.form-control { margin-bottom: 5px; }
+
+.btn {
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 1em 0 1em;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    border-radius: .25rem;
+    border: 0;
+    text-decoration: none;
+    color: #fff;
+    background-color: #D07E00;
+}
+.btn:hover {
+    background-color: #802D00;
+}
+
+select {
+    padding: 5px;
+    border-radius: .25rem;
+    border: 1px solid #ccc;
+    height: 35px;
+    margin-left: 5px;
+}
+
+#booking_legal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+hr{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.5vh;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#red_bar{
+    border-top: 0.5vh solid rgba(151, 36, 36, 1);
+}
+#green_bar{
+    border-top: 0.5vh solid rgba(76, 96, 85, 1);
+}
+#content_under_red_bar{
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    padding: 2vh 3vw;
+}
+#company_title{
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    padding: 2vh 3vw;
+}
+#orange_bar{
+    border-right: 0.25vh solid rgba(188, 94, 6, 1);
+    border-left: 0.25vh solid rgba(188, 94, 6, 1);
+}
+
+#grey_bar{
+    border-top: 0.5vh solid rgba(93, 90, 90, 1);
+}
+
+#company_title_textbox{
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 

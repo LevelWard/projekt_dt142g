@@ -23,9 +23,6 @@
         <a href="event.xhtml">Event</a>
     </div>
 
-
-    <h2 class="welcome-text">Welcome to Antons Skafferi!</h2>
-    <br></br>
     <div class="home-content">
         <img src="images/bild2.png" alt="Home Image"/>
         <div class="text-box">
@@ -39,8 +36,23 @@
             <p class="all-text">Löv, pinner, stekta kottar, ungsbakat jord och rök ormbunke</p>
         </div>
     </div>
-    <br></br>
-    <br></br>
+
+    <!-- figma slack box design to be used in "dagens lunch idag" and "lordag event" !-->
+    <!-- replace the div tags "home-content" whith thease to replicate figma !-->
+
+    <!--
+    <f:view>
+        <div id="musicue">
+            <div id="left_containing_songs">
+                 song list
+            </div>
+            <div id="right_containing_musician_image">
+                 Image of artist
+            </div>
+        </div>
+    </f:view>
+    !-->
+
     <div class="home-content">
         <img src="images/bild1.png" alt="Home Image"/>
         <div class="text-box3">
@@ -62,8 +74,66 @@
             </ul>
         </div>
     </div>
-
-
-
+    <div id="extend_zone_when_booked">
+        <div id="book_table">
+            <div id="Book_tite">
+                <p>Boka Bord Hos Oss!</p>
+            </div>
+            <div id="Form_teaser">
+                <div id="no_of_people_Form_teaser">
+                    <select id="No_persons" class="form-control">
+                        <option value="2">2 Personer</option>
+                    </select>
+                </div>
+                <div id="date_Form_teaser">
+                    <select id="booking_date" class="form-control">
+                        <option value="12-05-2023">12.05.2023</option>
+                    </select>
+                </div>
+                <div id="time_Form_teaser">
+                    <select id="booking_time" class="form-control">
+                        <option value="13-00">13.00</option>
+                    </select>
+                </div>
+                <div id="push_botton_Form_teaser">
+                    <button id="searchbutton" class="btn btn-primary">Boka nu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="booking_legal"><p>För bokningar vid fler än 16 personer, vänligen kontakta oss via telefonnumret.</p></div>
+    <div id="contacts">
+        <div id="red">
+            <hr id="red_bar" />
+        </div>
+        <div id="content_under_red_bar">
+            <div id="contacts_details">
+                <div id="green">
+                    <hr id="green_bar" />
+                </div>
+                <div id="contacts_details_textbox">
+                    <p>Kontaktuppgiffter:</p>
+                    <p>Telefon: 010-142 85 95</p>
+                    <p>Mejladress: AS@restaurang.skafferi</p>
+                    <p>Adress: Storgatan 11, Sundsvall</p>
+                </div>
+            </div>
+            <div id="company_title">
+                <div id="company_title_textbox">Antons Skafferi</div>
+                <hr id="orange_bar" />
+            </div>
+            <div id="opening_hours">
+                <div id="grey">
+                    <hr id="grey_bar" />
+                </div>
+                <div id="opening_hours_textbox">
+                    <p>Öppetider: </p>
+                    <p>Mån-Fre: 10.00-22.00</p>
+                    <p>Lör: 16.00-00.00</p>
+                    <p>Sön: Stängt</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </h:body>
 </html>
