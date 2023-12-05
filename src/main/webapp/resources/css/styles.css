@@ -110,6 +110,18 @@ h1 {
     text-align: center;
     display:flex;
 }
+#addingWrap{
+    width: 1200px;
+    height: auto;
+    background-color: black;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 2fr));
+    gap: 10px;
+    margin: 10px;
+}
 
 #delete{
     background-color: darkred;
@@ -138,11 +150,6 @@ h1 {
     background-color: ghostwhite;
     width: 500px;
     border: solid black 2px;
-    align-items: end;
-    justify-items: end;
-    justify-content: end;
-    text-align: center;
-    display: flex;
 }
 .orderDesc{
     margin-left: 0;
@@ -158,5 +165,70 @@ h1 {
     justify-content: center;
     justify-items: center;
     text-align: center;
+}
+
+.meat{
+    background-color: red;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+}
+.salad{
+    background-color: lawngreen;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+}
+.soup {
+    background-color: saddlebrown;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+}
+.daily{
+    background-color: aliceblue;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+}
+.alcohol{
+    background-color: red;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+}
+.water{
+    background-color: deepskyblue;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+}
+.soda{
+    background-color: darkorange;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+}
+.nothing{
+    background-color: aliceblue;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
 }
 

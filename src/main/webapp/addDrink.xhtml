@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="templates/orderTemplate.xhtml">
+
+    <!--As a reminder on how to comment-->
+    <ui:define name="title" >Add Drink</ui:define>
+
+    <ui:define name="content">
+        <div id="addingWrap">
+            <h:commandButton styleClass="foodButtons" class="nothing" value="Nothing"/>
+            <h:commandButton styleClass="foodButtons" class="water"  value="Water" type="button"/>
+            <h:commandButton styleClass="foodButtons" class="water"  value="Carbonised Water" type="button"/>
+            <h:commandButton styleClass="foodButtons" class="alcohol" value="Beer" type="button"/>
+            <h:commandButton styleClass="foodButtons" class="alcohol" value="Root Beer" type="button"/>
+            <h:commandButton styleClass="foodButtons" class="alcohol" value="White Wine" type="button"/>
+            <h:commandButton styleClass="foodButtons" class="alcohol" value="Red Wine" type="button"/>
+            <h:commandButton styleClass="foodButtons" class="soda"  value="Trocadero" type="button"/>
+            <h:commandButton styleClass="foodButtons" class="soda"  value="Julmust" type="button"/>
+            <h:commandButton styleClass="foodButtons" class="soda"   value="Sprite" type="button"/>
+            <h:commandButton styleClass="foodButtons" class="soda"   value="Cola" type="button"/>
+            <h:commandButton styleClass="foodButtons" class="soda"   value="Fanta" type="button"/>
+        </div>
+    </ui:define>
+</ui:composition>

@@ -2,7 +2,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      template="templates/orderTemplate.xhtml">
+      template="templates/masterTemplate.xhtml">
 
     <!--As a reminder on how to comment-->
     <ui:define name="title" >orderFormView</ui:define>
@@ -28,8 +28,8 @@
                     <h:commandButton id="delete" value="Remove" styleClass="buttons"/>
                 </h:panelGrid>
                     <div id="add_btns">
-                        <h:commandButton id="add_food" value="Add food" styleClass="buttons"/>
-                        <h:commandButton id="add_drink" value="Add drink" styleClass="buttons"/>
+                        <h:button id="add_food" value="Add food" styleClass="buttons" outcome="addFood"/>
+                        <h:button id="add_drink" value="Add drink" styleClass="buttons" outcome="addDrink"/>
                     </div>
                 </div>
             <div class="doneWrap">
