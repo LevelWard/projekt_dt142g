@@ -137,7 +137,7 @@ h1 {
 }
 .buttons{
     width: 100px;
-    height: 30px;
+    height: 50px;
 }
 #tableDiv{
     margin-top: 30px;
@@ -158,6 +158,19 @@ h1 {
 
 #doneBtn{
     background: darkblue;
+    font-size: large;
+}
+#footerMenu{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    margin-top: 5%;
+}
+#back{
+    background-color: white;
+    font-size: large;
 }
 #add_btns{
     display: flex;
