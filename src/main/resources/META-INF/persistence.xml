@@ -13,5 +13,6 @@
       <property name="jakarta.persistence.jdbc.password" value="skafferi"/>
     </properties>
 
+
   </persistence-unit>
 </persistence>

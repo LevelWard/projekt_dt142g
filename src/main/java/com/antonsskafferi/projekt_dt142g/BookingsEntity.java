@@ -8,39 +8,39 @@ import java.sql.Timestamp;
 
 @NamedQuery(name = "bookingsEntity.allDates", query = "SELECT allDates FROM BookingsEntity allDates")
 @Entity
-@jakarta.persistence.Table(name = "LUNCH", schema = "asdb", catalog = "")
+@jakarta.persistence.Table(name = "BOOKINGS", schema = "asdb", catalog = "")
 public class BookingsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @jakarta.persistence.Column(name = "ID")
-    private int id;
+    @jakarta.persistence.Column(name = "BOOKING_ID")
+    private int bookingId;
 
-    public int getLunchId() {
-        return id;
+    public int getBookingId() {
+        return bookingId;
     }
 
-    public void setLunchId(int id) {
-        this.id = id;
-    }
-
-    @Basic
-    @Column(name = "PRICE")
-    private int price;
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
+    public void setBookingId(int bookingId) {
+        this.bookingId = bookingId;
     }
 
     @Basic
-    @Column(name = "DESCRIPTION")
-    private String description;
+    @Column(name = "BOOKING_TIME")
+    private Time bookingTime;
 
-    public Date getDescription() {
-        return de;
+    public Time getBookingTime() {
+        return bookingTime;
+    }
+
+    public void setBookingTime(Time bookingTime) {
+        this.bookingTime = bookingTime;
+    }
+
+    @Basic
+    @Column(name = "BOOKING_DATE")
+    private Date bookingDate;
+
+    public Date getBookingDate() {
+        return bookingDate;
     }
 
     public void setBookingDate(Date bookingDate) {

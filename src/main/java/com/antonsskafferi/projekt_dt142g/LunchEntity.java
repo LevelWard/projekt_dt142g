@@ -6,22 +6,22 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Objects;
-
-@NamedQuery(name = "lunchEntity.allDates", query = "SELECT allDates FROM LunchEntity allDates")
+import jakarta.transaction.Transactional;
+@NamedQuery(name = "lunchEntity.allData", query = "SELECT l FROM LunchEntity l")
 @Entity
 @jakarta.persistence.Table(name = "LUNCH", schema = "asdb", catalog = "")
 public class LunchEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @jakarta.persistence.Column(name = "ID")
-    private int id;
+    private int lunchId;
 
-    public int getLunchId() {
-        return id;
+    public int getlunchId() {
+        return lunchId;
     }
 
-    public void setLunchId(int id) {
-        this.id = id;
+    public void setlunchId(int lunchId) {
+        this.lunchId = lunchId;
     }
 
     @Basic
@@ -67,19 +67,16 @@ public class LunchEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BookingsEntity that = (BookingsEntity) o;
+        LunchEntity that = (LunchEntity) o;
 
-        if (id != that.id) return false;
+        if (lunchId != that.lunchId) return false;
         if (price != that.price) return false;
         if (!Objects.equals(description, that.description)) return false;
-        if (type != null ? !type.equals(that.type) : that.type != null)
-            return false;
-
-        return true;
+        return Objects.equals(type, that.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, price, description, type);
+        return Objects.hash(lunchId, price, description, type);
     }
 }

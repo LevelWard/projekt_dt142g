@@ -10,40 +10,46 @@
 
 <h:body>
 
-    <h:selectOneMenu id="w" value="">
-        <f:selectItem itemLabel="Vecka: #{week.Week1(0)}" itemValue="Option1"/>
-        <f:selectItem itemLabel="Vecka: #{week.Week1(1)}" itemValue="Option1"/>
-        <f:selectItem itemLabel="Vecka: #{week.Week1(2)}" itemValue="Option2"/>
-        <f:selectItem itemLabel="Vecka: #{week.Week1(3)}" itemValue="Option3"/>
-    </h:selectOneMenu>
+    <h:form>
+        <h:selectOneMenu id="w">
+            <f:selectItem itemLabel="Vecka: #{week.Week1(0)}" itemValue="Option1"/>
+            <f:selectItem itemLabel="Vecka: #{week.Week1(1)}" itemValue="Option1"/>
+            <f:selectItem itemLabel="Vecka: #{week.Week1(2)}" itemValue="Option2"/>
+            <f:selectItem itemLabel="Vecka: #{week.Week1(3)}" itemValue="Option3"/>
+        </h:selectOneMenu>
 
+        <div id="">
+            <p>Databas info kommer in här!</p>
 
-            <div id="">
-                <p>Databas info kommer in här!</p>
+            <h:dataTable value="#{database.getLunch()}" var="values">
+                <!-- Define columns for your table -->
+                <h:column>
+                    <f:facet name="header">Pris</f:facet>
+                    <h:inputText value="#{values['price']}" />
+                </h:column>
 
-                <h:dataTable value="#{database.getBookings()}" var="values">
-                    <!-- Define columns for your table -->
-                    <h:column>
-                        <f:facet name="header">People</f:facet>
-                        #{values.people}
+                <h:column>
+                    <f:facet name="header">Beskrivning</f:facet>
+                    <h:inputText value="#{values.description}" />
+                </h:column>
 
-                    </h:column>
+                <h:column>
+                    <f:facet name="header">Typ</f:facet>
+                    <h:inputText value="#{values.type}" />
+                </h:column>
 
-                    <!-- Add more columns as needed -->
+                <!-- Add more columns as needed -->
 
-                </h:dataTable>
-            </div>
-            <div id="lunchBack">
-                <h:button value="Home" outcome="main.xhtml" />
-            </div>
+            </h:dataTable>
+        </div>
 
-
-
+        <div id="lunchBack">
+            <h:button value="Home" outcome="main.xhtml" />
+            <h:commandButton value="Save" action="#{database.saveLunch()}" />
+        </div>
+    </h:form>
 
 </h:body>
-
-
-
 
 </html>
 
