@@ -13,11 +13,11 @@
     <title>Antons Skafferi</title>
 
 </h:head>
-
+<f:view>
 <h:body class="index">
     <div class="topnav">
         <img src="images/nedladdning.png" alt="Logo"/>
-        <a class="active" href="#home">Home</a>
+        <a class="active" href="#home">Hem</a>
         <a href="Dagenslunch.xhtml">Dagens Luch</a>
         <a href="a_la_carte.xhtml">À la carte</a>
         <a href="event.xhtml">Event</a>
@@ -46,7 +46,7 @@
     <!-- replace the div tags "home-content" whith thease to replicate figma !-->
 
 
-    <f:view>
+
         <div id="musicue">
             <div id="left_containing_songs">
                 <h1 class="all-text2"><u>Live Musik:</u></h1>
@@ -70,7 +70,7 @@
             <img src="images/bild1.png" alt="Home Image"/>
             </div>
         </div>
-    </f:view>
+
 
     <div id="extend_zone_when_booked">
         <div id="book_table">
@@ -100,38 +100,7 @@
         </div>
     </div>
     <div id="booking_legal"><p>För bokningar vid fler än 16 personer, vänligen kontakta oss via telefonnumret.</p></div>
-    <div id="contacts">
-        <div id="red">
-            <hr id="red_bar" />
-        </div>
-        <div id="content_under_red_bar">
-            <div id="contacts_details">
-                <div id="green">
-                    <hr id="green_bar" />
-                </div>
-                <div id="contacts_details_textbox">
-                    <p>Kontaktuppgiffter:</p>
-                    <p>Telefon: 010-142 85 95</p>
-                    <p>Mejladress: AS@restaurang.skafferi</p>
-                    <p>Adress: Storgatan 11, Sundsvall</p>
-                </div>
-            </div>
-            <div id="company_title">
-                <div id="company_title_textbox">Antons Skafferi</div>
-                <hr id="orange_bar" />
-            </div>
-            <div id="opening_hours">
-                <div id="grey">
-                    <hr id="grey_bar" />
-                </div>
-                <div id="opening_hours_textbox">
-                    <p>Öppetider: </p>
-                    <p>Mån-Fre: 10.00-22.00</p>
-                    <p>Lör: 16.00-00.00</p>
-                    <p>Sön: Stängt</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <ui:include src="footer.xhtml"/>
 </h:body>
+</f:view>
 </html>

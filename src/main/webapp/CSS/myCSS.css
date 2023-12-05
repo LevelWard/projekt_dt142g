@@ -10,7 +10,7 @@ body.a_la_carte{
 
 
     display:grid;
-    grid-template-rows: auto 1fr; /*only on a la carte*/
+    grid-template-rows: auto 1fr auto; /*only on a la carte*/
     background-color: #3a1313;
 }
 
@@ -39,6 +39,16 @@ body.a_la_carte{
 body.index {
     display:grid;
     grid-template-rows: auto 1fr 1fr 0.5fr 0.10fr 1fr ;
+    background-color: #3a1313;
+}
+body.event{
+    display:grid;
+    grid-template-rows: auto 1fr 1fr 0.5fr;
+    background-color: #3a1313;
+}
+body.d_lunch{
+    display:grid;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr 0.5fr;
     background-color: #3a1313;
 }
 
@@ -104,7 +114,7 @@ body.index {
 #centre_a_la_carte{
     background-color: #3a1313;
 
-    height: auto;
+    height: 70vh;
     width: auto;
     margin: 10vh 15vw 10vh;
 

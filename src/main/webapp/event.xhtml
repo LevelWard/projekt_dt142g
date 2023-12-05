@@ -14,17 +14,18 @@
 
 </h:head>
 
-<h:body class="index">
+<f:view>
+<h:body class="event">
     <div class="topnav">
         <img src="images/nedladdning.png" alt="Logo"/>
-        <a  href="index.xhtml">Home</a>
+        <a  href="index.xhtml">Hem</a>
         <a href="Dagenslunch.xhtml">Dagens Luch</a>
         <a href="a_la_carte.xhtml">À la carte</a>
         <a href="event.xhtml">Event</a>
     </div>
 
 
-<div>
+    <div>
        <h1 class="home-content">Vecka 48 Musik</h1>
         <div class="text-box">
         <h2 class="all-text"><u>Jonas och Emil Sigfridsson</u></h2>
@@ -34,14 +35,14 @@
         <li>Det blir en blandning av kända musikalklassiker</li>
         <li>Svenska visor och ballader</li>
             </ul>
+        </div>
     </div>
-</div>
 
 
 
     <div>
         <h1 class="home-content">Vecka 49 Musik</h1>
-    <div class="text-box">
+        <div class="text-box">
         <h2 class="all-text"><u>PartyPatrullen</u></h2>
         <ul class="all-text">
         <li>Ikväll underhåller Partypatrullen</li>
@@ -49,9 +50,10 @@
         <li>Det blir en blandning av kända musikalklassiker</li>
         <li>Svenska visor och ballader</li>
         </ul>
-    </div>
+        </div>
     </div>
 
-
+    <ui:include src="footer.xhtml"/>
 </h:body>
+</f:view>
 </html>
