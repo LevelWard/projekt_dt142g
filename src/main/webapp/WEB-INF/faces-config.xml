@@ -3,21 +3,4 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
                                   https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_3_0.xsd">
-    <navigation-rule>
-        <from-view-id>../orderFormView.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>addFood</from-outcome>
-            <to-view-id>../addFood.xhtml</to-view-id>
-            <!-- You can adjust the to-view-id based on your actual structure -->
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>../orderFormView.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>addDrink</from-outcome>
-            <to-view-id>../addDrink.xhtml</to-view-id>
-            <!-- You can adjust the to-view-id based on your actual structure -->
-        </navigation-case>
-    </navigation-rule>
-
 </faces-config>
