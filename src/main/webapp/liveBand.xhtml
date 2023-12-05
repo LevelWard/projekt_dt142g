@@ -6,15 +6,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
-<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+
 
 <h:body>
 
     <h:form>
+        <h:selectOneMenu id="w">
+            <f:selectItem itemLabel="Vecka: #{week.Week1(0)}" itemValue="Option1"/>
+            <f:selectItem itemLabel="Vecka: #{week.Week1(1)}" itemValue="Option1"/>
+            <f:selectItem itemLabel="Vecka: #{week.Week1(2)}" itemValue="Option2"/>
+            <f:selectItem itemLabel="Vecka: #{week.Week1(3)}" itemValue="Option3"/>
+        </h:selectOneMenu>
 
+        <div id="">
+            <p>Liveband</p>
 
-        <div class="text">
-            <p>Vecka: #{week.Week1(1)}</p><br></br>
             <h:dataTable value="#{database.getLunch()}" var="values">
                 <!-- Define columns for your table -->
                 <h:column>

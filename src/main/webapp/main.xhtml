@@ -16,7 +16,7 @@
 
 </f:view>
 <h:body>
-    <link rel="stylesheet" type="text/css" href="../../../style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="style.css" media="all" />
     <h:button id="logout" value="Logga ut"></h:button>
 
     <div class="buttons">
@@ -27,13 +27,13 @@
             <br/>
             <h:button class="buttons" id="dinner_menu" value="A la carte"></h:button>
             <br/>
-            <h:button class="buttons" id="wine" value="Vinlista"></h:button>
+            <h:button class="buttons" outcome="wineList" id="wine" value="Vinlista"></h:button>
             <br/>
-            <h:button class="buttons" id="workshift" value="Hantera arbetspass"></h:button>
+            <h:button class="buttons" outcome="workShift" id="workshift" value="Hantera arbetspass"></h:button>
             <br/>
-            <h:button class="buttons" id="band" value="Live Band"></h:button>
+            <h:button class="buttons" outcome="liveBand" id="band" value="Live Band"></h:button>
             <br/>
-            <h:button class="buttons" id="sick" value="Sjukanmälan"></h:button>
+            <h:button class="buttons" outcome="sickLeave" id="sick" value="Sjukanmälan"></h:button>
 
 
 
