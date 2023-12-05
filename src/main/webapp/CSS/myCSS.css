@@ -70,6 +70,7 @@ body.index {
     flex-wrap: wrap;
 }
 
+
 .home-content img {
     max-width: 50%;
     height: auto;
@@ -82,31 +83,23 @@ body.index {
 .all-text{
     margin-left: auto;
     margin-right: auto;
-    width: 20em
+    width: 30em;
+    text-align: center;
 }
 
+.all-text2{
+    text-align: center;
+}
 
 
 .text-box {
-    position: absolute;
-    top: 50%;
-    left: 60%;
-    transform: translate(-50%, -50%);
-    background-color: #210505;
-    color: #f4f4f8;
-    padding: 20px;
-    box-sizing: border-box;
-    max-width: 50%;
-
-}
-
-.text-box2 {
     margin: auto;
     width: 50%;
     background-color: #210505;
     color: #f4f4f8;
-    padding: 10px;;
+    padding: 10px;
 }
+
 
 #centre_a_la_carte{
     background-color: #3a1313;
@@ -243,6 +236,35 @@ body.index {
 
 
 }
+
+#dayluch{
+    background-color: #3a1313;
+
+    height: auto;
+    width: auto;
+    margin: 5vh 0 5vh;
+
+    display:grid;
+    grid-template-columns: 1fr 3fr;
+}
+#right_containing_day{
+    background-color: #380b0b;
+
+    height: auto;
+    width: auto;
+
+    border-top-left-radius: 4vw;
+    border-bottom-left-radius: 4vw;
+}
+
+#left_containing_day_image{
+    background-color: #210505;
+
+    height: auto;
+    width: auto;
+}
+
+
 
 #book_table{
     background-color: #210505;
