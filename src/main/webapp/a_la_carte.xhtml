@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head> <!-- Convert to facelet !-->
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=UTF-8"/>
+    <link href="CSS/myCSSx.css"
+          rel="stylesheet" type="text/css"/>
+    <title>Antons Skafferi</title>
+
+</h:head>
+
+<h:body class="a_la_carte">
+    <div class="topnav">
+        <img src="Images/nedladdning.png" alt="Logo"/>
+        <a href="index.xhtml">Home</a>
+        <a href="Dagenslunch.xhtml">Dagens Luch</a>
+        <a href="#a_la_carte">À la carte</a>
+        <a href="event">Event</a>
+
+    </div>
+    <f:view>
+        <!--Box in centre containing the menu/whine block !-->
+        <div id="centre_a_la_carte">
+            <div id="right_containing_menu">
+                <div id="semi_transparent_box">
+                    <div id="menu">
+                        <div id="title_menu"><p>MENY</p></div>
+                        <div id="cluster_of_selections_menu">
+                            <div id="vertical_cluster">
+                                <div class="food_card">
+                                    <p class="Type_entree_font">Förrätter</p>
+                                    <!-- Automatisk lista från java, sql, facelets mm !-->
+                                </div>
+                                <div id="varmratt_efteratt_cluster">
+                                    <div class="food_card">
+                                        <p class="Type_entree_font">Varmrätter</p>
+                                        <!-- Automatisk lista från java, sql, facelets mm !-->
+                                    </div>
+                                    <div class="food_card">
+                                        <p class="Type_entree_font">Desserter</p>
+                                        <!-- Automatisk lista från java, sql, facelets mm !-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="left_containing_whine">
+                <div id="title_whine"><p>VIN</p></div>
+                <p>TW</p>
+            </div>
+        </div>
+    </f:view>
+</h:body>
+</html>
