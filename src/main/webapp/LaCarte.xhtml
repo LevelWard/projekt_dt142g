@@ -10,47 +10,120 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://java.sun.com/jsf/composite">
 
 <h:head>
     <title>A la Carte</title>
 </h:head>
 
 <h:body>
-    <f:view>
         <link rel="stylesheet" type="text/css" href="style.css" media="all" />
+        <div class="allcontent">
+            <h1>A la Carte</h1>
+            <h:button id="UppdaMen" value="Uppdatera Meny"/>
+            <!-- Förrätt -->
+            <div class="forrett">
+                <p class="header">Förrätt</p>
+                <p class="pris">Pris</p>
 
-        <h1>A la Carte</h1>
+                <div class="box">
+                    <p class="text">asdfgtr</p>
+                    <p class="prisruta">123</p>
+                    <div class="buttons">
+                    <h:button class="uppdate" value="Uppdatera"/>
+                    <h:button class="delete" value="Ta bort"/>
+                    </div>
+                </div>
 
-        <label class="vecka_nummer">Vecka nr:</label>
-        <select class="alternativ">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-        </select>
+                <div class="box">
+                    <p class="text2">asdfgtr</p>
+                    <p class="prisruta2">123</p>
+                    <div class="buttons">
+                        <h:button class="uppdate" value="Uppdatera"/>
+                        <h:button class="delete" value="Ta bort"/>
+                    </div>
+                </div>
 
-
-        <p class="header">Förrätt</p>
-        <p class="pris">Pris</p>
-
-        <div class="box">
-            <div class="buttons">
-            <h:button id="uppdate" value="uppdatera"/>
-            <h:button id="delete" value="delete"/>
+                <div class="box">
+                    <p class="text">wertyuiop</p>
+                    <p class="prisruta">123</p>
+                    <div class="buttons">
+                        <h:button class="uppdate" value="Uppdatera"/>
+                        <h:button class="delete" value="Ta bort"/>
+                    </div>
+                </div>
             </div>
+                <!-- varmrätt -->
+            <div class="varmrett">
+                <p class="header">Varmrätt</p>
+                <p class="pris">Pris</p>
+
+                <div class="box">
+                    <p class="text"> dfghjkl</p>
+                    <p class="prisruta">123</p>
+                    <div class="buttons">
+                        <h:button class="uppdate" value="Uppdatera"/>
+                        <h:button class="delete" value="Ta bort"/>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <p class="text2">asdfggjrhwkw</p>
+                    <p class="prisruta2">123</p>
+                    <div class="buttons">
+                        <h:button class="uppdate" value="Uppdatera"/>
+                        <h:button class="delete" value="Ta bort"/>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <p class="text"> poiutre</p>
+                    <p class="prisruta">123</p>
+                    <div class="buttons">
+                        <h:button class="uppdate" value="Uppdatera"/>
+                        <h:button class="delete" value="Ta bort"/>
+                    </div>
+                </div>
+            </div>
+            <!-- Efterrätt -->
+            <div class="efterrett">
+                <p class="header">Efterrätt</p>
+                <p class="pris">Pris</p>
+
+                <div class="box">
+                    <p class="text"> dfghjkl</p>
+                    <p class="prisruta">123</p>
+                    <div class="buttons">
+                        <h:button class="uppdate" value="Uppdatera"/>
+                        <h:button class="delete" value="Ta bort"/>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <p class="text2">asdfggjrhwkw</p>
+                    <p class="prisruta2">123</p>
+                    <div class="buttons">
+                        <h:button class="uppdate" value="Uppdatera"/>
+                        <h:button class="delete" value="Ta bort"/>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <p class="text"> dfrecvgt</p>
+                    <p class="prisruta">123</p>
+                    <div class="buttons">
+                        <h:button class="uppdate" value="Uppdatera"/>
+                        <h:button class="delete" value="Ta bort"/>
+                    </div>
+                </div>
+            </div>
+
+            <br/>
+            <h:button id="home" value="Home" />
         </div>
 
-        <br/>
-        <div class="box1">
-
-        </div>
-        <br/>
-        <div class="box2">
-
-        </div>
-
-    </f:view>
 </h:body>
 
 </html>
