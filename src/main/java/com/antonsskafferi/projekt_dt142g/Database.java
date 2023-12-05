@@ -20,5 +20,10 @@ public class Database {
         return testQuery.getResultList();
     }
 
+    public List<BookingsEntity> getLunch(){
+        Query testQuery = em.createNamedQuery("bookingsEntity.allDates");
+        return testQuery.getResultList();
+    }
+
 }
 

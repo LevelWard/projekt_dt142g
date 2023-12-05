@@ -17,29 +17,26 @@
         <f:selectItem itemLabel="Vecka: #{week.Week1(3)}" itemValue="Option3"/>
     </h:selectOneMenu>
 
-    <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                    xmlns:h="http://xmlns.jcp.org/jsf/html"
-                    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                    xmlns:f="http://xmlns.jcp.org/jsf/core"
-                    template="templates/masterTemplate.xhtml">
-        <ui:define name="title">Lunchmenyn</ui:define>
-        <ui:define name="content">
+
             <div id="">
                 <p>Databas info kommer in här!</p>
 
-                <ui:repeat value="#{database.getBookings()}" var="values">
-                    <p>
+                <h:dataTable value="#{database.getBookings()}" var="values">
+                    <!-- Define columns for your table -->
+                    <h:column>
+                        <f:facet name="header">People</f:facet>
                         #{values.people}
-                    </p>
-                </ui:repeat>
+
+                    </h:column>
+
+                    <!-- Add more columns as needed -->
+
+                </h:dataTable>
             </div>
             <div id="lunchBack">
                 <h:button value="Home" outcome="main.xhtml" />
             </div>
-        </ui:define>
 
-
-    </ui:composition>
 
 
 
