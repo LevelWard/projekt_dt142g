@@ -19,4 +19,9 @@ public class Database {
         return testQuery.getResultList();
     }
 
+    public List<OrderDrinksEntity> getAllDrinks(){
+        Query query = em.createNamedQuery("orderDrinksEntity.allDrinks");
+        return query.getResultList();
+    }
+
 }

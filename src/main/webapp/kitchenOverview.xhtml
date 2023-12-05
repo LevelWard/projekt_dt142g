@@ -8,9 +8,9 @@
         <div id="kitchenOverviewContent">
             <p>Databas info kommer in här!</p>
 
-            <ui:repeat value="#{database.getBookings()}" var="values">
+            <ui:repeat value="#{database.getAllDrinks()}" var="values">
                 <p>
-                    #{values.people}
+                    #{values.drinkTitle}
                 </p>
             </ui:repeat>
         </div>
