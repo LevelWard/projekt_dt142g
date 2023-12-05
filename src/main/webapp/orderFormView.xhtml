@@ -9,26 +9,34 @@
 
     <ui:define name="content">
         <div id="wrapper">
-            <div id="tableDiv">
-                <h:outputLabel for="table" value="Table"/>
-                <h:selectOneMenu id="table" value="#{paramValues}">
-                    <f:selectItem itemValue="1" itemLabel="1"/>
-                    <f:selectItem itemValue="2" itemLabel="2"/>
-                    <f:selectItem itemValue="3" itemLabel="3"/>
-                    <f:selectItem itemValue="4" itemLabel="4"/>
-                    <f:selectItem itemValue="5" itemLabel="5"/>
-                    <f:selectItem itemValue="6" itemLabel="6"/>
-                </h:selectOneMenu>
-            </div>
-            <h:panelGrid columns="4" styleClass="listedItems">
-                <h:outputText value="Pasta Alfredo"/>
-                <h:outputText value="Water"/>
-                <h:commandButton id="customize" value="Customize" styleClass="buttons"/>
-                <h:commandButton id="delete" value="Remove" styleClass="buttons"/>
-            </h:panelGrid>
+            <div class="orderWrap">
+                <div id="tableDiv">
+                    <h:outputLabel for="table" value="Table"/>
+                    <h:selectOneMenu id="table" value="#{paramValues}">
+                        <f:selectItem itemValue="1" itemLabel="1"/>
+                        <f:selectItem itemValue="2" itemLabel="2"/>
+                        <f:selectItem itemValue="3" itemLabel="3"/>
+                        <f:selectItem itemValue="4" itemLabel="4"/>
+                        <f:selectItem itemValue="5" itemLabel="5"/>
+                        <f:selectItem itemValue="6" itemLabel="6"/>
+                    </h:selectOneMenu>
+                </div>
+                <h:panelGrid columns="4" styleClass="listedItems">
+                    <h:outputText value="Pasta Alfredo" styleClass="orderDesc"/>
+                    <h:outputText value="Water" styleClass="orderDesc"/>
+                    <h:commandButton id="customize" value="Customize" styleClass="buttons"/>
+                    <h:commandButton id="delete" value="Remove" styleClass="buttons"/>
+                </h:panelGrid>
+                    <div id="add_btns">
+                        <h:commandButton id="add_food" value="Add food" styleClass="buttons"/>
+                        <h:commandButton id="add_drink" value="Add drink" styleClass="buttons"/>
+                    </div>
+                </div>
+            <div class="doneWrap">
 
-            <h:commandButton id="add_food" value="Add food" styleClass="buttons"/>
-            <h:commandButton id="add_drink" value="Add drink" styleClass="buttons"/>
+                <h:commandButton id="doneBtn" value="Done" styleClass="buttons"/>
+
+            </div>
         </div>
         </ui:define>
 </ui:composition>

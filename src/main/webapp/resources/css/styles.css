@@ -1,14 +1,22 @@
 :root{
     --antonGray: rgb(35,35,35);
 }
+footer{
+    background-color: lightslategray;
+    height: 200px;
+    margin-top: auto;
+}
 
 html {
     max-width: 1200px;
+    max-height:840px;
 }
 
 body {
     margin: 0;
     background-color: var(--antonGray);
+    display: flex;
+    flex-direction: column;
 }
 p {
     color: white;
@@ -78,3 +86,77 @@ h1 {
     border-style: solid;
     border-color: white;
 }
+
+/* William css */
+#wrapper{
+    display: flex;
+}
+.orderWrap{
+    background-color: black;
+    width: 550px;
+    height: auto;
+    max-height: 600px;
+    padding: 40px;
+    margin: 25px;
+}
+.doneWrap{
+    margin: 25px;
+    width: 550px;
+    height: 600px;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    display:flex;
+}
+
+#delete{
+    background-color: darkred;
+}
+#customize{
+    background-color: darkgoldenrod;
+}
+#add_food{
+    background-color: darkgreen;
+}
+#add_drink{
+    background-color: dodgerblue;
+}
+.buttons{
+    width: 100px;
+    height: 30px;
+}
+#tableDiv{
+    margin-top: 30px;
+    background-color: lightslategray;
+    width: 70px;
+    height: auto;
+    padding: 5px;
+}
+.listedItems{
+    background-color: ghostwhite;
+    width: 500px;
+    border: solid black 2px;
+    align-items: end;
+    justify-items: end;
+    justify-content: end;
+    text-align: center;
+    display: flex;
+}
+.orderDesc{
+    margin-left: 0;
+    margin-right: 50px;
+}
+
+#doneBtn{
+    background: darkblue;
+}
+#add_btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
