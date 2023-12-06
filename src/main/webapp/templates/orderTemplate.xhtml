@@ -9,11 +9,11 @@
 <h:head>
     <title><ui:insert name="title"/></title>
 </h:head>
-    <h:body>
+<h:body>
+    <ui:insert name="script1"/>
+    <h:outputStylesheet library="css" name="styles.css"/>
+    <ui:insert name="content"/>
+    <ui:include src="/includes/orderFooter.xhtml"/>
+</h:body>
 
-        <h:outputStylesheet library="css" name="orderStyles.css"/>
-
-        <ui:insert name="content"/>
-    </h:body>
-<ui:include src="/includes/footer.xhtml"/>
 </html>
