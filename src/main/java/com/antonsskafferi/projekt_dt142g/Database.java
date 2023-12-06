@@ -56,5 +56,7 @@ public class Database {
 
        return "lunchMenu.xhtml?faces-redirect=true";
    }
+
+
 }
 
