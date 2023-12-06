@@ -12,37 +12,37 @@
         }
         function addWater() {
             // Select the button with class "daily"
-            var originalButton = document.querySelector('.water');
+            const originalButton = document.querySelector('.water');
             // Check if the button is found
             if (originalButton) {
-                var clonedButton = originalButton.cloneNode(true);
+                let clonedButton = originalButton.cloneNode(true);
                 // Append the cloned button to the container
                 clonedButton.setAttribute('onclick', 'removeBtn(this)');
-                var container = document.getElementById("selected");
+                let container = document.getElementById("selected");
                 container.appendChild(clonedButton);
             }
         }
         function addAlcohol() {
             // Select the button with class "daily"
-            var originalButton = document.querySelector('.alcohol');
+            const originalButton = document.querySelector('.alcohol');
             // Check if the button is found
             if (originalButton) {
-                var clonedButton = originalButton.cloneNode(true);
+                let clonedButton = originalButton.cloneNode(true);
                 // Append the cloned button to the container
                 clonedButton.setAttribute('onclick', 'removeBtn(this)');
-                var container = document.getElementById("selected");
+                let container = document.getElementById("selected");
                 container.appendChild(clonedButton);
             }
         }
         function addSoda() {
             // Select the button with class "daily"
-            var originalButton = document.querySelector('.soda');
+            const originalButton = document.querySelector('.soda');
             // Check if the button is found
             if (originalButton) {
-                var clonedButton = originalButton.cloneNode(true);
+                let clonedButton = originalButton.cloneNode(true);
                 // Append the cloned button to the container
                 clonedButton.setAttribute('onclick', 'removeBtn(this)');
-                var container = document.getElementById("selected");
+                let container = document.getElementById("selected");
                 container.appendChild(clonedButton);
             }
         }
