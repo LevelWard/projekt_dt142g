@@ -6,21 +6,65 @@
 
     <!--As a reminder on how to comment-->
     <ui:define name="title" >Add Drink</ui:define>
+    <ui:define name="script1"> <script type="text/javascript" >
+        function removeBtn(element){
+            element.remove();
+        }
+        function addWater() {
+            // Select the button with class "daily"
+            var originalButton = document.querySelector('.water');
+            // Check if the button is found
+            if (originalButton) {
+                var clonedButton = originalButton.cloneNode(true);
+                // Append the cloned button to the container
+                clonedButton.setAttribute('onclick', 'removeBtn(this)');
+                var container = document.getElementById("selected");
+                container.appendChild(clonedButton);
+            }
+        }
+        function addAlcohol() {
+            // Select the button with class "daily"
+            var originalButton = document.querySelector('.alcohol');
+            // Check if the button is found
+            if (originalButton) {
+                var clonedButton = originalButton.cloneNode(true);
+                // Append the cloned button to the container
+                clonedButton.setAttribute('onclick', 'removeBtn(this)');
+                var container = document.getElementById("selected");
+                container.appendChild(clonedButton);
+            }
+        }
+        function addSoda() {
+            // Select the button with class "daily"
+            var originalButton = document.querySelector('.soda');
+            // Check if the button is found
+            if (originalButton) {
+                var clonedButton = originalButton.cloneNode(true);
+                // Append the cloned button to the container
+                clonedButton.setAttribute('onclick', 'removeBtn(this)');
+                var container = document.getElementById("selected");
+                container.appendChild(clonedButton);
+            }
+        }
+
+        <!-- Placeholder comment to avoid issues in XHTML -->
+    </script></ui:define>
 
     <ui:define name="content">
         <div id="addingWrap">
-            <h:commandButton styleClass="foodButtons" class="nothing" value="Nothing"/>
-            <h:commandButton styleClass="foodButtons" class="water"  value="Water" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="water"  value="Carbonised Water" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="alcohol" value="Beer" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="alcohol" value="Root Beer" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="alcohol" value="White Wine" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="alcohol" value="Red Wine" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="soda"  value="Trocadero" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="soda"  value="Julmust" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="soda"   value="Sprite" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="soda"   value="Cola" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="soda"   value="Fanta" type="button"/>
+            <h:commandButton class="nothing" value="Nothing"/>
+            <h:commandButton class="water" value="Water" onclick="addWater()" type="button"/>
+            <h:commandButton class="water" value="Carbonised Water" onclick="addWater()" type="button"/>
+            <h:commandButton class="alcohol" value="Beer" onclick="addAlcohol()" type="button"/>
+            <h:commandButton class="alcohol" value="Root Beer" onclick="addAlcohol()" type="button"/>
+            <h:commandButton class="alcohol" value="White Wine" onclick="addAlcohol()" type="button"/>
+            <h:commandButton class="alcohol" value="Red Wine" onclick="addAlcohol()" type="button"/>
+            <h:commandButton class="soda" value="Trocadero" onclick="addSoda()" type="button"/>
+            <h:commandButton class="soda" value="Julmust" onclick="addSoda()" type="button"/>
+            <h:commandButton class="soda" value="Sprite" onclick="addSoda()" type="button"/>
+            <h:commandButton class="soda" value="Cola" onclick="addSoda()" type="button"/>
+            <h:commandButton class="soda" value="Fanta" onclick="addSoda()" type="button"/>
         </div>
+    <div id="selected"><!-- Added comment to fix error in xhtml --></div>
     </ui:define>
 </ui:composition>

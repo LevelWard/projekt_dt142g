@@ -259,5 +259,6 @@ h1 {
     display: flex;
     white-space: nowrap;
     background-color: darkslategray;
+    margin-bottom: 10px;
 }
 
