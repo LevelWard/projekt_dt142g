@@ -47,6 +47,18 @@ public class DishesEntity {
     @Column(name = "TYPE", nullable = true, length = 50)
     private String type;
 
+    @Basic
+    @Column(name = "SUBTYPE", nullable = true, length = 50)
+    private String subType;
+
+    public String getSubType() {
+        return subType;
+    }
+
+    public void setSubType(String subType) {
+        this.subType = subType;
+    }
+
     public String getType() {
         return type;
     }

@@ -30,18 +30,29 @@ h2 {
 
 .KitchenItemHeader {
     margin: 40px;
+    min-width: 130px;
     color: black;
     text-decoration: underline;
+}
+
+.OrderDone {
+    min-height: 80px;
+    min-width: 80px;
+}
+
+.KitchenLeft{
+    display: flex;
+    flex-direction: row;
 }
 
 .KitchenItem {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: baseline;
+    justify-content: space-between;
     background-color: rgb(159, 86, 45);
     margin: 40px;
-    min-height: 120px;
+    height: 120px;
+    overflow: scroll;
 
 }
 
@@ -59,6 +70,23 @@ h2 {
     background-color: rgb(189,189,189);
     margin: 3%;
     font-size: xx-large;
+}
+
+.SortingButtons{
+    display: flex;
+    flex-direction: column;
+}
+
+.SortButton {
+    min-width: 50px;
+    min-height: 30px;
+}
+
+.KitchenDishes{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
 }
 
 #homeButtonDiv {
