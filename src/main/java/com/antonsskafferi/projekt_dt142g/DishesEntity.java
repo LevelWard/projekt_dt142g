@@ -58,6 +58,7 @@ public class DishesEntity {
     public void setSubType(String subType) {
         this.subType = subType;
     }
+
     public String getType() {
         return type;
     }

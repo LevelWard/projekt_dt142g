@@ -8,10 +8,21 @@
         <div id="kitchenOverviewContent">
             <ui:repeat value="#{database.getOrderIds()}" var="foodID">
                 <div class="KitchenItem">
-                    <h1 class="KitchenItemHeader">Table: #{foodID}</h1>
-                    <ui:repeat value="#{database.foodForOrder(foodID)}" var="drinkTitle">
-                        <h2>#{drinkTitle.dishTitle}</h2>
-                    </ui:repeat>
+                    <div class="KitchenLeft">
+                        <h:commandButton styleClass="OrderDone"></h:commandButton>
+                        <h1 class="KitchenItemHeader">Table: #{orderID}</h1>
+                    </div>
+                    <div class="KitchenDishes">
+                        <ui:repeat value="#{database.foodForOrder(orderID)}" var="displayItem">
+                            <h3>#{displayItem.amount}x "#{displayItem.dishTitle}"</h3>
+                        </ui:repeat>
+                    </div>
+                    <div class="SortingButtons">
+                        <h:commandButton styleClass="SortButton" value="To Top"></h:commandButton>
+                        <h:commandButton styleClass="SortButton" value="Up"></h:commandButton>
+                        <h:commandButton styleClass="SortButton" value="Down"></h:commandButton>
+                        <h:commandButton styleClass="SortButton" value="To Bottom"></h:commandButton>
+                    </div>
                 </div>
             </ui:repeat>
         </div>
