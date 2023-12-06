@@ -6,19 +6,18 @@
     <ui:define name="title">Kitchen Overview</ui:define>
     <ui:define name="content">
         <div id="kitchenOverviewContent">
-            <p>Databas info kommer in här!</p>
-
-            <ui:repeat value="#{database.getBookings()}" var="values">
-                <p>
-                    #{values.people}
-                </p>
+            <ui:repeat value="#{database.getOrderIds()}" var="orderID">
+                <div class="KitchenItem">
+                    <h1 class="KitchenItemHeader">Table: #{orderID}</h1>
+                    <ui:repeat value="#{database.foodForOrder(orderID)}" var="displayItem">
+                        <h2>#{displayItem.dishTitle}</h2>
+                    </ui:repeat>
+                </div>
             </ui:repeat>
         </div>
         <div id="kitchenOverviewBack">
             <h:button styleClass="BackButton" value="Back to start" outcome="index.xhtml" />
         </div>
     </ui:define>
-
-
 </ui:composition>
 
