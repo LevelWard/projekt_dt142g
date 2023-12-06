@@ -11,6 +11,7 @@ import jakarta.transaction.Transactional;
 @Entity
 @jakarta.persistence.Table(name = "LUNCH", schema = "asdb", catalog = "")
 public class LunchEntity {
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @jakarta.persistence.Column(name = "ID")

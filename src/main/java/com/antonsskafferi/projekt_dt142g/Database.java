@@ -17,21 +17,21 @@ public class Database {
     @PersistenceContext
     EntityManager em;
 
-    private List<LunchEntity> lunchList;
+    private List<LunchTest> lunchTest;
 
     @PostConstruct
     public void init() {
         // Initialize your lunchList from the database
-        lunchList = em.createQuery("SELECT l FROM LunchEntity l", LunchEntity.class).getResultList();
+        lunchTest = em.createQuery("SELECT l FROM LunchEntity l", LunchTest.class).getResultList();
     }
 
-    public List<LunchEntity> getLunch() {
-        return lunchList;
+    public List<LunchTest> getLunch() {
+        return lunchTest;
     }
 
     public void saveLunch() {
         // Save changes to the database, if needed
-        for (LunchEntity lunch : lunchList) {
+        for (LunchTest lunch : lunchTest) {
             em.merge(lunch);
         }
     }
