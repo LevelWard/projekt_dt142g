@@ -14,7 +14,7 @@
                     </div>
                     <div class="KitchenDishes">
                         <ui:repeat value="#{database.foodForOrder(orderID)}" var="displayItem">
-                            <h2>#{displayItem.dishTitle}</h2>
+                            <h3>#{displayItem.amount}x "#{displayItem.dishTitle}"</h3>
                         </ui:repeat>
                     </div>
                     <div class="SortingButtons">
