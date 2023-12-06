@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
-<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="style.css" media="all"/>
 
 <h:body>
 
@@ -16,20 +16,26 @@
         <div class="text">
             <p>Vecka: #{week.Week1(1)}</p><br></br>
             <h:dataTable value="#{database.getLunch()}" var="values">
+
                 <!-- Define columns for your table -->
                 <h:column>
                     <f:facet name="header">Pris</f:facet>
-                    <h:inputText value="#{values['price']}" />
+                    <h:inputText value="#{values.price}"/>
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">Beskrivning</f:facet>
-                    <h:inputText value="#{values.description}" />
+                    <h:inputText value="#{values.description}"/>
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">Typ</f:facet>
-                    <h:inputText value="#{values.type}" />
+                    <h:inputText value="#{values.type}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandButton value="Delete" action="#{database.deleteLunch(values.lunchId)}"/>
                 </h:column>
 
                 <!-- Add more columns as needed -->
@@ -38,8 +44,9 @@
         </div>
 
         <div id="lunchBack">
-            <h:button value="Home" outcome="main.xhtml" />
-            <h:commandButton value="Save" action="#{database.saveLunch()}" />
+            <h:button value="Home" outcome="main.xhtml"/>
+            <h:commandButton value="Save" action="#{database.saveLunch()}"/>
+
         </div>
     </h:form>
 

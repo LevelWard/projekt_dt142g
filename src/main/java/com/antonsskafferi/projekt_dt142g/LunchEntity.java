@@ -1,5 +1,6 @@
 package com.antonsskafferi.projekt_dt142g;
 
+import jakarta.enterprise.inject.Model;
 import jakarta.persistence.*;
 
 import java.sql.Date;
@@ -7,6 +8,7 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Objects;
 import jakarta.transaction.Transactional;
+@Model
 @NamedQuery(name = "lunchEntity.allData", query = "SELECT l FROM LunchEntity l")
 @Entity
 @jakarta.persistence.Table(name = "LUNCH", schema = "asdb", catalog = "")
