@@ -11,61 +11,14 @@
         function removeBtn(element){
             element.remove();
         }
-        function people(){
-            let table = document.getElementById("table");
-            table.setAttribute('value', '1');
-        }
-        function addDaily() {
-            // Select the button with class "daily"
-            const originalButton = document.querySelector('.daily');
-            // Check if the button is found
-            if (originalButton) {
-                let clonedButton = originalButton.cloneNode(true);
-                // Append the cloned button to the container
+        function add(button) {
+            // Use the passed 'button' reference instead of querying by class
+            if (button) {
+                let clonedButton = button.cloneNode(true);
                 clonedButton.setAttribute('onclick', 'removeBtn(this)');
                 let container = document.getElementById("selected");
                 container.appendChild(clonedButton);
             }
-            people();
-        }
-        function addMeat() {
-            // Select the button with class "daily"
-            const originalButton = document.querySelector('.meat');
-            // Check if the button is found
-            if (originalButton) {
-                let clonedButton = originalButton.cloneNode(true);
-                // Append the cloned button to the container
-                clonedButton.setAttribute('onclick', 'removeBtn(this)');
-                let container = document.getElementById("selected");
-                container.appendChild(clonedButton);
-            }
-            people();
-        }
-        function addSalad() {
-            // Select the button with class "daily"
-            const originalButton = document.querySelector('.salad');
-            // Check if the button is found
-            if (originalButton) {
-                let clonedButton = originalButton.cloneNode(true);
-                // Append the cloned button to the container
-                clonedButton.setAttribute('onclick', 'removeBtn(this)');
-                let container = document.getElementById("selected");
-                container.appendChild(clonedButton);
-            }
-            people();
-        }
-        function addSoup() {
-            // Select the button with class "daily"
-            const originalButton = document.querySelector('.soup');
-            // Check if the button is found
-            if (originalButton) {
-                let clonedButton = originalButton.cloneNode(true);
-                // Append the cloned button to the container
-                clonedButton.setAttribute('onclick', 'removeBtn(this)');
-                let container = document.getElementById("selected");
-                container.appendChild(clonedButton);
-            }
-            people();
         }
 
         <!-- Placeholder comment to avoid issues in XHTML -->
@@ -82,30 +35,13 @@
         </div>
 
         <div id="addingWrap">
-            <ui:repeat value="#{database.getOrderIds()}" var="orderID">
-                <div class="KitchenItem">
-                    <h1>Table: #{orderID}</h1>
-                    <ui:repeat value="#{database.foodForOrder(orderID)}" var="displayItem">
-                        <h2>#{displayItem.dishTitle}</h2>
+            <ui:repeat value="#{database.getOrderIds()}" var="foodID">
+                    <ui:repeat value="#{database.foodForOrder(foodID)}" var="foodTitle">
+                        <ui:repeat value="#{database.subtypeForOrder(foodTitle)}" var="subtype">
+                                <h:commandButton class="#{subtype}" value="#{foodTitle}" onclick="add(this)" type="button"/>
+                        </ui:repeat>
                     </ui:repeat>
-                </div>
             </ui:repeat>
-
-            <h:commandButton class="daily" value="Dagens" onclick="addDaily()" type="button"/>
-            <h:commandButton class="meat" value="Pasta Alfredo" onclick="addMeat()" type="button"/>
-            <h:commandButton class="meat" value="Grilled salmon" onclick="addMeat()" type="button"/>
-            <h:commandButton class="meat" value="food4" onclick="addMeat()" type="button"/>
-            <h:commandButton class="meat" value="food5" onclick="addMeat()" type="button"/>
-            <h:commandButton class="meat" value="food6" onclick="addMeat()" type="button"/>
-            <h:commandButton class="salad" value="Ceasar Salad" onclick="addSalad()" type="button"/>
-            <h:commandButton class="salad" value="food8" onclick="addSalad()" type="button"/>
-            <h:commandButton class="salad" value="food9" onclick="addSalad()" type="button"/>
-            <h:commandButton class="salad" value="food10" onclick="addSalad()" type="button"/>
-            <h:commandButton class="salad" value="food11" onclick="addSalad()" type="button"/>
-            <h:commandButton class="soup" value="food12" onclick="addSoup()" type="button"/>
-            <h:commandButton class="soup" value="food13" onclick="addSoup()" type="button"/>
-            <h:commandButton class="soup" value="food14" onclick="addSoup()" type="button"/>
-            <h:commandButton class="soup" value="food15" onclick="addSoup()" type="button"/>
         </div>
         <div id="selected"><!-- Added comment to fix error in xhtml --></div>
     </ui:define>
