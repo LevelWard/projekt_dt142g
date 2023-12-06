@@ -7,6 +7,12 @@
     <ui:define name="content">
         <div id="kitchenOverviewContent">
             <p>Databas info kommer in här!</p>
+
+            <ui:repeat value="#{database.getBookings()}" var="values">
+                <p>
+                    #{values.people}
+                </p>
+            </ui:repeat>
         </div>
         <div id="kitchenOverviewBack">
             <h:button styleClass="BackButton" value="Back to start" outcome="index.xhtml" />
