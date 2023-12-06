@@ -7,21 +7,54 @@
     <!--As a reminder on how to comment-->
     <ui:define name="title" >Add Food</ui:define>
     <ui:define name="script1"> <script type="text/javascript" >
-        function cloneButton() {
+        function removeBtn(element){
+            element.remove();
+        }
+        function addDaily() {
             // Select the button with class "daily"
             var originalButton = document.querySelector('.daily');
-            console.log(originalButton);
-
-
             // Check if the button is found
             if (originalButton) {
-                // Clone the button
                 var clonedButton = originalButton.cloneNode(true);
-                console.log(clonedButton);
-
                 // Append the cloned button to the container
-                var container = document.getElementById("addingWrap");
-                console.log(container);
+                clonedButton.setAttribute('onclick', 'removeBtn(this)');
+                var container = document.getElementById("selected");
+                container.appendChild(clonedButton);
+            }
+        }
+        function addMeat() {
+            // Select the button with class "daily"
+            var originalButton = document.querySelector('.meat');
+            // Check if the button is found
+            if (originalButton) {
+                var clonedButton = originalButton.cloneNode(true);
+                // Append the cloned button to the container
+                clonedButton.setAttribute('onclick', 'removeBtn(this)');
+                var container = document.getElementById("selected");
+                container.appendChild(clonedButton);
+            }
+        }
+        function addSalad() {
+            // Select the button with class "daily"
+            var originalButton = document.querySelector('.salad');
+            // Check if the button is found
+            if (originalButton) {
+                var clonedButton = originalButton.cloneNode(true);
+                // Append the cloned button to the container
+                clonedButton.setAttribute('onclick', 'removeBtn(this)');
+                var container = document.getElementById("selected");
+                container.appendChild(clonedButton);
+            }
+        }
+        function addSoup() {
+            // Select the button with class "daily"
+            var originalButton = document.querySelector('.soup');
+            // Check if the button is found
+            if (originalButton) {
+                var clonedButton = originalButton.cloneNode(true);
+                // Append the cloned button to the container
+                clonedButton.setAttribute('onclick', 'removeBtn(this)');
+                var container = document.getElementById("selected");
                 container.appendChild(clonedButton);
             }
         }
@@ -31,21 +64,21 @@
 
     <ui:define name="content">
         <div id="addingWrap">
-            <h:commandButton styleClass="foodButtons" class="daily" value="food1" onclick="cloneButton()" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="meat" value="food2" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="meat" value="food3" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="meat" value="food4" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="meat" value="food5" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="meat" value="food6" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="salad"  value="food7" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="salad" value="food8" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="salad"  value="food9" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="salad"  value="food10" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="salad"  value="food11" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="soup" value="food12" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="soup" value="food13" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="soup" value="food14" type="button"/>
-            <h:commandButton styleClass="foodButtons" class="soup" value="food15" type="button"/>
+            <h:commandButton class="daily" value="food1" onclick="addDaily()" type="button"/>
+            <h:commandButton class="meat" value="food2" onclick="addMeat()" type="button"/>
+            <h:commandButton class="meat" value="food3" onclick="addMeat()" type="button"/>
+            <h:commandButton class="meat" value="food4" onclick="addMeat()" type="button"/>
+            <h:commandButton class="meat" value="food5" onclick="addMeat()" type="button"/>
+            <h:commandButton class="meat" value="food6" onclick="addMeat()" type="button"/>
+            <h:commandButton class="salad" value="food7" onclick="addSalad()" type="button"/>
+            <h:commandButton class="salad" value="food8" onclick="addSalad()" type="button"/>
+            <h:commandButton class="salad" value="food9" onclick="addSalad()" type="button"/>
+            <h:commandButton class="salad" value="food10" onclick="addSalad()" type="button"/>
+            <h:commandButton class="salad" value="food11" onclick="addSalad()" type="button"/>
+            <h:commandButton class="soup" value="food12" onclick="addSoup()" type="button"/>
+            <h:commandButton class="soup" value="food13" onclick="addSoup()" type="button"/>
+            <h:commandButton class="soup" value="food14" onclick="addSoup()" type="button"/>
+            <h:commandButton class="soup" value="food15" onclick="addSoup()" type="button"/>
         </div>
         <div id="selected">
         </div>
