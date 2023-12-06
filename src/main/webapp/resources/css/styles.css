@@ -1,14 +1,22 @@
 :root{
     --antonGray: rgb(35,35,35);
 }
+footer{
+    background-color: lightslategray;
+    height: 200px;
+    margin-top: auto;
+}
 
 html {
     max-width: 1200px;
+    max-height:840px;
 }
 
 body {
     margin: 0;
     background-color: var(--antonGray);
+    display: flex;
+    flex-direction: column;
 }
 p {
     color: white;
@@ -78,3 +86,179 @@ h1 {
     border-style: solid;
     border-color: white;
 }
+
+/* William css */
+#wrapper{
+    display: flex;
+}
+.orderWrap{
+    background-color: black;
+    width: 550px;
+    height: auto;
+    max-height: 600px;
+    padding: 40px;
+    margin: 25px;
+}
+.doneWrap{
+    margin: 25px;
+    width: 550px;
+    height: 600px;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    display:flex;
+}
+#addingWrap{
+    width: 1200px;
+    height: auto;
+    background-color: black;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 2fr));
+    gap: 10px;
+    margin: 10px;
+}
+
+#delete{
+    background-color: darkred;
+}
+#customize{
+    background-color: darkgoldenrod;
+}
+#add_food{
+    background-color: darkgreen;
+}
+#add_drink{
+    background-color: dodgerblue;
+}
+.buttons{
+    width: 100px;
+    height: 50px;
+}
+#tableDiv{
+    margin-top: 30px;
+    background-color: lightslategray;
+    width: 70px;
+    height: auto;
+    padding: 5px;
+}
+.listedItems{
+    background-color: ghostwhite;
+    width: 500px;
+    border: solid black 2px;
+}
+.orderDesc{
+    margin-left: 0;
+    margin-right: 50px;
+}
+
+#doneBtn{
+    background: darkblue;
+    font-size: large;
+}
+#footerMenu{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    margin-top: 5%;
+}
+#back{
+    background-color: white;
+    font-size: large;
+}
+#add_btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.meat{
+    background-color: red;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+    min-width: 150px;
+}
+.salad{
+    background-color: lawngreen;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+    min-width: 150px;
+}
+.soup {
+    background-color: saddlebrown;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+    min-width: 150px;
+}
+.daily{
+    background-color: aliceblue;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+    min-width: 150px;
+}
+.alcohol{
+    background-color: red;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+    min-width: 150px;
+}
+.water{
+    background-color: deepskyblue;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+    min-width: 150px;
+}
+.soda{
+    background-color: darkorange;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+    min-width: 150px;
+}
+.nothing{
+    background-color: aliceblue;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
+    min-width: 150px;
+}
+#selected{
+    height: auto;
+    width: 1200px;
+    overflow-x: auto;
+    display: flex;
+    white-space: nowrap;
+    background-color: darkslategray;
+    margin-bottom: 10px;
+}
+
