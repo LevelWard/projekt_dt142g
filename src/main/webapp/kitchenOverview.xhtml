@@ -8,10 +8,13 @@
         <div id="kitchenOverviewContent">
             <p>Databas info kommer in här!</p>
 
-            <ui:repeat value="#{database.getAllDrinks()}" var="values">
-                <p>
-                    #{values.drinkTitle}
-                </p>
+            <ui:repeat value="#{database.getOrderIds()}" var="orderID">
+                <div class="KitchenItem">
+                    <h1>#{orderID}</h1>
+                    <ui:repeat value="#{database.foodForOrder(orderID)}" var="displayItem">
+                        <p>#{displayItem.dishTitle}</p>
+                    </ui:repeat>
+                </div>
             </ui:repeat>
         </div>
         <div id="kitchenOverviewBack">

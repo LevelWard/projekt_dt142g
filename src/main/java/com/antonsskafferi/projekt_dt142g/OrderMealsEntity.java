@@ -1,7 +1,9 @@
 package com.antonsskafferi.projekt_dt142g;
 
 import jakarta.persistence.*;
+import jdk.jfr.Name;
 
+@NamedQuery(name = "orderMealsEntity.allFood", query = "SELECT allFood FROM OrderMealsEntity allFood")
 @Entity
 @jakarta.persistence.Table(name = "ORDER_MEALS", schema = "asdb", catalog = "")
 public class OrderMealsEntity {
