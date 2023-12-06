@@ -7,6 +7,7 @@
     <!--As a reminder on how to comment-->
     <ui:define name="title" >Add Food</ui:define>
     <ui:define name="script1"> <script type="text/javascript" >
+
         function removeBtn(element){
             element.remove();
         }
@@ -81,13 +82,22 @@
         </div>
 
         <div id="addingWrap">
-            <h:commandButton class="daily" value="food1" onclick="addDaily()" type="button"/>
-            <h:commandButton class="meat" value="food2" onclick="addMeat()" type="button"/>
-            <h:commandButton class="meat" value="food3" onclick="addMeat()" type="button"/>
+            <ui:repeat value="#{database.getOrderIds()}" var="orderID">
+                <div class="KitchenItem">
+                    <h1>Table: #{orderID}</h1>
+                    <ui:repeat value="#{database.foodForOrder(orderID)}" var="displayItem">
+                        <h2>#{displayItem.dishTitle}</h2>
+                    </ui:repeat>
+                </div>
+            </ui:repeat>
+
+            <h:commandButton class="daily" value="Dagens" onclick="addDaily()" type="button"/>
+            <h:commandButton class="meat" value="Pasta Alfredo" onclick="addMeat()" type="button"/>
+            <h:commandButton class="meat" value="Grilled salmon" onclick="addMeat()" type="button"/>
             <h:commandButton class="meat" value="food4" onclick="addMeat()" type="button"/>
             <h:commandButton class="meat" value="food5" onclick="addMeat()" type="button"/>
             <h:commandButton class="meat" value="food6" onclick="addMeat()" type="button"/>
-            <h:commandButton class="salad" value="food7" onclick="addSalad()" type="button"/>
+            <h:commandButton class="salad" value="Ceasar Salad" onclick="addSalad()" type="button"/>
             <h:commandButton class="salad" value="food8" onclick="addSalad()" type="button"/>
             <h:commandButton class="salad" value="food9" onclick="addSalad()" type="button"/>
             <h:commandButton class="salad" value="food10" onclick="addSalad()" type="button"/>
