@@ -6,7 +6,7 @@
     <ui:define name="title">Kitchen Overview</ui:define>
     <ui:define name="content">
         <div id="kitchenOverviewContent">
-            <ui:repeat value="#{database.getOrderIds()}" var="orderID">
+            <ui:repeat value="#{database.getOrderIds()}" var="foodID">
                 <div class="KitchenItem">
                     <div class="KitchenLeft">
                         <h:commandButton styleClass="OrderDone"></h:commandButton>
@@ -22,7 +22,6 @@
                         <h:commandButton styleClass="SortButton" value="Up"></h:commandButton>
                         <h:commandButton styleClass="SortButton" value="Down"></h:commandButton>
                         <h:commandButton styleClass="SortButton" value="To Bottom"></h:commandButton>
-
                     </div>
                 </div>
             </ui:repeat>

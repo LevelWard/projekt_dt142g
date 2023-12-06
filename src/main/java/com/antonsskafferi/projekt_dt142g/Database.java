@@ -56,10 +56,33 @@ public class Database {
     }
 
 
+
     public List<OrderMealsEntity> foodForOrder(int id){
 
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID")
+        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.dishTitle FROM OrderMealsEntity c WHERE c.orderId=:ordersID")
                 .setParameter("ordersID", id)
+                .getResultList();
+        return resultList;
+    }
+    public List<OrderMealsEntity> subtypeForOrder(String title){
+
+        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.subType FROM DishesEntity c WHERE c.title=:title")
+                .setParameter("title", title)
+                .getResultList();
+        return resultList;
+    }
+
+    public List<OrderMealsEntity> drinkForOrder(int id){
+
+        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.drinkTitle FROM OrderDrinksEntity c WHERE c.orderId=:ordersID")
+                .setParameter("ordersID", id)
+                .getResultList();
+        return resultList;
+    }
+    public List<OrderMealsEntity> drinkTypeForOrder(String title){
+
+        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.type FROM DrinksEntity c WHERE c.title=:title")
+                .setParameter("title", title)
                 .getResultList();
         return resultList;
     }
