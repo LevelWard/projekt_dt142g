@@ -6,10 +6,32 @@
 
     <!--As a reminder on how to comment-->
     <ui:define name="title" >Add Food</ui:define>
+    <ui:define name="script1"> <script type="text/javascript" >
+        function cloneButton() {
+            // Select the button with class "daily"
+            var originalButton = document.querySelector('.daily');
+            console.log(originalButton);
+
+
+            // Check if the button is found
+            if (originalButton) {
+                // Clone the button
+                var clonedButton = originalButton.cloneNode(true);
+                console.log(clonedButton);
+
+                // Append the cloned button to the container
+                var container = document.getElementById("addingWrap");
+                console.log(container);
+                container.appendChild(clonedButton);
+            }
+        }
+
+        <!-- Placeholder comment to avoid issues in XHTML -->
+    </script></ui:define>
 
     <ui:define name="content">
         <div id="addingWrap">
-            <h:commandButton styleClass="foodButtons" class="daily" value="food1"/>
+            <h:commandButton styleClass="foodButtons" class="daily" value="food1" onclick="cloneButton()" type="button"/>
             <h:commandButton styleClass="foodButtons" class="meat" value="food2" type="button"/>
             <h:commandButton styleClass="foodButtons" class="meat" value="food3" type="button"/>
             <h:commandButton styleClass="foodButtons" class="meat" value="food4" type="button"/>
@@ -24,6 +46,8 @@
             <h:commandButton styleClass="foodButtons" class="soup" value="food13" type="button"/>
             <h:commandButton styleClass="foodButtons" class="soup" value="food14" type="button"/>
             <h:commandButton styleClass="foodButtons" class="soup" value="food15" type="button"/>
+        </div>
+        <div id="selected">
         </div>
     </ui:define>
 </ui:composition>
