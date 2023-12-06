@@ -2,12 +2,13 @@ package com.antonsskafferi.projekt_dt142g;
 
 import jakarta.persistence.*;
 
+@NamedQuery(name = "dishesEntity.allDishes", query = "SELECT dishes FROM DishesEntity dishes")
 @Entity
-@jakarta.persistence.Table(name = "dishes", schema = "asdb", catalog = "")
+@jakarta.persistence.Table(name = "DISHES", schema = "asdb", catalog = "")
 public class DishesEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @jakarta.persistence.Column(name = "TITLE")
+    @jakarta.persistence.Column(name = "TITLE", nullable = false, length = 50)
     private String title;
 
     public String getTitle() {
@@ -19,7 +20,7 @@ public class DishesEntity {
     }
 
     @Basic
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", nullable = true)
     private Integer price;
 
     public Integer getPrice() {
@@ -31,7 +32,7 @@ public class DishesEntity {
     }
 
     @Basic
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", nullable = true, length = 200)
     private String description;
 
     public String getDescription() {
@@ -43,27 +44,26 @@ public class DishesEntity {
     }
 
     @Basic
-    @Column(name = "TYPE")
+    @Column(name = "TYPE", nullable = true, length = 50)
     private String type;
 
+    @Basic
+    @Column(name = "SUBTYPE", nullable = true, length = 50)
+    private String subType;
+
+    public String getSubType() {
+        return subType;
+    }
+
+    public void setSubType(String subType) {
+        this.subType = subType;
+    }
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    @Basic
-    @Column(name = "SUBTYPE")
-    private String subtype;
-
-    public String getSubtype() {
-        return subtype;
-    }
-
-    public void setSubtype(String subtype) {
-        this.subtype = subtype;
     }
 
     @Override
@@ -77,7 +77,6 @@ public class DishesEntity {
         if (price != null ? !price.equals(that.price) : that.price != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
         if (type != null ? !type.equals(that.type) : that.type != null) return false;
-        if (subtype != null ? !subtype.equals(that.subtype) : that.subtype != null) return false;
 
         return true;
     }
@@ -88,7 +87,6 @@ public class DishesEntity {
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (subtype != null ? subtype.hashCode() : 0);
         return result;
     }
 }
