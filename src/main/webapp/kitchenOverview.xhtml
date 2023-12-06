@@ -6,11 +6,11 @@
     <ui:define name="title">Kitchen Overview</ui:define>
     <ui:define name="content">
         <div id="kitchenOverviewContent">
-            <ui:repeat value="#{database.getOrderIds()}" var="orderID">
+            <ui:repeat value="#{database.getOrderIds()}" var="foodID">
                 <div class="KitchenItem">
-                    <h1 class="KitchenItemHeader">Table: #{orderID}</h1>
-                    <ui:repeat value="#{database.foodForOrder(orderID)}" var="displayItem">
-                        <h2>#{displayItem.dishTitle}</h2>
+                    <h1 class="KitchenItemHeader">Table: #{foodID}</h1>
+                    <ui:repeat value="#{database.foodForOrder(foodID)}" var="drinkTitle">
+                        <h2>#{drinkTitle.dishTitle}</h2>
                     </ui:repeat>
                 </div>
             </ui:repeat>
