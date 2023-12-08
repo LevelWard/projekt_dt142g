@@ -14,6 +14,14 @@ public class Database {
     @PersistenceContext
     EntityManager em;
 
+
+    //A list where kitchenOverview content is stored.
+    private List<OrderMealsEntity> ordersList = null;
+
+
+
+
+
     public List<BookingsEntity> getBookings(){
         Query testQuery = em.createNamedQuery("bookingsEntity.allDates");
         return testQuery.getResultList();
@@ -57,11 +65,37 @@ public class Database {
 
 
     public List<OrderMealsEntity> foodForKitchen(int id){
+        if (this.ordersList == null){
+            List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID order by c.orderId")
+                    .setParameter("ordersID", id)
+                    .getResultList();
+            this.ordersList = resultList;
+        }
 
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID order by c.orderId")
-                .setParameter("ordersID", id)
-                .getResultList();
-        return resultList;
+        return this.ordersList;
+    }
+
+    public void moveToTop(){
+
+    }
+
+    public void moveItemUp(){
+
+    }
+
+    public void moveItemDown(){
+
+    }
+
+    public void moveToBottom(){
+
+    }
+
+
+
+
+    public List<OrderMealsEntity> getFoodForKitchen(){
+        return this.ordersList;
     }
     public List<OrderMealsEntity> subtypeForOrder(String title){
 
