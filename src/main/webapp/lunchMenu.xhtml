@@ -38,6 +38,11 @@
                 </h:column>
 
                 <h:column>
+                    <f:facet name="header">Deltyp</f:facet>
+                    <h:inputText value="#{values.subtype}"/>
+                </h:column>
+
+                <h:column>
                     <f:facet name="header">Action</f:facet>
                     <h:commandButton value="Delete" action="#{database.deleteLunch(values.title)}"/>
                 </h:column>
@@ -46,6 +51,24 @@
 
             </h:dataTable>
         </div>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="title">Titel:</h:outputLabel>
+            <h:inputText id="title" value="#{database.title}" />
+
+            <h:outputLabel for="price">Pris:</h:outputLabel>
+            <h:inputText id="price" value="#{database.price}" />
+
+            <h:outputLabel for="description">Beskrivning:</h:outputLabel>
+            <h:inputText id="description" value="#{database.description}" />
+
+            <h:outputLabel for="type">Typ:</h:outputLabel>
+            <h:inputText id="type" value="#{database.type}" />
+
+            <h:outputLabel for="subtype">Deltyp:</h:outputLabel>
+            <h:inputText id="subtype" value="#{database.subtype}" />
+        </h:panelGrid>
+
+        <h:commandButton value="Lägg till" action="#{database.insertLunch(database.title, database.price, database.description, database.type, database.subtype)}"/>
 
         <div id="lunchBack">
             <h:button value="Home" outcome="main.xhtml"/>
