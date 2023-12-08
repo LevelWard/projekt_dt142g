@@ -24,19 +24,36 @@
     </div>
 
     <div id="dayluch">
-
         <div id="left_containing_day_image">
             <img src="images/bild2.png" alt="Home Image"/>
         </div>
-        <div id="right_containing_day">
-            <h1 class="all-text2"><u>Dagens Lunch Måndag</u></h1>
+        <!--<div id="right_containing_day">
+            <h1 class="all-text2"><u>Dagens Lunch</u></h1>
+            <p>${weekdaysBean.dayOfweek}</p>
+            <ui:repeat value="${lunchBean.lunchlist}" var="lunch">
             <h2 class="all-text2">HUSMANS:</h2>
-            <p class="all-text2">Alligatorbollar och
-                kastanjmos med paprikasylt och picklad sjöhäst</p>
+            <p class="all-text2">${lunch.husmans}</p>
             <h2 class="all-text2">SOPPA:</h2>
-            <p class="all-text2">Mexikanska soppa</p>
+            <p class="all-text2">${lunch.soppa}</p>
             <h2 class="all-text2">SALLADSBUFFE</h2>
-            <p class="all-text2">Löv, pinner, stekta kottar, ungsbakat jord och rök ormbunke</p>
+            <p class="all-text2">${lunch.sallabuffe}</p>
+                <hr/>
+            </ui:repeat>
+        </div>!-->
+        <div id="right_containing_day">
+
+                    <h1>DagenLunch#{weekdayBean.dayName}</h1>
+
+                <ui:repeat value="#{database.getLuchByDay('Monday')}" var="lunch">
+                    <tr>
+                        <th>Food</th>
+
+                        <td>#{lunch.title}</td>
+                        <td>#{lunch.price}</td>
+                        <td>#{lunch.description}</td>
+                    </tr>
+                </ui:repeat>
+
         </div>
 
     </div>

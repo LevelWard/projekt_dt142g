@@ -362,6 +362,7 @@ hr{
 #green_bar{
     border-top: 0.5vh solid rgba(76, 96, 85, 1);
 }
+
 #content_under_red_bar{
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
