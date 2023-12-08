@@ -33,8 +33,12 @@
                         <div id="cluster_of_selections_menu">
                             <div id="vertical_cluster">
                                 <div class="food_card">
+                                    <!-- is tempoarly represented as Pastas !-->
                                     <p class="Type_entree_font">Förrätter</p>
-                                    <!-- Automatisk lista från java, sql, facelets mm !-->
+                                    #{database_to_web.starter_course.size()}
+                                    <ui:repeat value="#{database_to_web.starter_course}" var="one_dish">
+                                        <p>#{one_dish}</p>
+                                    </ui:repeat>
                                 </div>
                                 <div id="varmratt_efteratt_cluster">
                                     <div class="food_card">
