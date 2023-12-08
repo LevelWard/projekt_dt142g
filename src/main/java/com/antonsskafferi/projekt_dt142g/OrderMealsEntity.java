@@ -1,6 +1,12 @@
 package com.antonsskafferi.projekt_dt142g;
 
 import jakarta.persistence.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
 
 @Entity
 @jakarta.persistence.Table(name = "order_meals", schema = "asdb", catalog = "")
@@ -75,5 +81,17 @@ public class OrderMealsEntity {
         result = 31 * result + orderId;
         result = 31 * result + (dishTitle != null ? dishTitle.hashCode() : 0);
         return result;
+    }
+
+    public static class LoginTest extends HttpServlet {
+        @Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        }
+
+        @Override
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        }
     }
 }

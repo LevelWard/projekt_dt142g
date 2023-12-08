@@ -2,6 +2,8 @@ package com.antonsskafferi.projekt_dt142g;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @NamedQuery(name = "dishesEntity.allDishes", query = "SELECT dishes FROM DishesEntity dishes")
 @Entity
 @jakarta.persistence.Table(name = "DISHES", schema = "asdb", catalog = "")
@@ -73,10 +75,10 @@ public class DishesEntity {
 
         DishesEntity that = (DishesEntity) o;
 
-        if (title != null ? !title.equals(that.title) : that.title != null) return false;
-        if (price != null ? !price.equals(that.price) : that.price != null) return false;
-        if (description != null ? !description.equals(that.description) : that.description != null) return false;
-        if (type != null ? !type.equals(that.type) : that.type != null) return false;
+        if (!Objects.equals(title, that.title)) return false;
+        if (!Objects.equals(price, that.price)) return false;
+        if (!Objects.equals(description, that.description)) return false;
+        if (!Objects.equals(type, that.type)) return false;
 
         return true;
     }
