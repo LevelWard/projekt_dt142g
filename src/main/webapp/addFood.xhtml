@@ -35,12 +35,12 @@
         </div>
 
         <div id="addingWrap">
-            <ui:repeat value="#{database.getOrderIds()}" var="foodID">
-                    <ui:repeat value="#{database.foodForOrder(foodID)}" var="foodTitle">
+            <!-- First, fetch all dishes' titles (their key) -->
+            <ui:repeat value="#{database.FoodForOrder()}" var="foodTitle">
+                <!-- Now, use this key to fetch subtype and create a commandbutton for that  -->
                         <ui:repeat value="#{database.subtypeForOrder(foodTitle)}" var="subtype">
                                 <h:commandButton class="#{subtype}" value="#{foodTitle}" onclick="add(this)" type="button"/>
                         </ui:repeat>
-                    </ui:repeat>
             </ui:repeat>
         </div>
         <div id="selected"><!-- Added comment to fix error in xhtml --></div>

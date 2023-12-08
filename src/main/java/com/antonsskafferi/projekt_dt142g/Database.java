@@ -54,8 +54,6 @@ public class Database {
         return orderIdList;
     }
 
-
-
     public List<OrderMealsEntity> foodForKitchen(int id){
 
         List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID order by c.orderId")
@@ -63,29 +61,35 @@ public class Database {
                 .getResultList();
         return resultList;
     }
-    public List<OrderMealsEntity> subtypeForOrder(String title){
 
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.subType FROM DishesEntity c WHERE c.title=:title")
+    public List<DishesEntity> FoodForOrder() {
+        //get all foods in Dishes table.
+        List resultList = em.createQuery("SELECT c.title FROM DishesEntity c")
+                .getResultList();
+        return resultList;
+    }
+    public List<DishesEntity> subtypeForOrder(String title){
+
+        List<DishesEntity> resultList = em.createQuery("SELECT c.subType, c.title FROM DishesEntity c WHERE c.title=:title")
                 .setParameter("title", title)
                 .getResultList();
         return resultList;
     }
 
-    public List<OrderMealsEntity> drinkForOrder(int id){
+    public List<DrinksEntity> drinkForOrder(int id){
 
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.drinkTitle FROM OrderDrinksEntity c WHERE c.orderId=:ordersID")
+        List<DrinksEntity> resultList = em.createQuery("SELECT c.drinkTitle FROM OrderDrinksEntity c WHERE c.orderId=:ordersID")
                 .setParameter("ordersID", id)
                 .getResultList();
         return resultList;
     }
-    public List<OrderMealsEntity> drinkTypeForOrder(String title){
+    public List<DrinksEntity> drinkTypeForOrder(String title){
 
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.type FROM DrinksEntity c WHERE c.title=:title")
+        List<DrinksEntity> resultList = em.createQuery("SELECT c.type FROM DrinksEntity c WHERE c.title=:title")
                 .setParameter("title", title)
                 .getResultList();
         return resultList;
-    }
+    }}
 
 
 
-}
