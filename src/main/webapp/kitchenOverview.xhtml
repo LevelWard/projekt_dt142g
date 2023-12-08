@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="templates/masterTemplate.xhtml">
+    <ui:define name="title">Kitchen Overview</ui:define>
+    <ui:define name="content">
+        <div id="kitchenOverviewContent">
+            <ui:repeat value="#{database.getOrderIds()}" var="orderID">
+                <div class="KitchenItem">
+                    <div class="KitchenLeft">
+                        <h:commandButton styleClass="OrderDone"></h:commandButton>
+                        <h1 class="KitchenItemHeader">Table: #{orderID}</h1>
+                    </div>
+                    <div class="KitchenDishes">
+                        <ui:repeat value="#{database.foodForKitchen(orderID)}" var="displayItem">
+                            <h3>#{displayItem.amount}x "#{displayItem.dishTitle}"</h3>
+                        </ui:repeat>
+                    </div>
+                    <div class="SortingButtons">
+                        <h:commandButton styleClass="SortButton" value="To Top"></h:commandButton>
+                        <h:commandButton styleClass="SortButton" value="Up"></h:commandButton>
+                        <h:commandButton styleClass="SortButton" value="Down"></h:commandButton>
+                        <h:commandButton styleClass="SortButton" value="To Bottom"></h:commandButton>
+                    </div>
+                </div>
+            </ui:repeat>
+        </div>
+        <div id="kitchenOverviewBack">
+            <h:button styleClass="BackButton" value="Back to start" outcome="index.xhtml" />
+            <h:commandButton styleClass="BackButton" value="Sort by time"/>
+        </div>
+    </ui:define>
+</ui:composition>
+

@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="templates/orderTemplate.xhtml">
+
+    <!--As a reminder on how to comment-->
+    <ui:define name="title" >Add Drink</ui:define>
+    <ui:define name="script1"> <script type="text/javascript" >
+        function removeBtn(element){
+            element.remove();
+        }
+        function add(button) {
+            // Use the passed 'button' reference instead of querying by class
+            if (button) {
+                let clonedButton = button.cloneNode(true);
+                clonedButton.setAttribute('onclick', 'removeBtn(this)');
+                let container = document.getElementById("selected");
+                container.appendChild(clonedButton);
+            }
+        }
+        <!-- Placeholder comment to avoid issues in XHTML -->
+    </script></ui:define>
+
+    <ui:define name="content">
+        <div id="addingWrap">
+            <ui:repeat value="#{database.getOrderIds()}" var="drinkID">
+                <ui:repeat value="#{database.drinkForOrder(drinkID)}" var="drinkTitle">
+                    <ui:repeat value="#{database.drinkTypeForOrder(drinkTitle)}" var="subtype">
+                        <h:commandButton class="#{subtype}" value="#{drinkTitle}" onclick="add(this)" type="button"/>
+                    </ui:repeat>
+                </ui:repeat>
+            </ui:repeat>
+        </div>
+    <div id="selected"><!-- Added comment to fix error in xhtml --></div>
+    </ui:define>
+</ui:composition>
