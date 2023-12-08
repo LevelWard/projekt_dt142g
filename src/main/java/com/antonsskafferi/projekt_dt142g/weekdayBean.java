@@ -22,6 +22,13 @@ public class weekdayBean {
         return dayName;
     }
 
+
+    public String getAutomaticDay(){
+        int dayOfWeek = dayOfWeekInt();
+        return dayString(dayOfWeek);
+    }
+
+
     private String dayString(int dayOfWeek){
         String [] weekday = new DateFormatSymbols().getWeekdays();
 

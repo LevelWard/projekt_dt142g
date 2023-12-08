@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="sv"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
@@ -41,23 +41,25 @@
             </ui:repeat>
         </div>!-->
         <div id="right_containing_day">
-
-                    <h1>DagenLunch#{weekdayBean.dayName}</h1>
-
-                <ui:repeat value="#{database.getLuchByDay('Monday')}" var="lunch">
+                    <h1 class="all-text2"><u>DagenLunch #{weekdayBean.dayName}</u></h1>
+                <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
                     <tr>
-                        <th>Food</th>
-
-                        <td>#{lunch.title}</td>
-                        <td>#{lunch.price}</td>
-                        <td>#{lunch.description}</td>
+                        <th class="all-text3">Food</th>
+                        <th class="all-text3">Price</th>
+                        <th class="all-text3">Description</th>
+                        <th class="all-text3">Type</th>
                     </tr>
-                </ui:repeat>
-
-        </div>
-
+                    <ui:repeat value="#{database.getLuchByDay(weekdayBean.automaticDay)}" var="lunch">
+                        <tr>
+                            <th>#{lunch.title}</th>
+                            <th>#{lunch.price}</th>
+                            <th>#{lunch.description}</th>
+                            <th>#{lunch.type}</th>
+                        </tr>
+                    </ui:repeat>
+                </table>
+                </div>
     </div>
-
 
 
     <!-- figma slack box design to be used in "dagens lunch idag" and "lordag event" !-->
