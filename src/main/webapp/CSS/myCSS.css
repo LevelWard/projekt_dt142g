@@ -100,14 +100,20 @@ body.d_lunch{
 .all-text2{
     text-align: center;
 }
+.all-text3{
+    font-size: 2em
+}
 
 
 .text-box {
     margin: auto;
-    width: 50%;
+    width: 35%;
     background-color: #210505;
     color: #f4f4f8;
     padding: 10px;
+}
+.text-box table{
+    margin-bottom: 100px;
 }
 
 

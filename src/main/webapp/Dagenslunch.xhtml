@@ -23,71 +23,110 @@
         <a href="event.xhtml">Event</a>
     </div>
 
-    <div>
-        <h1 class="all-text">Måndag</h1>
-        <div class="text-box">
-        <h2 class="all-text">HUSMANS:</h2>
-        <p class="all-text">Alligatorbollar och kastanjmos med paprikasylt och picklad sjöhäst</p>
-        <h2 class="all-text">SOPPA:</h2>
-        <p class="all-text">Mexikansk soppa</p>
-        <h2 class="all-text">SALLADSBUFFE:</h2>
-        <p class="all-text">Löv, pinner, stekta kottar, ungsbakat jord och rök ormbunke</p>
-    </div>
-    </div>
 
-
-    <div>
-        <h1 class="all-text">Tisdag</h1>
-        <div class="text-box">
-        <h2 class="all-text">HUSMANS:</h2>
-        <p class="all-text">Köttbullar, tagliatelle, crème fraiche, riven ost, lök, vitt vin och färsk bladspenat</p>
-        <h2 class="all-text">SOPPA:</h2>
-        <p class="all-text">Ribollita-toskansk brödsoppa</p>
-        <h2 class="all-text">SALLADSBUFFE:</h2>
-        <p class="all-text">sallad, morot, lök, gurka, tomater och picklad rödkål</p>
-    </div>
-    </div>
-
-
-    <div >
-        <h1 class="all-text">Onsdag</h1>
-        <div class="text-box">
-        <h2 class="all-text">HUSMANS:</h2>
-        <p class="all-text">Köttfärs, gul lök, stjälkar blekselleri, morötter, pumpa, färsk swamp, grönkål,
-            rökt paprikapulver, isterband och crème fraiche </p>
-        <h2 class="all-text">SOPPA:</h2>
-        <p class="all-text">Köttfärs soppa</p>
-        <h2 class="all-text">SALLADSBUFFE:</h2>
-        <p class="all-text">Avokado, quinoa, rödbetshummus, picklad rödkål, gurka, ingefärspicklad
-            morot, böngroddar och sallad</p>
-    </div>
-    </div>
-
-
-    <div>
-        <h1  class="all-text">Torsdag</h1>
-        <div class="text-box">
-        <h2 class="all-text">HUSMANS:</h2>
-        <p class="all-text">fläskkarré, rapsolja, rökt paprikapulver, grillkrydda, lök, krossade tomater, svartpapper och balsamvinäger </p>
-        <h2 class="all-text">SOPPA:</h2>
-        <p class="all-text">Rostad majssoppa med quesadillas</p>
-        <h2 class="all-text">SALLADSBUFFE:</h2>
-        <p class="all-text">Räkor, svart råris, tomater, gurka, sugarsnaps, kokt ägg, krutonger och grana panado</p>
-    </div>
-    </div>
-
-
-
-    <div >
-        <h1 class="all-text">Fridag</h1>
     <div class="text-box">
-        <h2 class="all-text">HUSMANS:</h2>
-        <p class="all-text">Oxfilé, pasta, lök, grönskål, grädde, dijonsenap, tomatpuré och sambal oelek </p>
-        <h2 class="all-text">SOPPA:</h2>
-        <p class="all-text">Sötpotatissoppa med jordnötssmör</p>
-        <h2 class="all-text">SALLADSBUFFE:</h2>
-        <p class="all-text">Löv, pinner, stekta kottar, ungsbakat jord och rök ormbunke</p>
+    <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
+    <caption class="all-text3">Måndag</caption>
+        <tr>
+            <th class="all-text3">Food</th>
+            <th class="all-text3">Price</th>
+            <th class="all-text3">Description</th>
+            <th class="all-text3">Type</th>
+        </tr>
+        <ui:repeat value="#{database.getLuchByDay('Monday')}" var="lunch">
+            <tr>
+                <th>#{lunch.title}</th>
+                <th>#{lunch.price}</th>
+                <th>#{lunch.description}</th>
+                <th>#{lunch.type}</th>
+            </tr>
+        </ui:repeat>
+    </table>
     </div>
+
+
+    <div class="text-box">
+        <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
+            <caption class="all-text3">Tisdag</caption>
+            <tr>
+                <th class="all-text3">Food</th>
+                <th class="all-text3">Price</th>
+                <th class="all-text3">Description</th>
+                <th class="all-text3">Type</th>
+            </tr>
+            <ui:repeat value="#{database.getLuchByDay('Tuesday')}" var="lunch">
+                <tr>
+                    <th>#{lunch.title}</th>
+                    <th>#{lunch.price}</th>
+                    <th>#{lunch.description}</th>
+                    <th>#{lunch.type}</th>
+                </tr>
+            </ui:repeat>
+        </table>
+    </div>
+
+
+    <div class="text-box">
+        <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
+            <caption class="all-text3">Onsdag</caption>
+            <tr>
+                <th class="all-text3">Food</th>
+                <th class="all-text3">Price</th>
+                <th class="all-text3">Description</th>
+                <th class="all-text3">Type</th>
+            </tr>
+            <ui:repeat value="#{database.getLuchByDay('Wednesday')}" var="lunch">
+
+                <tr>
+                    <th>#{lunch.title}</th>
+                    <th>#{lunch.price}</th>
+                    <th>#{lunch.description}</th>
+                    <th>#{lunch.type}</th>
+                </tr>
+            </ui:repeat>
+        </table>
+    </div>
+
+
+    <div class="text-box">
+        <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
+            <caption class="all-text3">Torsdag</caption>
+            <tr>
+                <th class="all-text3">Food</th>
+                <th class="all-text3">Price</th>
+                <th class="all-text3">Description</th>
+                <th class="all-text3">Type</th>
+            </tr>
+            <ui:repeat value="#{database.getLuchByDay('Thursday')}" var="lunch">
+                <tr>
+                    <th>#{lunch.title}</th>
+                    <th>#{lunch.price}</th>
+                    <th>#{lunch.description}</th>
+                    <th>#{lunch.type}</th>
+                </tr>
+            </ui:repeat>
+        </table>
+    </div>
+
+
+    <div class="text-box">
+        <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
+            <caption class="all-text3">Fredag</caption>
+            <tr>
+                <th class="all-text3">Food</th>
+                <th class="all-text3">Price</th>
+                <th class="all-text3">Description</th>
+                <th class="all-text3">Type</th>
+            </tr>
+            <ui:repeat value="#{database.getLuchByDay('Friday')}" var="lunch">
+                <tr>
+                    <th>#{lunch.title}</th>
+                    <th>#{lunch.price}</th>
+                    <th>#{lunch.description}</th>
+                    <th>#{lunch.type}</th>
+                </tr>
+            </ui:repeat>
+        </table>
     </div>
     <ui:include src="footer.xhtml"/>
 </h:body>

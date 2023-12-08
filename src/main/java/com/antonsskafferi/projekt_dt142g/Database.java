@@ -14,14 +14,6 @@ public class Database {
     @PersistenceContext
     EntityManager em;
 
-
-    //A list where kitchenOverview content is stored.
-    private List<OrderMealsEntity> ordersList = null;
-
-
-
-
-
     public List<BookingsEntity> getBookings(){
         Query testQuery = em.createNamedQuery("bookingsEntity.allDates");
         return testQuery.getResultList();
@@ -63,62 +55,21 @@ public class Database {
     }
 
 
+    public List<OrderMealsEntity> foodForOrder(int id){
 
-    public List<OrderMealsEntity> foodForKitchen(int id){
-        if (this.ordersList == null){
-            List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID order by c.orderId")
-                    .setParameter("ordersID", id)
-                    .getResultList();
-            this.ordersList = resultList;
-        }
-
-        return this.ordersList;
-    }
-
-    public void moveToTop(){
-
-    }
-
-    public void moveItemUp(){
-
-    }
-
-    public void moveItemDown(){
-
-    }
-
-    public void moveToBottom(){
-
-    }
-
-
-
-
-    public List<OrderMealsEntity> getFoodForKitchen(){
-        return this.ordersList;
-    }
-    public List<OrderMealsEntity> subtypeForOrder(String title){
-
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.subType FROM DishesEntity c WHERE c.title=:title")
-                .setParameter("title", title)
-                .getResultList();
-        return resultList;
-    }
-
-    public List<OrderMealsEntity> drinkForOrder(int id){
-
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.drinkTitle FROM OrderDrinksEntity c WHERE c.orderId=:ordersID")
+        List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID")
                 .setParameter("ordersID", id)
                 .getResultList();
         return resultList;
     }
-    public List<OrderMealsEntity> drinkTypeForOrder(String title){
 
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.type FROM DrinksEntity c WHERE c.title=:title")
-                .setParameter("title", title)
+public List<DishesEntity> getLuchByDay (String day){
+        List<DishesEntity> finishList = em.createQuery("SELECT Buffe FROM DishesEntity Buffe WHERE Buffe.subType=:day")
+                .setParameter("day", day)
                 .getResultList();
-        return resultList;
-    }
+        return finishList;
+
+}
 
 
 
