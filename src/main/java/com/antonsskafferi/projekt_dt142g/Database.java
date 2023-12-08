@@ -6,7 +6,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 
-import java.util.Collections;
 import java.util.List;
 
 @ApplicationScoped
@@ -57,9 +56,9 @@ public class Database {
 
 
 
-    public List<OrderMealsEntity> foodForOrder(int id){
+    public List<OrderMealsEntity> foodForKitchen(int id){
 
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.dishTitle FROM OrderMealsEntity c WHERE c.orderId=:ordersID")
+        List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID order by c.orderId")
                 .setParameter("ordersID", id)
                 .getResultList();
         return resultList;
