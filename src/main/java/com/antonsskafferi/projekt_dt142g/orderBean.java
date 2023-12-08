@@ -5,8 +5,6 @@ import java.util.List;
 public class orderBean {
 
     private List<OrderItem> itemsList;
-
-    //TODO: implement a method for pushing an item to itemsList 👍👍👍🌲
     //TODO: if the item already exists, increment OrderItem.amount :-) 🫡
 /*
     public void push(int amount, String name){
