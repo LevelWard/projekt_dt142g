@@ -33,7 +33,7 @@
             <th class="all-text3">Description</th>
             <th class="all-text3">Type</th>
         </tr>
-        <ui:repeat value="#{database.getLuchByDay('Monday')}" var="lunch">
+        <ui:repeat value="#{database.getLuchByDay('Måndag')}" var="lunch">
             <tr>
                 <th>#{lunch.title}</th>
                 <th>#{lunch.price}</th>
@@ -54,7 +54,7 @@
                 <th class="all-text3">Description</th>
                 <th class="all-text3">Type</th>
             </tr>
-            <ui:repeat value="#{database.getLuchByDay('Tuesday')}" var="lunch">
+            <ui:repeat value="#{database.getLuchByDay('Tisdag')}" var="lunch">
                 <tr>
                     <th>#{lunch.title}</th>
                     <th>#{lunch.price}</th>
@@ -67,6 +67,7 @@
 
 
     <div class="text-box">
+
         <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
             <caption class="all-text3">Onsdag</caption>
             <tr>
@@ -75,7 +76,7 @@
                 <th class="all-text3">Description</th>
                 <th class="all-text3">Type</th>
             </tr>
-            <ui:repeat value="#{database.getLuchByDay('Wednesday')}" var="lunch">
+            <ui:repeat value="#{database.getLuchByDay('Onsdag')}" var="lunch">
 
                 <tr>
                     <th>#{lunch.title}</th>
@@ -97,7 +98,7 @@
                 <th class="all-text3">Description</th>
                 <th class="all-text3">Type</th>
             </tr>
-            <ui:repeat value="#{database.getLuchByDay('Thursday')}" var="lunch">
+            <ui:repeat value="#{database.getLuchByDay('Torsdag')}" var="lunch">
                 <tr>
                     <th>#{lunch.title}</th>
                     <th>#{lunch.price}</th>
@@ -118,7 +119,7 @@
                 <th class="all-text3">Description</th>
                 <th class="all-text3">Type</th>
             </tr>
-            <ui:repeat value="#{database.getLuchByDay('Friday')}" var="lunch">
+            <ui:repeat value="#{database.getLuchByDay('Fredag')}" var="lunch">
                 <tr>
                     <th>#{lunch.title}</th>
                     <th>#{lunch.price}</th>
