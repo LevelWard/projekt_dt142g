@@ -9,7 +9,9 @@
             <ui:repeat value="#{database.getOrderIds()}" var="orderID">
                 <div class="KitchenItem">
                     <div class="KitchenLeft">
-                        <h:commandButton styleClass="OrderDone"></h:commandButton>
+                        <h:form>
+                            <h:commandButton styleClass="OrderDone" value="Done" action="#{kitchenDone.markAsDone(orderID)}"/>
+                        </h:form>
                         <h1 class="KitchenItemHeader">Table: #{orderID}</h1>
                     </div>
                     <div class="KitchenDishes">

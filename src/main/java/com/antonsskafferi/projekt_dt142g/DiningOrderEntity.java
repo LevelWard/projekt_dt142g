@@ -37,7 +37,15 @@ public class DiningOrderEntity {
 
     @Basic
     @Column(name = "STATUS", nullable = true)
-    private boolean status;
+    private Boolean status;
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
 
     @Basic
     @Column(name = "DATE_OF_ORDER", nullable = true)

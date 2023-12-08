@@ -5,6 +5,7 @@ import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -73,9 +74,6 @@ public class Database {
     public void moveToBottom(){
 
     }
-
-
-
 
     public List<OrderMealsEntity> getFoodForKitchen(){
         return this.foodList;
