@@ -16,8 +16,9 @@ public class Database {
 
 
     //A list where kitchenOverview content is stored.
-    private List<OrderMealsEntity> ordersList = null;
-
+    private List<OrderMealsEntity> foodList = null;
+    //A list with all orderIds
+    private List<Integer> ordersList = null;
 
 
 
@@ -32,47 +33,29 @@ public class Database {
         return query.getResultList();
     }
 
-    /*public List<SimpleListIntPair> getFoodOrders(){
-        //Get all the order Id's
-        List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c")
-                .getResultList();
 
-        //Make a list which can be displayed with found items
-        List<SimpleListIntPair> displayItems = Collections.<SimpleListIntPair>emptyList();
-
-        //Get the food for each order into value pair (orderId, dishes)
-        for (Integer id : orderIdList) {
-
-            List<OrderMealsEntity> resultForId = foodForOrder(id);
-
-            SimpleListIntPair values = new SimpleListIntPair(id,resultForId);
-
-            displayItems.add(values);
-
-        }
-
-        return displayItems;
-    }*/
 
     public List<Integer> getOrderIds(){
         //Get all the order Id's
-        List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c")
+        List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c where c.status=false")
                 .getResultList();
+        this.ordersList = orderIdList;
 
         return orderIdList;
     }
 
 
 
-    public List<OrderMealsEntity> foodForKitchen(int id){
-        if (this.ordersList == null){
-            List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID order by c.orderId")
-                    .setParameter("ordersID", id)
-                    .getResultList();
-            this.ordersList = resultList;
+    public List<OrderMealsEntity> foodForKitchen(){
+        if (this.foodList == null){
+            for (Integer id : this.ordersList) {
+                List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID order by c.orderId")
+                        .setParameter("ordersID", id)
+                        .getResultList();
+                this.foodList = resultList;
+            }
         }
-
-        return this.ordersList;
+        return this.foodList;
     }
 
     public void moveToTop(){
@@ -95,7 +78,7 @@ public class Database {
 
 
     public List<OrderMealsEntity> getFoodForKitchen(){
-        return this.ordersList;
+        return this.foodList;
     }
     public List<OrderMealsEntity> subtypeForOrder(String title){
 

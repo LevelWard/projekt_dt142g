@@ -13,7 +13,7 @@
                         <h1 class="KitchenItemHeader">Table: #{orderID}</h1>
                     </div>
                     <div class="KitchenDishes">
-                        <ui:repeat value="#{database.foodForKitchen(orderID)}" var="displayItem">
+                        <ui:repeat value="#{database.foodForKitchen()}" var="displayItem">
                             <h3>#{displayItem.amount}x "#{displayItem.dishTitle}"</h3>
                         </ui:repeat>
                     </div>
