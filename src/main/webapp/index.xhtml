@@ -61,30 +61,25 @@
                 </div>
     </div>
 
-
-    <!-- figma slack box design to be used in "dagens lunch idag" and "lordag event" !-->
-    <!-- replace the div tags "home-content" whith thease to replicate figma !-->
-
-
-
         <div id="musicue">
             <div id="left_containing_songs">
                 <h1 class="all-text2"><u>Live Musik:</u></h1>
                 <p class="all-text2">Vi erbjuder live musik varje lördag från kl 16:00.
                 Här är artisterna och banden som kommer denna vecka</p>
-                <h2 class="all-text2">MYSIGA MAGGAN</h2>
-                <ul class="all-text2">
-                    <li>En kall dag på skolan</li>
-                    <li>Smeket på Åkroken</li>
-                    <li>Den ensamma bänken</li>
-                    <li>Multimedia kärlek</li>
-                    <li>En natt på bryggeriet</li>
-                    <li>Fälldin your arms</li>
-                    <li>Intima FM signaler</li>
-                    <li>Drunka i tjärlek</li>
-                    <li>Kär i min operatör</li>
-                    <li>Metodiken för dig</li>
-                </ul>
+                <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
+                    <caption class="all-text3">MYSIGA MAGGAN</caption>
+                    <tr>
+                        <th class="all-text3">Title</th>
+                    </tr>
+
+                    <ui:repeat value="#{database.getMusicByWeek(weekOfMonthBean.weekOfMonth)}" var="music">
+                        <tr>
+                            <th>
+                                    #{music.title}
+                            </th>
+                        </tr>
+                    </ui:repeat>
+                </table>
             </div>
             <div id="right_containing_musician_image">
             <img src="images/bild1.png" alt="Home Image"/>

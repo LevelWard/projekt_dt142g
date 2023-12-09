@@ -25,34 +25,68 @@
     </div>
 
 
-    <div>
-       <h1 class="home-content">Vecka 48 Musik</h1>
-        <div class="text-box">
-        <h2 class="all-text"><u>Jonas och Emil Sigfridsson</u></h2>
-            <ul class="all-text">
-        <li>Ikväll underhåller Jonas och Emil Sigfridsson </li>
-        <li>En duo som i många år har spelat på Rökeriet</li>
-        <li>Det blir en blandning av kända musikalklassiker</li>
-        <li>Svenska visor och ballader</li>
-            </ul>
+    <div class="home-content">
+    <div class="text-box">
+        <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
+            <caption class="all-text3">Vecka 49 Musik</caption>
+
+                <tr>
+                <th class="all-text3">Title</th>
+                </tr>
+                <ui:repeat value="#{database.getMusicByWeek(49)}" var="musik">
+                    <tr>
+                        <th>
+                            <ul>
+                                <li>#{musik.title}</li>
+                            </ul>
+                        </th>
+                    </tr>
+                </ui:repeat>
+            </table>
         </div>
     </div>
 
 
-
-    <div>
-        <h1 class="home-content">Vecka 49 Musik</h1>
+    <div class="home-content">
         <div class="text-box">
-        <h2 class="all-text"><u>PartyPatrullen</u></h2>
-        <ul class="all-text">
-        <li>Ikväll underhåller Partypatrullen</li>
-        <li>Partypatrullen som snart funnits i 10 år har framfört sin musik</li>
-        <li>Det blir en blandning av kända musikalklassiker</li>
-        <li>Svenska visor och ballader</li>
-        </ul>
+            <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
+                <caption class="all-text3">Vecka 51 Musik</caption>
+                <tr>
+                    <th class="all-text3">Title</th>
+                </tr>
+                <ui:repeat value="#{database.getMusicByWeek(50)}" var="musik">
+                    <tr>
+                        <th>
+                            <ul>
+                                <li>#{musik.title}</li>
+                            </ul>
+                        </th>
+                    </tr>
+                </ui:repeat>
+            </table>
         </div>
     </div>
 
+
+    <div class="home-content">
+        <div class="text-box">
+            <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
+                <caption class="all-text3">Vecka 52 Musik</caption>
+                <tr>
+                    <th class="all-text3">Title</th>
+                </tr>
+                <ui:repeat value="#{database.getMusicByWeek(51)}" var="musik">
+                    <tr>
+                        <th>
+                            <ul>
+                                <li>#{musik.title}</li>
+                            </ul>
+                        </th>
+                    </tr>
+                </ui:repeat>
+            </table>
+        </div>
+    </div>
     <ui:include src="footer.xhtml"/>
 </h:body>
 </f:view>

@@ -64,13 +64,20 @@ public class Database {
         return resultList;
     }
 
-public List<DishesEntity> getLuchByDay (String day){
-        List<DishesEntity> finishList = em.createQuery("SELECT Buffe FROM DishesEntity Buffe WHERE Buffe.subType=:day")
+    public List<DishesEntity> getLuchByDay (String day){
+        List<DishesEntity> dayList = em.createQuery("SELECT Buffe FROM DishesEntity Buffe WHERE Buffe.subType=:day")
                 .setParameter("day", day)
                 .getResultList();
-        return finishList;
+        return dayList;
 
-}
+    }
+
+    public List<MusicEntity> getMusicByWeek (int week){
+        List<MusicEntity> musikListy = em.createQuery("SELECT musik from MusicEntity musik where musik.week=:week")
+                .setParameter("week", week)
+                .getResultList();
+        return musikListy;
+    }
 
 
 
