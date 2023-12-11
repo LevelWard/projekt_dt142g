@@ -33,11 +33,10 @@
                         <div id="cluster_of_selections_menu">
                             <div id="vertical_cluster">
                                 <div class="food_card">
-                                    <!-- is tempoarly represented as Pastas !-->
-
                                     <p class="Type_entree_font">Förrätter(#{database_to_web.starter_course.size()})</p>
                                     <div class="something">
-                                    <ui:repeat value="#{database_to_web.starter_course}" var="one_dish">
+                                        <!-- MAX 4 !-->
+                                    <ui:repeat value="#{database_to_web.starter_course}" var="one_dish" size="4">
                                         <div class="A_la_carte_course">
                                             <div class="A_la_carte_course_left">
 
@@ -56,9 +55,10 @@
                                 </div>
                                 <div id="varmratt_efteratt_cluster">
                                     <div class="food_card">
-                                        <p class="Type_entree_font">Varmrätter(#{database_to_web.starter_course.size()})</p>
+                                        <p class="Type_entree_font">Varmrätter(#{database_to_web.middle_course.size()})</p>
                                         <div class="something">
-                                            <ui:repeat value="#{database_to_web.starter_course}" var="one_dish">
+                                            <!-- MAX 2 !-->
+                                            <ui:repeat value="#{database_to_web.middle_course}" var="one_dish" size="2">
                                                 <div class="A_la_carte_course">
                                                     <div class="A_la_carte_course_left">
 
@@ -76,10 +76,13 @@
 
                                         </div>
                                     </div>
+
                                     <div class="food_card">
-                                        <p class="Type_entree_font">Desserter(#{database_to_web.starter_course.size()})</p>
+
+                                        <p class="Type_entree_font">Desserter(#{database_to_web.last_course.size()})</p>
                                         <div class="something">
-                                            <ui:repeat value="#{database_to_web.starter_course}" var="one_dish">
+
+                                            <ui:repeat value="#{database_to_web.last_course}" var="one_dish" size="2">
                                                 <div class="A_la_carte_course">
                                                     <div class="A_la_carte_course_left">
 
@@ -95,6 +98,7 @@
                                                 </div>
                                             </ui:repeat>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>

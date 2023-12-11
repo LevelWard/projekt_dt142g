@@ -11,14 +11,23 @@ import java.util.List;
 public class Database_to_web {
     @PersistenceContext
     EntityManager em;
-    private List<DishesEntity> getAllDishes(){
-        TypedQuery<DishesEntity> query = em.createNamedQuery("dishesEntity.allFirst_courses", DishesEntity.class);
+    private List<DishesEntity> getAllDishes(String type){
+        TypedQuery<DishesEntity> query = em.createNamedQuery(type, DishesEntity.class);
         List<DishesEntity> res = query.getResultList();
         return res;
     }
     public List<DishesEntity> getStarter_course(){
 
-        return getAllDishes();
+        return getAllDishes("dishesEntity.allFirst_courses");
+    }
+    public List<DishesEntity> getMiddle_course(){
+
+        return getAllDishes("dishesEntity.allMiddle_courses");
+    }
+
+    public List<DishesEntity> getLast_course(){
+
+        return getAllDishes("dishesEntity.allLast_courses");
     }
 
     private List<DrinksEntity> getAllDrinks(){
@@ -30,4 +39,12 @@ public class Database_to_web {
 
         return getAllDrinks();
     }
+
+    //Private size of first,last, middle to return so facelet can decide its maximum repeatnumbers, moreover if
+    // first.size >4 then alwasy set 4.
+
+    private int NoOfFirst = 0;
+    private int NoOfMiddle = 0;
+    private int NoOfLast = 0;
 }
+
