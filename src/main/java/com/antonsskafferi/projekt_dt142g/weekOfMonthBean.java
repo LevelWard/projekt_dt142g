@@ -26,7 +26,6 @@ public class weekOfMonthBean {
         Calendar calendar = Calendar.getInstance();
         calendar.setMinimalDaysInFirstWeek(4);
         calendar.setFirstDayOfWeek(Calendar.MONDAY);
-
         return calendar.get(Calendar.WEEK_OF_YEAR);
     }
 }

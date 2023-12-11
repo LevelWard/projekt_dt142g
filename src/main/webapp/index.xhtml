@@ -27,19 +27,6 @@
         <div id="left_containing_day_image">
             <img src="images/bild2.png" alt="Home Image"/>
         </div>
-        <!--<div id="right_containing_day">
-            <h1 class="all-text2"><u>Dagens Lunch</u></h1>
-            <p>${weekdaysBean.dayOfweek}</p>
-            <ui:repeat value="${lunchBean.lunchlist}" var="lunch">
-            <h2 class="all-text2">HUSMANS:</h2>
-            <p class="all-text2">${lunch.husmans}</p>
-            <h2 class="all-text2">SOPPA:</h2>
-            <p class="all-text2">${lunch.soppa}</p>
-            <h2 class="all-text2">SALLADSBUFFE</h2>
-            <p class="all-text2">${lunch.sallabuffe}</p>
-                <hr/>
-            </ui:repeat>
-        </div>!-->
         <div id="right_containing_day">
                     <h1 class="all-text2"><u>DagenLunch #{weekdayBean.dayName}</u></h1>
                 <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
@@ -66,21 +53,6 @@
                 <h1 class="all-text2"><u>Live Musik:</u></h1>
                 <p class="all-text2">Vi erbjuder live musik varje lördag från kl 16:00.
                 Här är artisterna och banden som kommer denna vecka</p>
-                <!--<table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
-                    <caption class="all-text3">MYSIGA MAGGAN</caption>
-                    <tr>
-                        <th class="all-text3">Title</th>
-                    </tr>
-
-                    <ui:repeat value="#{database.getMusicByWeek(weekOfMonthBean.weekOfMonth)}" var="music">
-
-                        <tr>
-                            <th>
-                                    #{music.title}
-                            </th>
-                        </tr>
-                    </ui:repeat>
-                </table> !-->
                 <h2 class="all-text2">MYSIGA MAGGAN</h2>
                 <ui:repeat value="#{database.getMusicByWeek(weekOfMonthBean.weekOfMonth)}" var="music">
                     <ul>
