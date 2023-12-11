@@ -32,7 +32,6 @@ public class Database {
     }
 
 
-    //TODO: Make the orderList be able to change order
 
     public List<Integer> getOrderIds() {
         if (this.ordersList == null) {
@@ -55,7 +54,8 @@ public class Database {
     public String moveToTop(int id) {
         int current = getIndex(id);
         if (current != 0) {
-            Collections.swap(this.ordersList, current, 0);
+            ordersList.remove(current);
+            ordersList.add(0,id);
         }
         getOrderIds();
         return "kitchenOverview.xhtml?faces-redirect=true";
@@ -83,7 +83,8 @@ public class Database {
     public String moveToBottom(int id) {
         int current = getIndex(id);
         if (current != this.ordersList.size()-1) {
-            Collections.swap(this.ordersList, current, this.ordersList.size()-1);
+            ordersList.remove(current);
+            ordersList.add(id);
         }
         getOrderIds();
         return "kitchenOverview.xhtml?faces-redirect=true";
