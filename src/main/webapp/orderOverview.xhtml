@@ -16,10 +16,10 @@
 
     <ui:define name="content">
             <div id="readyOrders">
-                <h:commandButton class="pickUp" value="Orders ready for pickup: " type="button" onclick="removeBtn(this)"/>
-                <h:commandButton class="rdyFood" value="Table 17" type="button" onclick="removeBtn(this)"/>
-                <h:commandButton class="rdyFood" value="Table 6" type="button" onclick="removeBtn(this)"/>
-                <h:commandButton class="rdyFood" value="Table 11" type="button" onclick="removeBtn(this)"/>
+                <h:commandButton class="pickUp" value="Ready for pick up" onclick="add(this)" type="button"/>
+                <ui:repeat value="#{database.tableForOverview()}" var="tableNR">
+                    <h:commandButton class="rdyFood" value="Table #{tableNR}" onclick="add(this)" type="button"/>
+                </ui:repeat>
             </div>
         <div id="orderOverviewWrapper">
 

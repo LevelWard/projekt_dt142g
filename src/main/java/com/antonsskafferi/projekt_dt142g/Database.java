@@ -134,4 +134,12 @@ public class Database {
                 .getResultList();
         return resultList;
     }
+    public List<DiningOrderEntity> tableForOverview() {
+        //get all foods in Dishes table.
+        Boolean ready = true;
+        List resultList = em.createQuery("SELECT c.tableNr FROM DiningOrderEntity c WHERE c.status=:ready")
+                .setParameter("ready", ready).getResultList();
+        return resultList;
+    }
 }
+
