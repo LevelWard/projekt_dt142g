@@ -175,12 +175,6 @@ h3 {
     margin: 10px;
 }
 
-#delete{
-    background-color: darkred;
-}
-#customize{
-    background-color: darkgoldenrod;
-}
 #add_food{
     background-color: darkgreen;
 }
@@ -197,15 +191,6 @@ h3 {
     width: 70px;
     height: auto;
     padding: 5px;
-}
-.listedItems{
-    background-color: ghostwhite;
-    width: 500px;
-    border: solid black 2px;
-}
-.orderDesc{
-    margin-left: 0;
-    margin-right: 50px;
 }
 
 #doneBtn{
