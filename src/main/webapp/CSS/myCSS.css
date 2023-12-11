@@ -190,6 +190,10 @@ body.d_lunch{
 .food_card {
     width: auto;
     height: auto;
+    max-height: 100%;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
 
     border-radius: 0 119px 119px 0;
     background: linear-gradient(90deg, #100F0F 0%, #211A1A 100%);
@@ -379,5 +383,45 @@ hr{
     display:flex;
     justify-content: center;
     align-items: center;
+}
+
+.displayed_courses_in_food_card{
+    width: auto;
+    height: auto;
+
+    display: grid;
+    grid-template-rows: 1fr 10fr;
+}
+.A_la_carte_course{
+    width: auto;
+    height: 100%;
+    margin: 0;
+
+
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+.A_la_carte_course_left{
+    width: auto;
+    height: auto;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+.A_la_carte_course_right{
+    width: auto;
+    height: auto;
+
+    /*display:flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+.something{
+    width: auto;
+    height: auto;
+    max-height: 10vh;
+
+    /*display: grid;*/
+    /*grid-template-rows: repeat(1,1fr);*/
 }
 

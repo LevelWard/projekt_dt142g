@@ -34,20 +34,67 @@
                             <div id="vertical_cluster">
                                 <div class="food_card">
                                     <!-- is tempoarly represented as Pastas !-->
-                                    <p class="Type_entree_font">Förrätter</p>
-                                    #{database_to_web.starter_course.size()}
+
+                                    <p class="Type_entree_font">Förrätter(#{database_to_web.starter_course.size()})</p>
+                                    <div class="something">
                                     <ui:repeat value="#{database_to_web.starter_course}" var="one_dish">
-                                        <p>#{one_dish}</p>
+                                        <div class="A_la_carte_course">
+                                            <div class="A_la_carte_course_left">
+
+                                                <label>#{one_dish.title}</label>
+                                                <label>#{one_dish.description}</label>
+
+                                            </div>
+                                            <div class="A_la_carte_course_right">
+
+                                                <label>#{one_dish.price}</label>
+
+                                            </div>
+                                        </div>
                                     </ui:repeat>
+                                    </div>
                                 </div>
                                 <div id="varmratt_efteratt_cluster">
                                     <div class="food_card">
-                                        <p class="Type_entree_font">Varmrätter</p>
-                                        <!-- Automatisk lista från java, sql, facelets mm !-->
+                                        <p class="Type_entree_font">Varmrätter(#{database_to_web.starter_course.size()})</p>
+                                        <div class="something">
+                                            <ui:repeat value="#{database_to_web.starter_course}" var="one_dish">
+                                                <div class="A_la_carte_course">
+                                                    <div class="A_la_carte_course_left">
+
+                                                        <label>#{one_dish.title}</label>
+                                                        <label>#{one_dish.description}</label>
+
+                                                    </div>
+                                                    <div class="A_la_carte_course_right">
+
+                                                        <label>#{one_dish.price}</label>
+
+                                                    </div>
+                                                </div>
+                                            </ui:repeat>
+
+                                        </div>
                                     </div>
                                     <div class="food_card">
-                                        <p class="Type_entree_font">Desserter</p>
-                                        <!-- Automatisk lista från java, sql, facelets mm !-->
+                                        <p class="Type_entree_font">Desserter(#{database_to_web.starter_course.size()})</p>
+                                        <div class="something">
+                                            <ui:repeat value="#{database_to_web.starter_course}" var="one_dish">
+                                                <div class="A_la_carte_course">
+                                                    <div class="A_la_carte_course_left">
+
+                                                        <label>#{one_dish.title}</label>
+                                                        <label>#{one_dish.description}</label>
+
+                                                    </div>
+                                                    <div class="A_la_carte_course_right">
+
+                                                        <label>#{one_dish.price}</label>
+
+                                                    </div>
+                                                </div>
+                                            </ui:repeat>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -56,8 +103,23 @@
                 </div>
             </div>
             <div id="left_containing_whine">
-                <div id="title_whine"><p>VIN</p></div>
-                <p>TW</p>
+                <div id="title_whine"><p>VIN(#{database_to_web.whine.size()})</p></div>
+                <div class="something">
+                    <ui:repeat value="#{database_to_web.whine}" var="one_dish">
+                        <div class="A_la_carte_course">
+                            <div class="A_la_carte_course_left">
+
+                                <label>#{one_dish.title}</label>
+                                <label>#{one_dish.description}</label>
+                                <label>#{one_dish.price}</label>
+
+                            </div>
+                            <div class="A_la_carte_course_right">
+
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </div>
             </div>
         </div>
 

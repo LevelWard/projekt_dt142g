@@ -20,4 +20,14 @@ public class Database_to_web {
 
         return getAllDishes();
     }
+
+    private List<DrinksEntity> getAllDrinks(){
+        TypedQuery<DrinksEntity> query = em.createNamedQuery("drinksEntity.allWhine", DrinksEntity.class);
+        List<DrinksEntity> res = query.getResultList();
+        return res;
+    }
+    public List<DrinksEntity> getWhine(){
+
+        return getAllDrinks();
+    }
 }
