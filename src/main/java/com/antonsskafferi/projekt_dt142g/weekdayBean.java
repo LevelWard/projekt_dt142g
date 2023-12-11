@@ -31,7 +31,7 @@ public class weekdayBean {
 
     private String dayString(int dayOfWeek){
         String [] weekday = new DateFormatSymbols().getWeekdays();
-
+    //2 är måndag och fredag är 6
         if(dayOfWeek >= 2 && dayOfWeek <= 6){
             String dayName = weekday[dayOfWeek];
             return dayName.substring(0,1).toUpperCase() + dayName.substring(1);

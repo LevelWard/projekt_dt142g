@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Entity
 @jakarta.persistence.Table(name = "DISHES", schema = "asdb", catalog = "")
 public class DishesEntity {
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
     @jakarta.persistence.Column(name = "TITLE", nullable = false, length = 50)
     private String title;
