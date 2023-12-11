@@ -104,6 +104,13 @@ public class Database {
     }
 
 
+    public List<DishesEntity> foodForOrder(String Middle) {
+        //get all foods in Dishes table.
+        List resultList = em.createQuery("SELECT c.title FROM DishesEntity c WHERE c.type=:middle")
+                .setParameter("middle", Middle).getResultList();
+        return resultList;
+    }
+
     public List<OrderMealsEntity> subtypeForOrder(String title) {
 
         List<OrderMealsEntity> resultList = em.createQuery("SELECT c.subType FROM DishesEntity c WHERE c.title=:title")

@@ -35,12 +35,10 @@
         </div>
 
         <div id="addingWrap">
-            <ui:repeat value="#{database.getOrderIds()}" var="foodID">
-                    <ui:repeat value="#{database.foodForOrder(foodID)}" var="foodTitle">
-                        <ui:repeat value="#{database.subtypeForOrder(foodTitle)}" var="subtype">
-                                <h:commandButton class="#{subtype}" value="#{foodTitle}" onclick="add(this)" type="button"/>
-                        </ui:repeat>
-                    </ui:repeat>
+            <ui:repeat value="#{database.foodForOrder('Middle')}" var="foodTitle">
+                <ui:repeat value="#{database.subtypeForOrder(foodTitle)}" var="subtype">
+                    <h:commandButton class="#{subtype}" value="#{foodTitle}" onclick="add(this)" type="button"/>
+                </ui:repeat>
             </ui:repeat>
         </div>
         <div id="selected"><!-- Added comment to fix error in xhtml --></div>
