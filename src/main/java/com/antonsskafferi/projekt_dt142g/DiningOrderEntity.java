@@ -34,6 +34,19 @@ public class DiningOrderEntity {
         this.timeOfOrder = timeOfOrder;
     }
 
+
+    @Basic
+    @Column(name = "STATUS", nullable = true)
+    private Boolean status;
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
     @Basic
     @Column(name = "DATE_OF_ORDER", nullable = true)
     private Date dateOfOrder;
