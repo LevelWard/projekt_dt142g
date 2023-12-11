@@ -231,7 +231,7 @@ h3 {
     justify-items: center;
     text-align: center;
 }
-.meat, .salad, .fish, .pizza, .daily, .soup, .nothing, .water, .alcohol, .soda, .wine{
+.Meat, .Salad, .Fish, .Pizza, .Daily, .Soup, .nothing, .Water, .Alcohol, .Soda, .Wine, .rdyFood, .rdyDrinks, .pickUp, .history{
     height: 150px;
     width: 150px;
     display: grid;
@@ -239,45 +239,80 @@ h3 {
     gap: 10px;
     min-width: 150px;
 }
-.meat{
+.Meat{
     background-color: red;
 }
-.salad{
+.Salad, .rdyFood{
     background-color: lawngreen;
 }
-.soup {
+.Soup {
     background-color: saddlebrown;
 }
-.daily{
+.Daily{
     background-color: aliceblue;
 }
-.alcohol {
+.Alcohol {
     background-color: red;
 }
-.water{
+.Water, .rdyDrinks{
     background-color: deepskyblue;
 }
-.soda{
+.Soda{
     background-color: darkorange;
 }
 .nothing{
     background-color: aliceblue;
 }
-.fish{
+.Fish{
     background-color: pink;
 }
-.pizza{
+.Pizza{
     background-color: darkorange;
 }
-.wine{
+.Wine{
     background-color: darkred;
 }
-#selected{
-    height: auto;
+#selected, #readyOrders{
     width: 1200px;
     overflow-x: auto;
     display: flex;
     white-space: nowrap;
     background-color: darkslategray;
     margin-bottom: 10px;
+}
+#selected{
+    height: auto;
+}
+#readyOrders{
+    height: 150px;
+}
+.pickUp, .historyTitle{
+    background-color: lightslategray;
+}
+#toOrder{
+    background-color: saddlebrown;
+    display: block;
+    width: 700px;
+    height: 400px;
+}
+.history{
+    background-color: dimgray;
+    width: 480px;
+}
+#history{
+    float: right;
+    overflow: auto;
+    height: 400px;
+    width: auto;
+}
+#orderOverviewWrapper{
+    display: flex;
+    width: 1200px;
+}
+.historyTitle{
+    height: 100px;
+    width: 480px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 2fr));
+    gap: 10px;
 }
