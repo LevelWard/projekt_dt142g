@@ -72,13 +72,5 @@ public class Database {
 
     }
 
-    /*public List<MusicEntity> getMusicByWeek (int week){
-        List<MusicEntity> musikListy = em.createQuery("SELECT musik FROM MusicEntity musik WHERE musik.week=:week")
-                .setParameter("week", week)
-                .getResultList();
-        return musikListy;
-    }*/
-
-
 
 }
