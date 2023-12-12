@@ -1,20 +1,23 @@
 package com.antonsskafferi.projekt_dt142g;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.Order;
 import jakarta.transaction.Transactional;
 
-@ApplicationScoped
+@SessionScoped
 @Named
-public class OrderBean {
+public class OrderBean implements Serializable {
 
     //TODO: implement a function to send items to order_meals and order_drinks
-    private List<OrderItem> itemsList;
+    private List<OrderItem> itemsList = new ArrayList<>();
 
     int table_id;
     private Integer orderId;
@@ -27,18 +30,17 @@ public class OrderBean {
      * @param title are used for construction.
      */
     public void addToList(String title) {
-
-
-        /*OrderItem new_item = new OrderItem(1,"Chorizo buffe");
-        if (!itemsList.contains(new_item)) {
-            itemsList.add(new_item);
-        } else {
+        OrderItem new_item = new OrderItem(1,title);
+        boolean found = false;
             for (OrderItem existingItem : itemsList) {
                 if (existingItem.getName().equals(new_item.getName())) {
+                    found = true;
                     existingItem.setAmount(existingItem.getAmount() + 1);
                 }
             }
-        }*/
+        if (!found){
+            itemsList.add(new_item);
+        }
 
     }
 
@@ -48,16 +50,6 @@ public class OrderBean {
      */
     public List<OrderItem> getItemsList() {
         return itemsList;
-    }
-
-    @PostConstruct
-    public void init() {
-        //Just an example order.
-        OrderItem t = new OrderItem(1,"Afrikansk buffe");
-        OrderItem e = new OrderItem(1, "Gelato citron");
-        OrderItem d = new OrderItem(1, "Italiensk Sallad");
-        itemsList = List.of(t,e,d);
-
     }
 
     @Transactional
