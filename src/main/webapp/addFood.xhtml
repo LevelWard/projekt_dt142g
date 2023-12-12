@@ -39,7 +39,10 @@
             <ui:repeat value="#{database.FoodForOrder()}" var="foodTitle">
                 <!-- Now, use this key to fetch subtype and create a commandbutton for that  -->
                         <ui:repeat value="#{database.subtypeForOrder(foodTitle)}" var="subtype">
-                                <h:commandButton class="#{subtype}" value="#{foodTitle}" onclick="add(this)" type="button"/>
+                            <h:form>
+                                <!-- onclick="add(this)" type="button" -->
+                                <h:commandButton styleClass="#{subtype}" value="#{foodTitle}"  action="#{orderBean.addToList(foodTitle)}"/>
+                            </h:form>
                         </ui:repeat>
             </ui:repeat>
         </div>

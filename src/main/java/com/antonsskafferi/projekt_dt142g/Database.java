@@ -21,6 +21,10 @@ public class Database {
     private List<Integer> ordersList = null;
 
 
+    public void addItem(Integer orderID){
+        ordersList.add(orderID);
+    }
+
     public List<BookingsEntity> getBookings() {
         Query testQuery = em.createNamedQuery("bookingsEntity.allDates");
         return testQuery.getResultList();

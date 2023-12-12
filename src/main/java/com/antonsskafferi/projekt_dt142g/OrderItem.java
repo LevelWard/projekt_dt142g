@@ -1,5 +1,6 @@
 package com.antonsskafferi.projekt_dt142g;
 
+import jakarta.persistence.criteria.Order;
 
 public class OrderItem {
     private int amount;  //amount of item
@@ -18,7 +19,11 @@ public class OrderItem {
         return name;
     }
 
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 
-
-
+    public void setName(String name) {
+        this.name = name;
+    }
 }
