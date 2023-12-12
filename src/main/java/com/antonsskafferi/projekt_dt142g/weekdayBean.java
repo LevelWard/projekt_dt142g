@@ -18,10 +18,10 @@ public class weekdayBean {
         int dayOfWeek = dayOfWeekInt();
         dayName = dayString(dayOfWeek);
     }
-    public String getDayName(){
+
+    public String getDayName() {
         return dayName;
     }
-
 
     public String getAutomaticDay(){
         int dayOfWeek = dayOfWeekInt();
