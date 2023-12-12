@@ -149,6 +149,6 @@ h1{
 .text{
     border: 5px solid;
     margin: auto;
-    width: 50%;
+    width: auto;
     padding: 10px;
 }
