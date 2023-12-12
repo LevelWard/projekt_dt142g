@@ -12,6 +12,7 @@ import java.util.Locale;
 @Named("week")
 @RequestScoped
 public class WeekBean {
+    /** Bean som returnerar vecka dynamiskt baserat på variablen val, dvs om det är v49 nu och val = 1 returneras v50. **/
     public int Week1(int val){
         LocalDate localDate = LocalDate.now();
         LocalDate date = localDate.plusWeeks(val);

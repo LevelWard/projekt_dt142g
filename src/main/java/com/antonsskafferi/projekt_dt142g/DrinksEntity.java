@@ -2,13 +2,25 @@ package com.antonsskafferi.projekt_dt142g;
 
 import jakarta.persistence.*;
 
+
+import java.util.Objects;
+
 @Entity
-@jakarta.persistence.Table(name = "drinks", schema = "asdb", catalog = "")
+@Table(name = "drinks", schema = "asdb", catalog = "")
 public class DrinksEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @jakarta.persistence.Column(name = "TITLE")
+    @Column(name = "TITLE")
     private String title;
+    @Basic
+    @Column(name = "PRICE")
+    private Integer price;
+    @Basic
+    @Column(name = "DESCRIPTION")
+    private String description;
+    @Basic
+    @Column(name = "TYPE")
+    private String type;
+
 
     public String getTitle() {
         return title;
@@ -18,9 +30,6 @@ public class DrinksEntity {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "PRICE")
-    private Integer price;
 
     public Integer getPrice() {
         return price;
@@ -30,9 +39,6 @@ public class DrinksEntity {
         this.price = price;
     }
 
-    @Basic
-    @Column(name = "DESCRIPTION")
-    private String description;
 
     public String getDescription() {
         return description;
@@ -42,9 +48,6 @@ public class DrinksEntity {
         this.description = description;
     }
 
-    @Basic
-    @Column(name = "TYPE")
-    private String type;
 
     public String getType() {
         return type;
@@ -71,10 +74,8 @@ public class DrinksEntity {
 
     @Override
     public int hashCode() {
-        int result = title != null ? title.hashCode() : 0;
-        result = 31 * result + (price != null ? price.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        return result;
+
+        return Objects.hash(title, price, description, type);
+
     }
 }

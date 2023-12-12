@@ -128,8 +128,10 @@ h1{
     border: 2px solid black;
     width: 100px;
     float: left;
-    margin-left: 150px;
-}
+
+    margin-left: 150px;}
+
+
 .buttons{
     border: 5px solid;
     margin: auto;
@@ -149,6 +151,6 @@ h1{
 .text{
     border: 5px solid;
     margin: auto;
-    width: 50%;
+    width: auto;
     padding: 10px;
 }

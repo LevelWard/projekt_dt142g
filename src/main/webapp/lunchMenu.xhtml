@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
-<link rel="stylesheet" type="text/css" href="style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="style.css" media="all"/>
 
 <h:body>
 
@@ -16,30 +16,64 @@
         <div class="text">
             <p>Vecka: #{week.Week1(1)}</p><br></br>
             <h:dataTable value="#{database.getLunch()}" var="values">
+
                 <!-- Define columns for your table -->
                 <h:column>
+                    <f:facet name="header">Titel</f:facet>
+                    <h:inputText value="#{values.title}"/>
+                </h:column>
+                <h:column>
                     <f:facet name="header">Pris</f:facet>
-                    <h:inputText value="#{values['price']}" />
+                    <h:inputText value="#{values.price}"/>
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">Beskrivning</f:facet>
-                    <h:inputText value="#{values.description}" />
+                    <h:inputText value="#{values.description}"/>
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">Typ</f:facet>
-                    <h:inputText value="#{values.type}" />
+                    <h:inputText value="#{values.type}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Deltyp</f:facet>
+                    <h:inputText value="#{values.subtype}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandButton value="Delete" action="#{database.deleteLunch(values.title)}"/>
                 </h:column>
 
                 <!-- Add more columns as needed -->
 
             </h:dataTable>
         </div>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="title">Titel:</h:outputLabel>
+            <h:inputText id="title" value="#{database.title}" />
+
+            <h:outputLabel for="price">Pris:</h:outputLabel>
+            <h:inputText id="price" value="#{database.price}" />
+
+            <h:outputLabel for="description">Beskrivning:</h:outputLabel>
+            <h:inputText id="description" value="#{database.description}" />
+
+            <h:outputLabel for="type">Typ:</h:outputLabel>
+            <h:inputText id="type" value="#{database.type}" />
+
+            <h:outputLabel for="subtype">Deltyp:</h:outputLabel>
+            <h:inputText id="subtype" value="#{database.subtype}" />
+        </h:panelGrid>
+
+        <h:commandButton value="Lägg till" action="#{database.insertLunch(database.title, database.price, database.description, database.type, database.subtype)}"/>
 
         <div id="lunchBack">
-            <h:button value="Home" outcome="main.xhtml" />
-            <h:commandButton value="Save" action="#{database.saveLunch()}" />
+            <h:button value="Home" outcome="main.xhtml"/>
+            <h:commandButton value="Save" action="#{database.saveLunch()}"/>
+
         </div>
     </h:form>
 
