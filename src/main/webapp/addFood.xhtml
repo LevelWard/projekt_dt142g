@@ -36,7 +36,7 @@
 
         <div id="addingWrap">
             <!-- First, fetch all dishes' titles (their key) -->
-            <ui:repeat value="#{database.foodForOrder('Middle')}" var="subtype">
+            <ui:repeat value="#{database.foodForOrder('Middle')}" var="foodTitle">
                 <!-- Now, use this key to fetch subtype and create a commandbutton for that  -->
                         <ui:repeat value="#{database.subtypeForOrder(foodTitle)}" var="subtype">
                             <h:form>
