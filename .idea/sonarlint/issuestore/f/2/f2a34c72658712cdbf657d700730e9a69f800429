@@ -1,0 +1,20 @@
+
+K
+java:S3740‚"/Provide the parametrized type for this generic.(Ô˜àéøÿÿÿÿ
+…
+java:S1192Q"jDefine a constant instead of duplicating this literal "kitchenOverview.xhtml?faces-redirect=true" 4 times.(ÚÖäşÿÿÿÿ
+x
+java:S1488D"bImmediately return this expression instead of assigning it to the temporary variable "resultList".(´³—É
+~
+java:S1488‚"bImmediately return this expression instead of assigning it to the temporary variable "resultList".(Ô˜àéøÿÿÿÿ
+y
+java:S1488ˆ"bImmediately return this expression instead of assigning it to the temporary variable "resultList".(½Ñ‡ª
+~
+java:S1488"bImmediately return this expression instead of assigning it to the temporary variable "resultList".(œæº†úÿÿÿÿ
+y
+java:S1488—"bImmediately return this expression instead of assigning it to the temporary variable "resultList".(Ş—Æó
+V	java:S125""<This block of commented-out lines of code should be removed.(ù¢Ôşÿÿÿÿ
+@	java:S106r"+Replace this use of System.out by a logger.(ŠãÔê
+i	java:S100€"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö«¥ûÿÿÿÿ
+T
+java:S1128">Remove this unused import 'jakarta.transaction.Transactional'.(ß–Ê³

@@ -21,6 +21,10 @@ public class Database {
     private List<Integer> ordersList = null;
 
 
+    public void addItem(Integer orderID){
+        ordersList.add(orderID);
+    }
+
     public List<BookingsEntity> getBookings() {
         Query testQuery = em.createNamedQuery("bookingsEntity.allDates");
         return testQuery.getResultList();
@@ -31,7 +35,27 @@ public class Database {
         return query.getResultList();
     }
 
+    /*public List<SimpleListIntPair> getFoodOrders(){
+        //Get all the order Id's
+        List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c")
+                .getResultList();
 
+        //Make a list which can be displayed with found items
+        List<SimpleListIntPair> displayItems = Collections.<SimpleListIntPair>emptyList();
+
+        //Get the food for each order into value pair (orderId, dishes)
+        for (Integer id : orderIdList) {
+
+            List<OrderMealsEntity> resultForId = foodForOrder(id);
+
+            SimpleListIntPair values = new SimpleListIntPair(id,resultForId);
+
+            displayItems.add(values);
+
+        }
+
+        return displayItems;
+    }*/
 
     public List<Integer> getOrderIds() {
         if (this.ordersList == null) {
@@ -103,7 +127,6 @@ public class Database {
         return ordersList;
     }
 
-
     public List<DishesEntity> foodForOrder(String Middle) {
         //get all foods in Dishes table.
         List resultList = em.createQuery("SELECT c.title FROM DishesEntity c WHERE c.type=:middle")
@@ -111,25 +134,30 @@ public class Database {
         return resultList;
     }
 
-    public List<OrderMealsEntity> subtypeForOrder(String title) {
+    public List<DishesEntity> FoodForOrder() {
+        //get all foods in Dishes table.
+        List resultList = em.createQuery("SELECT c.title FROM DishesEntity c")
+                .getResultList();
+        return resultList;
+    }
+    public List<String> subtypeForOrder(String title){
 
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.subType FROM DishesEntity c WHERE c.title=:title")
+        List<String> resultList = em.createQuery("SELECT c.subType FROM DishesEntity c WHERE c.title=:title")
                 .setParameter("title", title)
                 .getResultList();
         return resultList;
     }
 
-    public List<OrderMealsEntity> drinkForOrder(int id) {
+    public List<String> drinkForOrder(int id){
 
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.drinkTitle FROM OrderDrinksEntity c WHERE c.orderId=:ordersID")
+        List<String> resultList = em.createQuery("SELECT c.drinkTitle FROM OrderDrinksEntity c WHERE c.orderId=:ordersID")
                 .setParameter("ordersID", id)
                 .getResultList();
         return resultList;
     }
+    public List<String> drinkTypeForOrder(String title){
 
-    public List<OrderMealsEntity> drinkTypeForOrder(String title) {
-
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c.type FROM DrinksEntity c WHERE c.title=:title")
+        List<String> resultList = em.createQuery("SELECT c.type FROM DrinksEntity c WHERE c.title=:title")
                 .setParameter("title", title)
                 .getResultList();
         return resultList;

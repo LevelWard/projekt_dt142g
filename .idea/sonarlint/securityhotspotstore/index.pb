@@ -1,0 +1,19 @@
+
+m
+=src/main/java/com/antonsskafferi/projekt_dt142g/Database.java,f/2/f2a34c72658712cdbf657d700730e9a69f800429
+n
+>src/main/java/com/antonsskafferi/projekt_dt142g/OrderBean.java,3/b/3b0e72101135e652048ea0e4d1d510956e84071d
+n
+>src/main/java/com/antonsskafferi/projekt_dt142g/OrderItem.java,a/6/a6ed7b72dc78a04c03b4c2cb74cc71803d8c751c
+u
+Esrc/main/java/com/antonsskafferi/projekt_dt142g/OrderMealsEntity.java,6/e/6e4520652f7ed73c2b4bbf482c4702d8c4d6f4f4
+v
+Fsrc/main/java/com/antonsskafferi/projekt_dt142g/DiningOrderEntity.java,6/9/697e34a7ca3d794a570c3af3c4fab90748bf7e82
+p
+@src/main/java/com/antonsskafferi/projekt_dt142g/KitchenDone.java,b/a/bae763a4aa03f8d2ae70030923ff578327e5d7fc
+O
+src/main/webapp/orderView.xhtml,b/2/b249e164fcdc5046c8777e299d9ae5706061ed98
+S
+#src/main/webapp/orderFormView.xhtml,3/2/32b6bd437e81d3e71ece296c5542a3a5a6731b55
+S
+#src/main/webapp/orderOverview.xhtml,d/6/d6534c26ae15971ddf4916935efe566b29202f07
