@@ -9,6 +9,18 @@
         function removeBtn(element){
             element.remove();
         }
+
+        function add(button) {
+            // Use the passed 'button' reference instead of querying by class
+            if (button) {
+                let clonedButton = button.cloneNode(true);
+                clonedButton.setAttribute('onclick', 'removeBtn(this)');
+                clonedButton.setAttribute('class', 'history')
+                let container = document.getElementById("history");
+                container.appendChild(clonedButton);
+            }
+            removeBtn(button);
+        }
     </script></ui:define>
 
     <!--As a reminder on how to comment-->
@@ -16,10 +28,16 @@
 
     <ui:define name="content">
             <div id="readyOrders">
-                <h:commandButton class="pickUp" value="Orders ready for pickup: " type="button" onclick="removeBtn(this)"/>
-                <h:commandButton class="rdyFood" value="Table 17" type="button" onclick="removeBtn(this)"/>
-                <h:commandButton class="rdyFood" value="Table 6" type="button" onclick="removeBtn(this)"/>
-                <h:commandButton class="rdyFood" value="Table 11" type="button" onclick="removeBtn(this)"/>
+                <h:commandButton class="pickUp" value="Ready for pick up" type="button"/>
+                <ui:repeat value="#{database.tableForOverview()}" var="tableNR">
+                    <ui:repeat value="#{database.tableToId(tableNR)}" var="orderID">
+                        <form>
+                        <h:commandButton class="rdyFood" value="Table #{tableNR}" onclick="#{kitchenDone.markAsNotDone(orderID)}">
+                            <f:actionListener binding="#{database.removeOrder(orderID)}"/>
+                        </h:commandButton>
+                        </form>
+                    </ui:repeat>
+                </ui:repeat>
             </div>
         <div id="orderOverviewWrapper">
 
@@ -28,10 +46,6 @@
             </div>
             <div id="history">
                 <h:commandButton class="historyTitle" value="History:" type="button"/>
-                <h:commandButton class="history" value="Table 2" type="button"/>
-                <h:commandButton class="history" value="Table 6" type="button"/>
-                <h:commandButton class="history" value="Table 8" type="button"/>
-                <h:commandButton class="history" value="Table 17" type="button"/>
             </div>
         </div>
         <div><h:button class="BackButton" value="Back to Start" outcome="index"/></div>

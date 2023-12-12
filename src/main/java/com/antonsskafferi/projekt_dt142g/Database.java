@@ -162,4 +162,19 @@ public class Database {
                 .getResultList();
         return resultList;
     }
+    public List<DiningOrderEntity> tableForOverview() {
+        //get all foods in Dishes table.
+        Boolean ready = true;
+        List resultList = em.createQuery("SELECT c.tableNr FROM DiningOrderEntity c WHERE c.status=:ready")
+                .setParameter("ready", ready).getResultList();
+        return resultList;
+    }
+    public List<DiningOrderEntity> tableToId(int table) {
+        //get all foods in Dishes table.
+        List resultList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c WHERE c.tableNr=:table")
+                .setParameter("table", table).getResultList();
+
+        return resultList;
+    }
 }
+

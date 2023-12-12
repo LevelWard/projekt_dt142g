@@ -35,4 +35,15 @@ public class KitchenDone {
         }
         return "kitchenOverview.xhtml?faces-redirect=true";
     }
+    @Transactional
+    public String markAsNotDone(int tableNR) {
+        // Save changes to the database, if needed
+        for (DiningOrderEntity order : orderList) {
+            if (order.getOrderId() == tableNR){
+                order.setStatus(false);
+            }
+            em.merge(order);
+        }
+        return "orderOverview.xhtml?faces-redirect=true";
+    }
 }

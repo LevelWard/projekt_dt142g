@@ -21,15 +21,12 @@
                         <f:selectItem itemValue="6" itemLabel="6"/>
                     </h:selectOneMenu>
                 </div>
-                <h:panelGrid columns="4" styleClass="listedItems">
-                    <h:outputText value="Pasta Alfredo" styleClass="orderDesc"/>
-                    <h:outputText value="Water" styleClass="orderDesc"/>
-                    <h:commandButton id="customize" value="Customize" styleClass="buttons"/>
-                    <h:commandButton id="delete" value="Remove" styleClass="buttons"/>
-                </h:panelGrid>
-                    <div id="add_btns">
-                        <h:button id="add_food" value="Add food" styleClass="buttons" outcome="addFood"/>
-                        <h:button id="add_drink" value="Add drink" styleClass="buttons" outcome="addDrink"/>
+                     <div id="selectedItems">
+
+                        <div id="add_btns">
+                            <h:button id="add_food" value="Add food" styleClass="buttons" outcome="addFood"/>
+                            <h:button id="add_drink" value="Add drink" styleClass="buttons" outcome="addDrink"/>
+                        </div>
                     </div>
                     <div id="orderPreview">
                         <h1>Preview of order:</h1>
