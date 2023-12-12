@@ -124,11 +124,13 @@ h1{
     height: 230px;
     margin-left: 3%;
 }
-.small_box{
+.small_box {
     border: 2px solid black;
     width: 100px;
     float: left;
+
     margin-left: 150px;}
+
 
 .buttons{
     border: 5px solid;

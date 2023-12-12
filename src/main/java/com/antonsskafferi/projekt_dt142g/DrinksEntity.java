@@ -2,6 +2,7 @@ package com.antonsskafferi.projekt_dt142g;
 
 import jakarta.persistence.*;
 
+
 import java.util.Objects;
 
 @Entity
@@ -20,6 +21,7 @@ public class DrinksEntity {
     @Column(name = "TYPE")
     private String type;
 
+
     public String getTitle() {
         return title;
     }
@@ -27,6 +29,7 @@ public class DrinksEntity {
     public void setTitle(String title) {
         this.title = title;
     }
+
 
     public Integer getPrice() {
         return price;
@@ -36,6 +39,7 @@ public class DrinksEntity {
         this.price = price;
     }
 
+
     public String getDescription() {
         return description;
     }
@@ -43,6 +47,7 @@ public class DrinksEntity {
     public void setDescription(String description) {
         this.description = description;
     }
+
 
     public String getType() {
         return type;
@@ -69,6 +74,8 @@ public class DrinksEntity {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(title, price, description, type);
+
     }
 }

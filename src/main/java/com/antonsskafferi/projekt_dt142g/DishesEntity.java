@@ -1,9 +1,12 @@
 package com.antonsskafferi.projekt_dt142g;
 
+
 import jakarta.enterprise.inject.Model;
+
 import jakarta.persistence.*;
 
 import java.util.Objects;
+
 
 @Model
 @NamedQuery(name = "dishesEntity.allData", query = "SELECT d FROM DishesEntity d")
@@ -27,6 +30,7 @@ public class DishesEntity {
     @Column(name = "SUBTYPE", nullable = true)
     private String subtype;
 
+
     public String getTitle() {
         return title;
     }
@@ -34,6 +38,8 @@ public class DishesEntity {
     public void setTitle(String title) {
         this.title = title;
     }
+
+
 
     public Integer getPrice() {
         return price;
@@ -43,6 +49,7 @@ public class DishesEntity {
         this.price = price;
     }
 
+
     public String getDescription() {
         return description;
     }
@@ -50,6 +57,7 @@ public class DishesEntity {
     public void setDescription(String description) {
         this.description = description;
     }
+
 
     public String getType() {
         return type;
@@ -59,9 +67,11 @@ public class DishesEntity {
         this.type = type;
     }
 
+
     public String getSubtype() { return subtype; }
 
     public void setSubtype(String subtype) { this.subtype = subtype; }
+
 
     @Override
     public boolean equals(Object o) {
@@ -70,17 +80,21 @@ public class DishesEntity {
 
         DishesEntity that = (DishesEntity) o;
 
+
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
         if (price != null ? !price.equals(that.price) : that.price != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
         if (type != null ? !type.equals(that.type) : that.type != null) return false;
         if (subtype != null ? !subtype.equals(that.subtype) : that.subtype != null) return false;
 
+
         return true;
     }
 
     @Override
     public int hashCode() {
+
         return Objects.hash(title, price, description, type, subtype);
+
     }
 }

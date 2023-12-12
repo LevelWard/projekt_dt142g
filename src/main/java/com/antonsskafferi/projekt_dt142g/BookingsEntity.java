@@ -6,9 +6,8 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 
-@NamedQuery(name = "bookingsEntity.allDates", query = "SELECT allDates FROM BookingsEntity allDates")
 @Entity
-@jakarta.persistence.Table(name = "BOOKINGS", schema = "asdb", catalog = "")
+@jakarta.persistence.Table(name = "bookings", schema = "asdb", catalog = "")
 public class BookingsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
