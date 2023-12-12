@@ -127,7 +127,12 @@ public class Database {
         return ordersList;
     }
 
-
+    public List<DishesEntity> foodForOrder(String Middle) {
+        //get all foods in Dishes table.
+        List resultList = em.createQuery("SELECT c.title FROM DishesEntity c WHERE c.type=:middle")
+                .setParameter("middle", Middle).getResultList();
+        return resultList;
+    }
 
     public List<DishesEntity> FoodForOrder() {
         //get all foods in Dishes table.
