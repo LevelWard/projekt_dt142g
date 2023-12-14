@@ -1,11 +1,12 @@
 package com.antonsskafferi.projekt_dt142g;
 
 import jakarta.persistence.*;
-
+@NamedQuery(name = "drinksEntity.allDrinks", query = "SELECT drinks FROM DrinksEntity drinks")
+@NamedQuery(name = "drinksEntity.allWhine", query = "SELECT drinks FROM DrinksEntity drinks WHERE drinks.type = 'Wine'")
 @Entity
 @jakarta.persistence.Table(name = "DRINKS", schema = "asdb", catalog = "")
 public class DrinksEntity {
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @jakarta.persistence.Column(name = "TITLE", nullable = false, length = 50)
     private String title;

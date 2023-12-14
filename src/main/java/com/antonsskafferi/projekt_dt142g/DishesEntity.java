@@ -1,12 +1,14 @@
 package com.antonsskafferi.projekt_dt142g;
 
 import jakarta.persistence.*;
-
 @NamedQuery(name = "dishesEntity.allDishes", query = "SELECT dishes FROM DishesEntity dishes")
+@NamedQuery(name = "dishesEntity.allFirst_courses", query = "SELECT dishes FROM DishesEntity dishes where dishes.type = 'First'")
+@NamedQuery(name = "dishesEntity.allMiddle_courses", query = "SELECT dishes FROM DishesEntity dishes where dishes.type = 'Middle'")
+@NamedQuery(name = "dishesEntity.allLast_courses", query = "SELECT dishes FROM DishesEntity dishes where dishes.type = 'Last'")
 @Entity
 @jakarta.persistence.Table(name = "DISHES", schema = "asdb", catalog = "")
 public class DishesEntity {
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @jakarta.persistence.Column(name = "TITLE", nullable = false, length = 50)
     private String title;
@@ -66,6 +68,18 @@ public class DishesEntity {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Basic
+    @Column(name = "SUBTYPE", nullable = true, length = 50)
+    private String subtype;
+
+    public String getSubtype() {
+        return subtype;
+    }
+
+    public void setSubtype(String subtype) {
+        this.subtype = subtype;
     }
 
     @Override
