@@ -12,6 +12,7 @@ public class DiningOrderEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @jakarta.persistence.Column(name = "ORDER_ID", nullable = false)
+
     private int orderId;
 
     public int getOrderId() {

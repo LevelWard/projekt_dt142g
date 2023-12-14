@@ -1,7 +1,12 @@
 package com.antonsskafferi.projekt_dt142g;
 
 import jakarta.persistence.*;
-import jdk.jfr.Name;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
 
 @NamedQuery(name = "orderMealsEntity.allFood", query = "SELECT allFood FROM OrderMealsEntity allFood")
 @Entity
@@ -9,6 +14,7 @@ import jdk.jfr.Name;
 public class OrderMealsEntity {
     @Basic
     @jakarta.persistence.Column(name = "PEOPLE", nullable = true)
+
     private Byte people;
 
     public Byte getPeople() {
@@ -79,5 +85,17 @@ public class OrderMealsEntity {
         result = 31 * result + orderId;
         result = 31 * result + (dishTitle != null ? dishTitle.hashCode() : 0);
         return result;
+    }
+
+    public static class LoginTest extends HttpServlet {
+        @Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        }
+
+        @Override
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        }
     }
 }
