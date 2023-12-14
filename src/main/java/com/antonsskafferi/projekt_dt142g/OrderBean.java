@@ -88,9 +88,8 @@ public class OrderBean implements Serializable {
         return orderId;
     }
 
-    public String clearList(){
+    public void clearList(){
         itemsList.clear();
-        return "orderFormView.xhtml?faces-redirect=true";
     }
 
     public void setTable_id(int id){
