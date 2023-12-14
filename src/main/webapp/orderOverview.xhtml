@@ -37,7 +37,14 @@
                 </ui:repeat>
             </div>
         <div id="orderOverviewWrapper">
-            <h:button styleClass="StartButton" id="toOrder" value="Order Food" outcome="orderFormView" />
+            <!-- TODO: Going to orderFormView.xhtml should flush the items list -->
+            <h:button styleClass="StartButton"
+                      id="toOrder"
+                      value="Order Food"
+                      outcome="orderFormView"
+                      action="#{orderBean.clearList()}"></h:button>
+
+
         </div>
         <div><h:button class="BackButton" value="Back to Start" outcome="index"/></div>
     </ui:define>

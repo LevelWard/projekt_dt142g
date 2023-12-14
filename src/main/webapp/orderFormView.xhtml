@@ -12,7 +12,9 @@
             <div class="orderWrap">
                 <div id="tableDiv">
                     <h:outputLabel for="table" value="Table"/>
+                    <!-- TODO: This should fetch items from dinings_tables -->
                     <h:selectOneMenu id="table" value="#{paramValues}">
+                        <!-- TODO: Each selectItem should update the OrderBean's private var using setTable(int id); -->
                         <f:selectItem itemValue="1" itemLabel="1"/>
                         <f:selectItem itemValue="2" itemLabel="2"/>
                         <f:selectItem itemValue="3" itemLabel="3"/>
@@ -36,6 +38,7 @@
                     </div>
                 </div>
             <div class="doneWrap">
+                <!-- TODO: Button currently doesnt do anything at all. Make sure it calls the function -->
                 <h:commandButton id="doneBtn" value="Done" styleClass="buttons" outcome="orderOverview" action="#{orderBean.insertToDb()}">
                     <f:actionListener binding="#{database.addItem(orderBean.orderId)}"/>
                 </h:commandButton>

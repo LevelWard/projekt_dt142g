@@ -19,7 +19,7 @@ public class OrderBean implements Serializable {
     //TODO: implement a function to send items to order_meals and order_drinks
     private List<OrderItem> itemsList = new ArrayList<>();
 
-    int table_id;
+    private int table_id;
     private Integer orderId;
     @PersistenceContext
     EntityManager em;
@@ -52,15 +52,23 @@ public class OrderBean implements Serializable {
         return itemsList;
     }
 
+    /**
+     *
+     * @return a redirect to orderOverview webpage.
+     */
     @Transactional
     public String insertToDb() {
-
+    //TODO: look into persist(), check #resurser
+        //new order created, we'll give it table_id
         DiningOrderEntity newOrder = new DiningOrderEntity();
         newOrder.setTableNr(table_id);
-        em.persist(newOrder);
+        em.persist(newOrder); //adds entity to db
+        // Takes the latest order_id
         List<DiningOrderEntity> updatedID = em.createQuery("SELECT max(d.orderId) FROM DiningOrderEntity d", DiningOrderEntity.class).getResultList();
+        // Fetches the updated order_id
         int orderID = updatedID.get(0).getOrderId();
         orderId = orderID;
+
 
         List<OrderMealsEntity> orderList;
         for (OrderItem item : itemsList) {
@@ -68,17 +76,25 @@ public class OrderBean implements Serializable {
             order.setOrderId(orderID);
             order.setAmount(item.getAmount());
             order.setDishTitle(item.getName());
-            em.persist(order);
+            em.persist(order); //adds entity list to db
         }
         List<OrderMealsEntity> updater = em.createQuery("SELECT d FROM OrderMealsEntity d", OrderMealsEntity.class).getResultList();
         itemsList.clear();
 
-        return "orderOverview.xhtml?faces-redirect=true";
+        return "index.xhtml?faces-redirect=true";
     }
 
     public Integer getOrderId(){
         return orderId;
     }
 
+    public String clearList(){
+        itemsList.clear();
+        return "orderFormView.xhtml?faces-redirect=true";
+    }
+
+    public void setTable_id(int id){
+        table_id = id;
+    }
 
 }
