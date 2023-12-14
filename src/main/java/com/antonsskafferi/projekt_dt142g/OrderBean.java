@@ -96,8 +96,15 @@ public class OrderBean implements Serializable {
         table_id = id;
     }
 
-    public void pingBean(){
-        System.out.print("object reached!");
+    public String pingBean(){
+        testVar = "Böna nådd";
+        return "orderFormView.xhtml?faces-redirect=true";
+
     }
 
+    private String testVar = "Ej nådd";
+
+    public String getTestVar() {
+        return testVar;
+    }
 }

@@ -13,15 +13,17 @@
                 <div id="tableDiv">
                     <h:outputLabel for="table" value="Table"/>
                     <!-- TODO: This should fetch items from dinings_tables -->
-                    <h:selectOneMenu id="table" value="#{paramValues}">
-                        <!-- TODO: Each selectItem should update the OrderBean's private var using setTable(int id); -->
-                        <f:selectItem itemValue="1" itemLabel="1"/>
-                        <f:selectItem itemValue="2" itemLabel="2"/>
-                        <f:selectItem itemValue="3" itemLabel="3"/>
-                        <f:selectItem itemValue="4" itemLabel="4"/>
-                        <f:selectItem itemValue="5" itemLabel="5"/>
-                        <f:selectItem itemValue="6" itemLabel="6"/>
-                    </h:selectOneMenu>
+                    <h:form>
+                        <h:selectOneMenu id="table" value="#{paramValues}">
+                            <!-- TODO: Each selectItem should update the OrderBean's private var using setTable(int id); -->
+                            <f:selectItem itemValue="1" itemLabel="1"/>
+                            <f:selectItem itemValue="2" itemLabel="2"/>
+                            <f:selectItem itemValue="3" itemLabel="3"/>
+                            <f:selectItem itemValue="4" itemLabel="4"/>
+                            <f:selectItem itemValue="5" itemLabel="5"/>
+                            <f:selectItem itemValue="6" itemLabel="6"/>
+                        </h:selectOneMenu>
+                    </h:form>
                 </div>
                      <div id="selectedItems">
 
@@ -31,9 +33,11 @@
                             <h:button id="add_drink" value="Add drink" styleClass="buttons" outcome="addDrink"/>
                         </div>
                          <!-- TODO: this button doesnt call the function to ping! thats bad. -->
-                         <form>
+                         <h:form>
                              <h:commandButton id="ping_bean" value="ping bean" styleClass="buttons" action="#{orderBean.pingBean()}"/>
-                         </form>
+                             <!-- Just an example call to the bean to test that the value went through. Should be removed -->
+                             <h1>#{orderBean.testVar}</h1>
+                         </h:form>
                     </div>
                     <div id="orderPreview">
                         <h1>Preview of order:</h1>
