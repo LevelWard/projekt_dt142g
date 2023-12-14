@@ -7,8 +7,6 @@ import jakarta.persistence.*;
 
 @Entity
 @jakarta.persistence.Table(name = "DRINKS", schema = "asdb", catalog = "")
-@Entity
-@Table(name = "drinks", schema = "asdb", catalog = "")
 
 public class DrinksEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -83,7 +81,6 @@ public class DrinksEntity {
         result = 31 * result + (type != null ? type.hashCode() : 0);
         return result;
 
-        return Objects.hash(title, price, description, type);
-
+        //return Objects.hash(title, price, description, type);
     }
 }

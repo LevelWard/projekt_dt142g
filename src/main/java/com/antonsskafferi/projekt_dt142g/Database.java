@@ -84,9 +84,6 @@ public class Database {
     }
 
     public void setSubtype(String subtype) { this.subtype = subtype; }
-    @PersistenceContext
-    EntityManager em;
-
 
     private List<DishesEntity> lunchEntities;
 
