@@ -14,7 +14,7 @@
         <div id="">
             <p>Lista över drycker</p>
 
-            <h:dataTable value="#{database.getDrinks()}" var="values">
+            <h:dataTable value="#{db.getDrinks()}" var="values">
                 <!-- Define columns for your table -->
                 <h:column>
                     <f:facet name="header">Titel</f:facet>
@@ -38,7 +38,7 @@
 
                 <h:column>
                     <f:facet name="header">Action</f:facet>
-                    <h:commandButton value="Delete" action="#{database.deleteDrinks(values.title)}"/>
+                    <h:commandButton value="Delete" action="#{db.deleteDrinks(values.title)}"/>
                 </h:column>
 
                 <!-- Add more columns as needed -->
@@ -48,23 +48,23 @@
 
         <h:panelGrid columns="2">
             <h:outputLabel for="title">Titel:</h:outputLabel>
-            <h:inputText id="title" value="#{database.title}" />
+            <h:inputText id="title" value="#{db.title}" />
 
             <h:outputLabel for="price">Pris:</h:outputLabel>
-            <h:inputText id="price" value="#{database.price}" />
+            <h:inputText id="price" value="#{db.price}" />
 
             <h:outputLabel for="description">Beskrivning:</h:outputLabel>
-            <h:inputText id="description" value="#{database.description}" />
+            <h:inputText id="description" value="#{db.description}" />
 
             <h:outputLabel for="type">Typ:</h:outputLabel>
-            <h:inputText id="type" value="#{database.type}" />
+            <h:inputText id="type" value="#{db.type}" />
 
         </h:panelGrid>
 
-        <h:commandButton value="Lägg till" action="#{database.insertDrinks(database.title, database.price, database.description, database.type)}"/>
+        <h:commandButton value="Lägg till" action="#{db.insertDrinks(db.title, db.price, db.description, db.type)}"/>
         <div id="drinkBack">
             <h:button value="Home" outcome="main.xhtml"/>
-            <h:commandButton value="Save" action="#{database.saveDrinks()}"/>
+            <h:commandButton value="Save" action="#{db.saveDrinks()}"/>
 
         </div>
 

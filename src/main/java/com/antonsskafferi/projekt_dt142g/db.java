@@ -3,7 +3,6 @@ package com.antonsskafferi.projekt_dt142g;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -15,7 +14,7 @@ import static java.sql.DriverManager.getConnection;
 
 @ApplicationScoped
 @Named
-public class Database {
+public class db {
 
     private String title;
     private int price;
