@@ -96,4 +96,8 @@ public class OrderBean implements Serializable {
         table_id = id;
     }
 
+    public void pingBean(){
+        System.out.print("object reached!");
+    }
+
 }
