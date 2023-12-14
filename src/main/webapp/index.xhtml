@@ -35,7 +35,7 @@
                     <th class="all-text3">Description</th>
                     <th class="all-text3">Type</th>
                 </tr>
-                <ui:repeat value="#{database.getLuchByDay(weekdayBean.automaticDay)}" var="lunch">
+                <ui:repeat value="#{database.getLunchByDay(weekdayBean.automaticDay)}" var="lunch">
                     <tr>
                         <th>#{lunch.title}</th>
                         <th>#{lunch.price}</th>

@@ -12,13 +12,10 @@ import java.util.Objects;
 @jakarta.persistence.Table(name = "DISHES", schema = "asdb", catalog = "")
 public class DishesEntity {
     @Model
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @jakarta.persistence.Column(name = "TITLE", nullable = false, length = 50)
     private String title;
 
-    @Column(name = "TITLE", nullable = true)
-    private String title;
     @Basic
     @Column(name = "PRICE", nullable = true)
     private Integer price;
