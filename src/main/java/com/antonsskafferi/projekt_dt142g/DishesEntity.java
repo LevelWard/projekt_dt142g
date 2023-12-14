@@ -1,6 +1,9 @@
 package com.antonsskafferi.projekt_dt142g;
 
 import jakarta.persistence.*;
+import jakarta.enterprise.inject.Model;
+import java.util.Objects;
+
 @NamedQuery(name = "dishesEntity.allDishes", query = "SELECT dishes FROM DishesEntity dishes")
 @NamedQuery(name = "dishesEntity.allFirst_courses", query = "SELECT dishes FROM DishesEntity dishes where dishes.type = 'First'")
 @NamedQuery(name = "dishesEntity.allMiddle_courses", query = "SELECT dishes FROM DishesEntity dishes where dishes.type = 'Middle'")
@@ -8,42 +11,21 @@ import jakarta.persistence.*;
 @Entity
 @jakarta.persistence.Table(name = "DISHES", schema = "asdb", catalog = "")
 public class DishesEntity {
+    @Model
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @jakarta.persistence.Column(name = "TITLE", nullable = false, length = 50)
     private String title;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
+    @Column(name = "TITLE", nullable = true)
+    private String title;
     @Basic
     @Column(name = "PRICE", nullable = true)
     private Integer price;
 
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
     @Basic
     @Column(name = "DESCRIPTION", nullable = true, length = 200)
     private String description;
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     @Basic
     @Column(name = "TYPE", nullable = true, length = 50)
@@ -60,6 +42,32 @@ public class DishesEntity {
 
     public void setSubType(String subType) {
         this.subType = subType;
+    }
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getType() {
@@ -81,12 +89,15 @@ public class DishesEntity {
         if (price != null ? !price.equals(that.price) : that.price != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
         if (type != null ? !type.equals(that.type) : that.type != null) return false;
+        if (subType != null ? !subType.equals(that.subType) : that.subType != null) return false;
 
         return true;
     }
-
     @Override
     public int hashCode() {
+
+//        return Objects.hash(title, price, description, type, subtype);
+
         int result = title != null ? title.hashCode() : 0;
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);

@@ -128,7 +128,7 @@ public class db {
         lunch.setPrice(price);
         lunch.setDescription(description);
         lunch.setType(type);
-        lunch.setSubtype(subtype);
+        lunch.setSubType(subtype);
         this.em.persist(lunch);
         lunchEntities = em.createQuery("SELECT l FROM DishesEntity l", DishesEntity.class).getResultList();
         return "lunchMenu.xhtml?faces-redirect=true";

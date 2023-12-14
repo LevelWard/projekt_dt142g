@@ -9,7 +9,6 @@ import jakarta.persistence.*;
 @jakarta.persistence.Table(name = "DRINKS", schema = "asdb", catalog = "")
 
 public class DrinksEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @jakarta.persistence.Column(name = "TITLE", nullable = false, length = 50)
     private String title;

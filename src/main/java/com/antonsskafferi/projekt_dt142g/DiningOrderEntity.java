@@ -6,13 +6,13 @@ import java.sql.Date;
 import java.sql.Time;
 
 @NamedQuery(name = "diningOrderEntity.allOrders", query = "SELECT orders FROM DiningOrderEntity orders")
+
 @Entity
 @jakarta.persistence.Table(name = "DINING_ORDER", schema = "asdb", catalog = "")
 public class DiningOrderEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @jakarta.persistence.Column(name = "ORDER_ID", nullable = false)
-
     private int orderId;
 
     public int getOrderId() {
