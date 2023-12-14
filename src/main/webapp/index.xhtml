@@ -27,27 +27,27 @@
             <img src="images/bild2.png" alt="Home Image"/>
         </div>
         <div id="right_containing_day">
-                    <h1 class="all-text2"><u>DagenLunch #{weekdayBean.dayName}</u></h1>
-                <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
+            <h1 class="all-text2"><u>DagenLunch #{weekdayBean.dayName}</u></h1>
+            <table class="all-text" border="3" width="300" cellpadding="5" cellspacing="5">
+                <tr>
+                    <th class="all-text3">Food</th>
+                    <th class="all-text3">Price</th>
+                    <th class="all-text3">Description</th>
+                    <th class="all-text3">Type</th>
+                </tr>
+                <ui:repeat value="#{database.getLuchByDay(weekdayBean.automaticDay)}" var="lunch">
                     <tr>
-                        <th class="all-text3">Food</th>
-                        <th class="all-text3">Price</th>
-                        <th class="all-text3">Description</th>
-                        <th class="all-text3">Type</th>
+                        <th>#{lunch.title}</th>
+                        <th>#{lunch.price}</th>
+                        <th>#{lunch.description}</th>
+                        <th>#{lunch.type}</th>
                     </tr>
-                    <ui:repeat value="#{database.getLunchByDay(weekdayBean.automaticDay)}" var="lunch">
-                        <tr>
-                            <th>#{lunch.title}</th>
-                            <th>#{lunch.price}</th>
-                            <th>#{lunch.description}</th>
-                            <th>#{lunch.type}</th>
-                        </tr>
-                    </ui:repeat>
-                </table>
-                </div>
+                </ui:repeat>
+            </table>
+        </div>
     </div>
-
-    <!--<div id="extend_zone_when_booked">
+<!--
+    <div id="extend_zone_when_booked">
         <div id="book_table">
             <div id="Book_tite">
                 <p>Boka Bord Hos Oss!</p>
@@ -73,9 +73,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    -->
-    <div id="booking_legal"><p>För bokningar vänligen kontakta oss via telefonnumret nedan.</p></div>
+    </div> -->
+    <div id="booking_legal"><p>För bokningar vänligen kontakta oss via telefonnumret.</p></div>
     <ui:include src="footer.xhtml"/>
 </h:body>
 </f:view>
