@@ -20,7 +20,6 @@
        <a href="index.xhtml">Home</a>
        <a href="Dagenslunch.xhtml">Dagens Lunch</a>
        <a href="a_la_carte.xhtml">À la carte</a>
-       <a href="event.xhtml">Event</a>
     </div>
 
         <!--Box in centre containing the menu/whine block !-->
@@ -35,7 +34,7 @@
                                     <p class="Type_entree_font">Förrätter(#{database_to_web.starter_course.size()})</p>
                                     <div class="something">
                                         <!-- MAX 4 !-->
-                                    <ui:repeat value="#{database_to_web.starter_course}" var="one_dish" size="4">
+                                    <ui:repeat value="#{database_to_web.starter_course}" var="one_dish" size="2">
                                         <div class="A_la_carte_course">
                                             <div class="A_la_carte_course_left">
 
@@ -50,6 +49,7 @@
                                             </div>
                                         </div>
                                     </ui:repeat>
+
                                     </div>
                                 </div>
                                 <div id="varmratt_efteratt_cluster">

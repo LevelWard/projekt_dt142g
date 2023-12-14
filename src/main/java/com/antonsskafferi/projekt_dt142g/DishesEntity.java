@@ -70,18 +70,6 @@ public class DishesEntity {
         this.type = type;
     }
 
-    @Basic
-    @Column(name = "SUBTYPE", nullable = true, length = 50)
-    private String subtype;
-
-    public String getSubtype() {
-        return subtype;
-    }
-
-    public void setSubtype(String subtype) {
-        this.subtype = subtype;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
