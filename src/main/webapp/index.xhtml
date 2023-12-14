@@ -35,7 +35,7 @@
                         <th class="all-text3">Description</th>
                         <th class="all-text3">Type</th>
                     </tr>
-                    <ui:repeat value="#{database.getLuchByDay(weekdayBean.automaticDay)}" var="lunch">
+                    <ui:repeat value="#{database.getLunchByDay(weekdayBean.automaticDay)}" var="lunch">
                         <tr>
                             <th>#{lunch.title}</th>
                             <th>#{lunch.price}</th>
@@ -47,7 +47,7 @@
                 </div>
     </div>
 
-    <div id="extend_zone_when_booked">
+    <!--<div id="extend_zone_when_booked">
         <div id="book_table">
             <div id="Book_tite">
                 <p>Boka Bord Hos Oss!</p>
@@ -74,7 +74,8 @@
             </div>
         </div>
     </div>
-    <div id="booking_legal"><p>För bokningar vid fler än 16 personer, vänligen kontakta oss via telefonnumret.</p></div>
+    -->
+    <div id="booking_legal"><p>För bokningar vänligen kontakta oss via telefonnumret nedan.</p></div>
     <ui:include src="footer.xhtml"/>
 </h:body>
 </f:view>

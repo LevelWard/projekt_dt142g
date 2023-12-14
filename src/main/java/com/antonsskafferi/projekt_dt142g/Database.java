@@ -44,7 +44,6 @@ public class Database {
             return orderIdList;
         }
 
-
     public String getTitle() {
         return title;
     }
@@ -73,15 +72,22 @@ public class Database {
         return type;
     }
 
-
-
     public List<OrderMealsEntity> foodForOrder(int id){
-
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID")
+        List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity Or c WHERE c.orderId=:ordersID")
                 .setParameter("ordersID", id)
                 .getResultList();
         return resultList;
     }
+
+    public List<DishesEntity> getLunchByDay (String day){
+        List<DishesEntity> dayList = em.createQuery("SELECT Buffe FROM DishesEntity Buffe WHERE Buffe.subType=:day")
+                .setParameter("day", day)
+                .getResultList();
+        return dayList;
+
+    }
+
+
 
     public void setSubtype(String subtype) { this.subtype = subtype; }
 
