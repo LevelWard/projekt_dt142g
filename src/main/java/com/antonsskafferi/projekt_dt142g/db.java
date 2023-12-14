@@ -1,13 +1,11 @@
 package com.antonsskafferi.projekt_dt142g;
 
+
+import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
-
-import jakarta.annotation.PostConstruct;
-import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
@@ -16,33 +14,13 @@ import static java.sql.DriverManager.getConnection;
 
 @ApplicationScoped
 @Named
-public class Database {
-    @PersistenceContext
-    EntityManager em;
+public class db {
 
     private String title;
     private int price;
     private String description;
     private String type;
     private String subtype;
-
-    public List<BookingsEntity> getBookings(){
-        Query testQuery = em.createNamedQuery("bookingsEntity.allDates");
-        return testQuery.getResultList();
-    }
-
-    public List<OrderDrinksEntity> getAllDrinks(){
-        Query query = em.createNamedQuery("orderDrinksEntity.allDrinks");
-        return query.getResultList();
-    }
-
-    public List<Integer> getOrderIds() {
-            //Get all the order Id's
-            List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c")
-                    .getResultList();
-
-            return orderIdList;
-        }
 
     public String getTitle() {
         return title;
@@ -72,24 +50,16 @@ public class Database {
         return type;
     }
 
-    public List<OrderMealsEntity> foodForOrder(int id){
-        List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity Or c WHERE c.orderId=:ordersID")
-                .setParameter("ordersID", id)
-                .getResultList();
-        return resultList;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public List<DishesEntity> getLunchByDay (String day){
-        List<DishesEntity> dayList = em.createQuery("SELECT Buffe FROM DishesEntity Buffe WHERE Buffe.subType=:day")
-                .setParameter("day", day)
-                .getResultList();
-        return dayList;
-
-    }
-
-
+    public String getSubtype() { return subtype; }
 
     public void setSubtype(String subtype) { this.subtype = subtype; }
+    @PersistenceContext
+    EntityManager em;
+
 
     private List<DishesEntity> lunchEntities;
 
@@ -117,6 +87,7 @@ public class Database {
     public List<DishesEntity> getLunch() {
         return lunchEntities;
     }
+
 
 
     @Transactional

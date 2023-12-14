@@ -21,7 +21,7 @@
         <div id="">
             <p>Liveband</p>
 
-            <h:dataTable value="#{database.getLunch()}" var="values">
+            <h:dataTable value="#{db.getLunch()}" var="values">
                 <!-- Define columns for your table -->
                 <h:column>
                     <f:facet name="header">Pris</f:facet>
@@ -45,7 +45,7 @@
 
         <div id="lunchBack">
             <h:button value="Home" outcome="main.xhtml" />
-            <h:commandButton value="Save" action="#{database.saveLunch()}" />
+            <h:commandButton value="Save" action="#{db.saveLunch()}" />
         </div>
     </h:form>
 
