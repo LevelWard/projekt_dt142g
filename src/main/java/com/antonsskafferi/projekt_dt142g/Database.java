@@ -20,7 +20,10 @@ public class Database {
     //If a new order is created this list must be updated and it added to the back.
     private List<Integer> ordersList = null;
 
-
+    /**
+     * What does this function do?
+     * @param orderID ID for a given order
+     */
     public void addItem(Integer orderID){
         ordersList.add(orderID);
     }
