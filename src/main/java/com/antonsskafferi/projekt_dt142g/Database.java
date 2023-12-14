@@ -66,6 +66,10 @@ public class Database {
         //Get all the order Id's from stored list.
         return ordersList;
     }
+    public List<Integer> getDoneIds() {
+           return em.createQuery("SELECT c.orderId FROM DiningOrderEntity c where c.status=true")
+                    .getResultList();
+    }
 
 
     public List<OrderMealsEntity> foodForKitchen(int id) {
