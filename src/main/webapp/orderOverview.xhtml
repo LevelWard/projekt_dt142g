@@ -19,23 +19,13 @@
                 <h:commandButton class="pickUp" value="Orders ready for pickup: " type="button" onclick="removeBtn(this)"/>
                 <ui:repeat value="#{database.getDoneIds()}" var="orderID">
                     <h:form>
-                        <h:commandButton styleClass="rdyFood" value="#{kitchenDone.idToTable(orderID)}" action="#{kitchenDone.markAsNotDone(orderID)}"/>
+                        <h:commandButton styleClass="rdyFood" value="Table #{kitchenDone.idToTable(orderID)}" action="#{kitchenDone.markAsNotDone(orderID)}"/>
                     </h:form>
                 </ui:repeat>
-                <h:commandButton class="rdyFood" value="Table 11" type="button" onclick="removeBtn(this)"/>
             </div>
         <div id="orderOverviewWrapper">
 
-        <div class="toOrder">
-                <h:button styleClass="StartButton" id="toOrder" value="Order Food" outcome="orderFormView" />
-            </div>
-            <div id="history">
-                <h:commandButton class="historyTitle" value="History:" type="button"/>
-                <h:commandButton class="history" value="Table 2" type="button"/>
-                <h:commandButton class="history" value="Table 6" type="button"/>
-                <h:commandButton class="history" value="Table 8" type="button"/>
-                <h:commandButton class="history" value="Table 17" type="button"/>
-            </div>
+            <h:button styleClass="StartButton" id="toOrder" value="Order Food" outcome="orderFormView" />
         </div>
         <div><h:button class="BackButton" value="Back to Start" outcome="index"/></div>
     </ui:define>

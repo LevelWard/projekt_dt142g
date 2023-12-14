@@ -43,13 +43,8 @@ public class Database {
         return ordersList;
     }
     public List<Integer> getDoneIds() {
-        if (this.ordersList == null) {
-            List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c where c.status=true")
+           return em.createQuery("SELECT c.orderId FROM DiningOrderEntity c where c.status=true")
                     .getResultList();
-            this.ordersList = orderIdList;
-        }
-        //Get all the order Id's from stored list.
-        return ordersList;
     }
 
 
