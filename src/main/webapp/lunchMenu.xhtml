@@ -66,16 +66,19 @@
 
             <h:outputLabel for="subtype">Deltyp:</h:outputLabel>
             <h:inputText id="subtype" value="#{database.subtype}" />
-        </h:panelGrid>
 
         <h:commandButton value="Lägg till" action="#{database.insertLunch(database.title, database.price, database.description, database.type, database.subtype)}"/>
-
         <div id="lunchBack">
             <h:button value="Home" outcome="main.xhtml"/>
             <h:commandButton value="Save" action="#{database.saveLunch()}"/>
+
         </div>
+        </h:panelGrid>
+
     </h:form>
+
 </h:body>
+
 </html>
 
 
