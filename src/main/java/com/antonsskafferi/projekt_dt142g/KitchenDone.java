@@ -5,6 +5,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.TransactionScoped;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
@@ -34,5 +35,25 @@ public class KitchenDone {
             em.merge(order);
         }
         return "kitchenOverview.xhtml?faces-redirect=true";
+    }
+    @Transactional
+    public String markAsNotDone(int id) {
+        // Save changes to the database, if needed
+        for (DiningOrderEntity order : orderList) {
+            if (order.getOrderId() == id || idToTable(id) == order.getTableNr()){
+                order.setStatus(false);
+            }
+            em.merge(order);
+        }
+        return "orderOverview.xhtml?faces-redirect=true";
+    }
+    @Transactional
+    public Integer idToTable(int id){
+        for (DiningOrderEntity order : orderList){
+            if (order.getOrderId() == id){
+                return order.getTableNr();
+            }
+        }
+        return 0;
     }
 }
