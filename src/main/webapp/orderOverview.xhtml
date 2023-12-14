@@ -1,11 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="templates/masterTemplate.xhtml">
+
+    <ui:define name="script1"> <script type="text/javascript" >
+
+        function removeBtn(element){
+            element.remove();
+        }
+
+        function add(button) {
+            // Use the passed 'button' reference instead of querying by class
+            if (button) {
+                let clonedButton = button.cloneNode(true);
+                clonedButton.setAttribute('onclick', 'removeBtn(this)');
+                clonedButton.setAttribute('class', 'history')
+                let container = document.getElementById("history");
+                container.appendChild(clonedButton);
+            }
+            removeBtn(button);
+        }
+    </script></ui:define>
+
+    <!--As a reminder on how to comment-->
+    <ui:define name="title">orderFormView</ui:define>
+
+    <ui:define name="content">
+            <div id="readyOrders">
+                <h:commandButton class="pickUp" value="Ready for pick up" type="button"/>
+                <ui:repeat value="#{database.tableForOverview()}" var="tableNR">
+                    <ui:repeat value="#{database.tableToId(tableNR)}" var="orderID">
+                        <form>
+                        <h:commandButton class="rdyFood" value="Table #{tableNR}" onclick="#{kitchenDone.markAsNotDone(orderID)}">
+                            <f:actionListener binding="#{database.removeOrder(orderID)}"/>
+                        </h:commandButton>
+                        </form>
+                    </ui:repeat>
+                </ui:repeat>
+            </div>
+        <div id="orderOverviewWrapper">
+
+        <div class="toOrder">
+                <h:button styleClass="StartButton" id="toOrder" value="Order Food" outcome="orderFormView" />
+            </div>
+            <div id="history">
+                <h:commandButton class="historyTitle" value="History:" type="button"/>
+            </div>
+        </div>
+        <div><h:button class="BackButton" value="Back to Start" outcome="index"/></div>
+    </ui:define>
+</ui:composition>
