@@ -29,18 +29,19 @@ public class KitchenDone {
     public String markAsDone(int id) {
         // Save changes to the database, if needed
         for (DiningOrderEntity order : orderList) {
-            if (order.getOrderId() == id){
+            if (order.getOrderId() == id) {
                 order.setStatus(true);
             }
             em.merge(order);
         }
         return "kitchenOverview.xhtml?faces-redirect=true";
     }
+
     @Transactional
     public String markAsNotDone(int id) {
         // Save changes to the database, if needed
         for (DiningOrderEntity order : orderList) {
-            if (order.getOrderId() == id || idToTable(id) == order.getTableNr()){
+            if (order.getOrderId() == id || idToTable(id) == order.getTableNr()) {
 
                 order.setStatus(false);
             }
@@ -48,13 +49,15 @@ public class KitchenDone {
         }
         return "orderOverview.xhtml?faces-redirect=true";
     }
+
     @Transactional
-    public Integer idToTable(int id){
-        for (DiningOrderEntity order : orderList){
-            if (order.getOrderId() == id){
+    public Integer idToTable(int id) {
+        for (DiningOrderEntity order : orderList) {
+            if (order.getOrderId() == id) {
                 return order.getTableNr();
             }
         }
         return 0;
     }
+}
 
