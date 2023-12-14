@@ -9,25 +9,25 @@ import jdk.jfr.Name;
 public class OrderMealsEntity {
     @Basic
     @jakarta.persistence.Column(name = "PEOPLE", nullable = true)
-    private Byte people;
+    private int people;
 
-    public Byte getPeople() {
+    public int getPeople() {
         return people;
     }
 
-    public void setPeople(Byte people) {
+    public void setPeople(int people) {
         this.people = people;
     }
 
     @Basic
     @jakarta.persistence.Column(name = "AMOUNT", nullable = true)
-    private Byte amount;
+    private int amount;
 
-    public Byte getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(Byte amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
@@ -57,6 +57,7 @@ public class OrderMealsEntity {
         this.dishTitle = dishTitle;
     }
 
+    /*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -80,4 +81,6 @@ public class OrderMealsEntity {
         result = 31 * result + (dishTitle != null ? dishTitle.hashCode() : 0);
         return result;
     }
+    */
+
 }

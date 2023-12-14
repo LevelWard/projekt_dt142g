@@ -41,6 +41,7 @@ public class KitchenDone {
         // Save changes to the database, if needed
         for (DiningOrderEntity order : orderList) {
             if (order.getOrderId() == id || idToTable(id) == order.getTableNr()){
+
                 order.setStatus(false);
             }
             em.merge(order);
@@ -56,4 +57,4 @@ public class KitchenDone {
         }
         return 0;
     }
-}
+

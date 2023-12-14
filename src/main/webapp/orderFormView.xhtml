@@ -21,19 +21,24 @@
                         <f:selectItem itemValue="6" itemLabel="6"/>
                     </h:selectOneMenu>
                 </div>
-                <h:panelGrid columns="4" styleClass="listedItems">
-                    <h:outputText value="Pasta Alfredo" styleClass="orderDesc"/>
-                    <h:outputText value="Water" styleClass="orderDesc"/>
-                    <h:commandButton id="customize" value="Customize" styleClass="buttons"/>
-                    <h:commandButton id="delete" value="Remove" styleClass="buttons"/>
-                </h:panelGrid>
-                    <div id="add_btns">
-                        <h:button id="add_food" value="Add food" styleClass="buttons" outcome="addFood"/>
-                        <h:button id="add_drink" value="Add drink" styleClass="buttons" outcome="addDrink"/>
+                     <div id="selectedItems">
+
+                        <div id="add_btns">
+                            <h:button id="add_food" value="Add food" styleClass="buttons" outcome="addFood"/>
+                            <h:button id="add_drink" value="Add drink" styleClass="buttons" outcome="addDrink"/>
+                        </div>
+                    </div>
+                    <div id="orderPreview">
+                        <h1>Preview of order:</h1>
+                        <ui:repeat value="#{orderBean.getItemsList()}" var="item">
+                            <p>#{item.amount}x "#{item.name}"</p>
+                        </ui:repeat>
                     </div>
                 </div>
             <div class="doneWrap">
-                <h:button id="doneBtn" value="Done" styleClass="buttons" outcome="orderOverview"/>
+                <h:commandButton id="doneBtn" value="Done" styleClass="buttons" outcome="orderOverview" action="#{orderBean.insertToDb()}">
+                    <f:actionListener binding="#{database.addItem(orderBean.orderId)}"/>
+                </h:commandButton>
             </div>
         </div>
         <div><h:button class="BackButton" value="Back to Start" outcome="orderOverview"/></div>

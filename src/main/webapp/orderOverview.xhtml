@@ -9,6 +9,18 @@
         function removeBtn(element){
             element.remove();
         }
+
+        function add(button) {
+            // Use the passed 'button' reference instead of querying by class
+            if (button) {
+                let clonedButton = button.cloneNode(true);
+                clonedButton.setAttribute('onclick', 'removeBtn(this)');
+                clonedButton.setAttribute('class', 'history')
+                let container = document.getElementById("history");
+                container.appendChild(clonedButton);
+            }
+            removeBtn(button);
+        }
     </script></ui:define>
 
     <!--As a reminder on how to comment-->
@@ -21,10 +33,10 @@
                     <h:form>
                         <h:commandButton styleClass="rdyFood" value="Table #{kitchenDone.idToTable(orderID)}" action="#{kitchenDone.markAsNotDone(orderID)}"/>
                     </h:form>
+
                 </ui:repeat>
             </div>
         <div id="orderOverviewWrapper">
-
             <h:button styleClass="StartButton" id="toOrder" value="Order Food" outcome="orderFormView" />
         </div>
         <div><h:button class="BackButton" value="Back to Start" outcome="index"/></div>

@@ -26,19 +26,26 @@
 
     <ui:define name="content">
         <div id="tableDiv">
-            <h:outputLabel for="table" value="People"/>
-            <h:selectOneMenu id="table" value="#{paramValues}">
-                <f:selectItem itemValue="1" itemLabel="1"/>
-                <f:selectItem itemValue="2" itemLabel="2"/>
-                <f:selectItem itemValue="3" itemLabel="3"/>
-            </h:selectOneMenu>
+            <h:form>
+                <h:outputLabel for="table" value="People"/>
+                <h:selectOneMenu id="table" value="#{paramValues}">
+                    <f:selectItem itemValue="1" itemLabel="1"/>
+                    <f:selectItem itemValue="2" itemLabel="2"/>
+                    <f:selectItem itemValue="3" itemLabel="3"/>
+                </h:selectOneMenu>
+            </h:form>
         </div>
 
         <div id="addingWrap">
+            <!-- First, fetch all dishes' titles (their key) -->
             <ui:repeat value="#{database.foodForOrder('Middle')}" var="foodTitle">
-                <ui:repeat value="#{database.subtypeForOrder(foodTitle)}" var="subtype">
-                    <h:commandButton class="#{subtype}" value="#{foodTitle}" onclick="add(this)" type="button"/>
-                </ui:repeat>
+                <!-- Now, use this key to fetch subtype and create a commandbutton for that  -->
+                        <ui:repeat value="#{database.subtypeForOrder(foodTitle)}" var="subtype">
+                            <h:form>
+                                <!-- onclick="add(this)" type="button" -->
+                                <h:commandButton styleClass="#{subtype}" value="#{foodTitle}"  action="#{orderBean.addToList(foodTitle)}"/>
+                            </h:form>
+                        </ui:repeat>
             </ui:repeat>
         </div>
         <div id="selected"><!-- Added comment to fix error in xhtml --></div>
