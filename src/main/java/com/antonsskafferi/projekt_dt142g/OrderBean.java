@@ -1,5 +1,8 @@
 package com.antonsskafferi.projekt_dt142g;
 import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,9 +66,13 @@ public class OrderBean implements Serializable {
     public String insertToDb() {
         //TODO: insertToDb should also initialize orders as "false", and also give them a timestamp.
     //this works now!
-        //new order created, we'll give it table_id
+        //new order created, we'll now set its values
+        LocalDateTime currentDateTime = LocalDateTime.now();
         DiningOrderEntity newOrder = new DiningOrderEntity();
         newOrder.setTableNr(table_number);
+        newOrder.setStatus(false);
+        newOrder.setDateOfOrder(Date.valueOf(currentDateTime.toLocalDate()));
+        newOrder.setTimeOfOrder(Time.valueOf(currentDateTime.toLocalTime()));
         em.persist(newOrder); //adds entity to db
         // Takes the latest order_id
         Object maxOrderIdObject = em.createQuery("SELECT MAX(d.orderId) FROM DiningOrderEntity d").getSingleResult();
