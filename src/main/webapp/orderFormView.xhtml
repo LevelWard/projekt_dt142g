@@ -22,14 +22,11 @@
                      <div id="selectedItems">
 
                         <div id="add_btns">
-                            <!-- TODO: add a button that clears the list.  -->
                             <h:button id="add_food" value="Add food" styleClass="buttons" outcome="addFood"/>
                             <h:button id="add_drink" value="Add drink" styleClass="buttons" outcome="addDrink"/>
                         </div>
-                         <!-- TODO: this button doesnt call the function to ping! thats bad. -->
                          <h:form>
                              <h:commandButton id="clear_list" value="clear orders" styleClass="buttons" action="#{orderBean.clearList()}"/>
-                             <!-- Just an example call to the bean to test that the value went through. Should be removed -->
                          </h:form>
                     </div>
                     <div id="orderPreview">
