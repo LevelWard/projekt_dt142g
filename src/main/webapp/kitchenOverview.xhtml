@@ -14,7 +14,7 @@
                                 <f:actionListener binding="#{database.removeOrder(orderID)}"/>
                             </h:commandButton>
                         </h:form>
-                        <h1 class="KitchenItemHeader">Table: #{orderID}</h1>
+                        <h1 class="KitchenItemHeader">OrderID: #{orderID}</h1>
                     </div>
                     <div class="KitchenDishes">
                         <ui:repeat value="#{database.foodForKitchen(orderID)}" var="displayItem">
@@ -28,6 +28,10 @@
                         <h:commandButton styleClass="SortButton" value="To Bottom" action="#{database.moveToBottom(orderID)}"/>
                     </h:form>
                 </div>
+            </ui:repeat>
+            <h1>Size of list: #{database.getSize()}</h1>
+            <ui:repeat value="#{database.getOrderIds()}" var="ids">
+                <h1>#{ids}</h1>
             </ui:repeat>
         </div>
         <div id="kitchenOverviewBack">

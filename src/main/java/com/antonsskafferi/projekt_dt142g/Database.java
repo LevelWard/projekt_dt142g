@@ -1,5 +1,6 @@
 package com.antonsskafferi.projekt_dt142g;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
@@ -7,6 +8,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,9 +20,12 @@ public class Database {
 
 
     //If a new order is created this list must be updated and it added to the back.
-    private List<Integer> ordersList = null;
+    private List<Integer> ordersList;
 
-
+    /**
+     * What does this function do?
+     * @param orderID ID for a given order
+     */
     public void addItem(Integer orderID){
         ordersList.add(orderID);
     }
@@ -35,37 +40,21 @@ public class Database {
         return query.getResultList();
     }
 
-    /*public List<SimpleListIntPair> getFoodOrders(){
-        //Get all the order Id's
-        List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c")
+    @PostConstruct
+    public void createOrderIds() {
+        List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c where c.status=false")
                 .getResultList();
-
-        //Make a list which can be displayed with found items
-        List<SimpleListIntPair> displayItems = Collections.<SimpleListIntPair>emptyList();
-
-        //Get the food for each order into value pair (orderId, dishes)
-        for (Integer id : orderIdList) {
-
-            List<OrderMealsEntity> resultForId = foodForOrder(id);
-
-            SimpleListIntPair values = new SimpleListIntPair(id,resultForId);
-
-            displayItems.add(values);
-
-        }
-
-        return displayItems;
-    }*/
+        this.ordersList = orderIdList;
+    }
 
     public List<Integer> getOrderIds() {
-        if (this.ordersList == null) {
-            List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c where c.status=false")
-                    .getResultList();
-            this.ordersList = orderIdList;
-        }
-        //Get all the order Id's from stored list.
         return ordersList;
     }
+
+    public Integer getSize(){
+        return this.ordersList.size();
+    }
+
     public List<Integer> getDoneIds() {
            return em.createQuery("SELECT c.orderId FROM DiningOrderEntity c where c.status=true")
                     .getResultList();
@@ -73,9 +62,14 @@ public class Database {
 
 
     public List<OrderMealsEntity> foodForKitchen(int id) {
+        List<OrderMealsEntity> resultListtmp = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID order by c.orderId")
+                .setParameter("ordersID", id)
+                .getResultList();
+
         List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID order by c.orderId")
                 .setParameter("ordersID", id)
                 .getResultList();
+
         return resultList;
     }
 
@@ -178,6 +172,11 @@ public class Database {
         List resultList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c WHERE c.tableNr=:table")
                 .setParameter("table", table).getResultList();
 
+        return resultList;
+    }
+
+    public List<Integer> getGetTableNumbers() {
+        List resultList = em.createQuery("select c.tableNumber from DiningTableEntity c").getResultList();
         return resultList;
     }
 }

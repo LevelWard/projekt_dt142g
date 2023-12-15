@@ -1,7 +1,6 @@
 package com.antonsskafferi.projekt_dt142g;
 
 import jakarta.persistence.*;
-
 import java.sql.Date;
 import java.sql.Time;
 

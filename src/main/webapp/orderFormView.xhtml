@@ -12,21 +12,33 @@
             <div class="orderWrap">
                 <div id="tableDiv">
                     <h:outputLabel for="table" value="Table"/>
-                    <h:selectOneMenu id="table" value="#{paramValues}">
-                        <f:selectItem itemValue="1" itemLabel="1"/>
-                        <f:selectItem itemValue="2" itemLabel="2"/>
-                        <f:selectItem itemValue="3" itemLabel="3"/>
-                        <f:selectItem itemValue="4" itemLabel="4"/>
-                        <f:selectItem itemValue="5" itemLabel="5"/>
-                        <f:selectItem itemValue="6" itemLabel="6"/>
-                    </h:selectOneMenu>
+                    <!-- TODO: This should fetch items from dinings_tables -->
+                    <!-- Its currently hardcoded but atleast it works. i cant get the db stuff right -->
+                    <h:form>
+                        <h:selectOneMenu id="table" value="#{orderBean.table_number}">
+                            <f:selectItem itemValue="#{1}" itemLabel="table 1" />
+                            <f:selectItem itemValue="#{2}" itemLabel="table 2" />
+                            <f:selectItem itemValue="#{3}" itemLabel="table 3" />
+                            <f:selectItem itemValue="#{4}" itemLabel="table 4" />
+                            <f:selectItem itemValue="#{5}" itemLabel="table 5" />
+                            <f:selectItem itemValue="#{6}" itemLabel="table 6" />
+                            <f:selectItem itemValue="#{7}" itemLabel="table 7" />
+                            <f:selectItem itemValue="#{8}" itemLabel="table 8" />
+                            <f:ajax render="displaySelectedTable" /> <!-- this purely for testing purposes -->
+                        </h:selectOneMenu>
+                    </h:form>
+                    <h1 id="displaySelectedTable"> #{orderBean.table_number} </h1> <!-- this purely for testing purposes -->
                 </div>
                      <div id="selectedItems">
 
                         <div id="add_btns">
                             <h:button id="add_food" value="Add food" styleClass="buttons" outcome="addFood"/>
-                            <h:button id="add_drink" value="Add drink" styleClass="buttons" outcome="addDrink"/>
+                            <!--<h:button id="add_drink" value="Add drink" styleClass="buttons" outcome="addDrink"/>-->
                         </div>
+                         <h:form>
+                             <h:commandButton id="clear_list" value="clear orders" styleClass="buttons" action="#{orderBean.clearList()}"/>
+                         </h:form>
+
                     </div>
                     <div id="orderPreview">
                         <h1>Preview of order:</h1>
@@ -36,9 +48,9 @@
                     </div>
                 </div>
             <div class="doneWrap">
-                <h:commandButton id="doneBtn" value="Done" styleClass="buttons" outcome="orderOverview" action="#{orderBean.insertToDb()}">
-                    <f:actionListener binding="#{database.addItem(orderBean.orderId)}"/>
-                </h:commandButton>
+                <h:form>
+                    <h:commandButton id="doneBtn" value="Done" styleClass="buttons" outcome="orderOverview" action="#{orderBean.insertToDb()}"/>
+                </h:form>
             </div>
         </div>
         <div><h:button class="BackButton" value="Back to Start" outcome="orderOverview"/></div>
