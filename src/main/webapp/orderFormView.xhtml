@@ -13,17 +13,21 @@
                 <div id="tableDiv">
                     <h:outputLabel for="table" value="Table"/>
                     <!-- TODO: This should fetch items from dinings_tables -->
-
+                    <!-- Its currently hardcoded but atleast it works. i cant get the db stuff right -->
                     <h:form>
                         <h:selectOneMenu id="table" value="#{orderBean.table_number}">
                             <f:selectItem itemValue="#{1}" itemLabel="table 1" />
                             <f:selectItem itemValue="#{2}" itemLabel="table 2" />
                             <f:selectItem itemValue="#{3}" itemLabel="table 3" />
-                            <f:ajax render="displaySelectedTable" />
-                            <!-- TODO: Each selectItem should update the OrderBean's private var using setTable(int id); -->
+                            <f:selectItem itemValue="#{4}" itemLabel="table 4" />
+                            <f:selectItem itemValue="#{5}" itemLabel="table 5" />
+                            <f:selectItem itemValue="#{6}" itemLabel="table 6" />
+                            <f:selectItem itemValue="#{7}" itemLabel="table 7" />
+                            <f:selectItem itemValue="#{8}" itemLabel="table 8" />
+                            <f:ajax render="displaySelectedTable" /> <!-- this purely for testing purposes -->
                         </h:selectOneMenu>
                     </h:form>
-                    <h1 id="displaySelectedTable"> #{orderBean.table_number} </h1>
+                    <h1 id="displaySelectedTable"> #{orderBean.table_number} </h1> <!-- this purely for testing purposes -->
                 </div>
                      <div id="selectedItems">
 
@@ -47,7 +51,6 @@
                 <h:form>
                 <h:commandButton id="doneBtn" value="Done" styleClass="buttons" outcome="orderOverview" action="#{orderBean.insertToDb()}">
                     <f:actionListener binding="#{database.addItem(orderBean.orderId)}"/>
-                    <!-- TODO: this line of code causes issues  -->
                 </h:commandButton>
                 </h:form>
             </div>
