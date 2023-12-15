@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="templates/masterTemplate.xhtml">
+
+    <ui:define name="script1"> <script type="text/javascript" >
+
+        function removeBtn(element){
+            element.remove();
+        }
+
+        function add(button) {
+            // Use the passed 'button' reference instead of querying by class
+            if (button) {
+                let clonedButton = button.cloneNode(true);
+                clonedButton.setAttribute('onclick', 'removeBtn(this)');
+                clonedButton.setAttribute('class', 'history')
+                let container = document.getElementById("history");
+                container.appendChild(clonedButton);
+            }
+            removeBtn(button);
+        }
+    </script></ui:define>
+
+    <!--As a reminder on how to comment-->
+    <ui:define name="title">orderFormView</ui:define>
+
+    <ui:define name="content">
+            <div id="readyOrders">
+                <h:commandButton class="pickUp" value="Orders ready for pickup: " type="button"/>
+                <ui:repeat value="#{employeeDB.getDoneIds()}" var="orderID">
+                    <h:form>
+                        <h:commandButton styleClass="rdyFood" value="Table #{kitchenDone.idToTable(orderID)}" action="#{kitchenDone.markAsNotDone(orderID)}"/>
+                    </h:form>
+
+                </ui:repeat>
+            </div>
+        <div id="orderOverviewWrapper">
+
+            <h:button styleClass="StartButton" id="toOrder" value="Order Food" outcome="orderFormView"/>
+
+
+        </div>
+        <div><h:button class="BackButton" value="Back to Start" outcome="EmployeeStart"/></div>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: fredd
+  Date: 2023-11-26
+  Time: 14:02
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://java.sun.com/jsf/composite">
+<f:view>
+
+</f:view>
+<h:body>
+    <link rel="stylesheet" type="text/css" href="style.css" media="all" />
+    <h:button class="buttons" id="logout" value="Logga ut" outcome="AdminInlogg"/>
+    <div class="buttons">
+
+        <h:form>
+            <p id="first">Välj alternativ</p>
+            <h:button class="buttons" outcome="lunchMenu" id="lunch_menu" value="Meny"></h:button>
+            <br/>
+            <h:button class="buttons" outcome="wineList" id="wine" value="Dryckeslista"></h:button>
+            <br/>
+
+
+
+
+        </h:form>
+
+    </div>
+
+
+</h:body>
+
+</html>

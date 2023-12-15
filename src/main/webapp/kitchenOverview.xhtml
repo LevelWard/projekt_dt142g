@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="templates/masterTemplate.xhtml">
+    <ui:define name="title">Kitchen Overview</ui:define>
+    <ui:define name="content">
+        <div id="kitchenOverviewContent">
+            <ui:repeat value="#{employeeDB.getOrderIds()}" var="orderID">
+                <div class="KitchenItem">
+                    <div class="KitchenLeft">
+                        <h:form>
+                            <h:commandButton styleClass="OrderDone" value="Done" action="#{kitchenDone.markAsDone(orderID)}">
+                                <f:actionListener binding="#{employeeDB.removeOrder(orderID)}"/>
+                            </h:commandButton>
+                        </h:form>
+                        <h1 class="KitchenItemHeader">OrderID: #{orderID}</h1>
+                    </div>
+                    <div class="KitchenDishes">
+                        <ui:repeat value="#{employeeDB.foodForKitchen(orderID)}" var="displayItem">
+                            <h3>#{displayItem.amount}x "#{displayItem.dishTitle}"</h3>
+                        </ui:repeat>
+                    </div>
+                    <h:form styleClass="SortingButtons">
+                        <h:commandButton styleClass="SortButton" value="To Top" action="#{employeeDB.moveToTop(orderID)}"/>
+                        <h:commandButton styleClass="SortButton" value="Up" action="#{employeeDB.moveItemUp(orderID)}"/>
+                        <h:commandButton styleClass="SortButton" value="Down" action="#{employeeDB.moveItemDown(orderID)}"/>
+                        <h:commandButton styleClass="SortButton" value="To Bottom" action="#{employeeDB.moveToBottom(orderID)}"/>
+                    </h:form>
+                </div>
+            </ui:repeat>
+            <h1>Size of list: #{employeeDB.getSize()}</h1>
+            <ui:repeat value="#{employeeDB.getOrderIds()}" var="ids">
+                <h1>#{ids}</h1>
+            </ui:repeat>
+        </div>
+        <div id="kitchenOverviewBack">
+            <h:button styleClass="BackButton" value="Back to start" outcome="EmployeeStart.xhtml" />
+        </div>
+    </ui:define>
+</ui:composition>
+

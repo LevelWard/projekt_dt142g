@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:body>
+
+    <h:form>
+        <div id="">
+            <p>Lista över drycker</p>
+
+            <h:dataTable value="#{db.getDrinks()}" var="values">
+                <!-- Define columns for your table -->
+                <h:column>
+                    <f:facet name="header">Titel</f:facet>
+                    <h:inputText value="#{values.title}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Pris</f:facet>
+                    <h:inputText value="#{values.price}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Beskrivning</f:facet>
+                    <h:inputText value="#{values.description}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Typ</f:facet>
+                    <h:inputText value="#{values.type}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandButton value="Delete" action="#{db.deleteDrinks(values.title)}"/>
+                </h:column>
+
+                <!-- Add more columns as needed -->
+
+            </h:dataTable>
+        </div>
+
+        <h:panelGrid columns="2">
+            <h:outputLabel for="title">Titel:</h:outputLabel>
+            <h:inputText id="title" value="#{db.title}" />
+
+            <h:outputLabel for="price">Pris:</h:outputLabel>
+            <h:inputText id="price" value="#{db.price}" />
+
+            <h:outputLabel for="description">Beskrivning:</h:outputLabel>
+            <h:inputText id="description" value="#{db.description}" />
+
+            <h:outputLabel for="type">Typ:</h:outputLabel>
+            <h:inputText id="type" value="#{db.type}" />
+
+        </h:panelGrid>
+
+        <h:commandButton value="Lägg till" action="#{db.insertDrinks(db.title, db.price, db.description, db.type)}"/>
+        <div id="drinkBack">
+            <h:button value="Home" outcome="main.xhtml"/>
+            <h:commandButton value="Save" action="#{db.saveDrinks()}"/>
+
+        </div>
+
+    </h:form>
+
+
+
+</h:body>
+
+</html>
+
+
