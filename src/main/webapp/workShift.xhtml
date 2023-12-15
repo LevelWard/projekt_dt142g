@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:body>
+
+    <h:form>
+        <h:selectOneMenu id="w">
+            <f:selectItem itemLabel="Vecka: #{week.Week1(0)}" itemValue="Option1"/>
+            <f:selectItem itemLabel="Vecka: #{week.Week1(1)}" itemValue="Option1"/>
+            <f:selectItem itemLabel="Vecka: #{week.Week1(2)}" itemValue="Option2"/>
+            <f:selectItem itemLabel="Vecka: #{week.Week1(3)}" itemValue="Option3"/>
+        </h:selectOneMenu>
+
+        <div id="">
+            <p>Arbetspass</p>
+
+            <h:dataTable value="#{db.getLunch()}" var="values">
+                <!-- Define columns for your table -->
+                <h:column>
+                    <f:facet name="header">Pris</f:facet>
+                    <h:inputText value="#{values['price']}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Beskrivning</f:facet>
+                    <h:inputText value="#{values.description}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Typ</f:facet>
+                    <h:inputText value="#{values.type}" />
+                </h:column>
+
+                <!-- Add more columns as needed -->
+
+            </h:dataTable>
+        </div>
+
+        <div id="lunchBack">
+            <h:button value="Home" outcome="main.xhtml" />
+            <h:commandButton value="Save" action="#{db.saveLunch()}" />
+        </div>
+    </h:form>
+
+</h:body>
+
+</html>
+
+

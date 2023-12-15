@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: gianf
+  Date: 2023-12-04
+  Time: 18:51
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Title</title>
+</h:head>
+
+<h:body>
+
+        <!--<h:outputLabel value="Hello, world"/>-->
+        <link rel="stylesheet" type="text/css" href="style.css" media="all" />
+
+        <h1>Admin sida</h1>
+
+        <div class="inloggning" >
+            <h:form>
+
+                <h:outputLabel for="username">Användarnman  </h:outputLabel>
+                <h:inputText id="username" value="#{loginBean.username}" required="true"/>
+                <br/>
+                <h:outputLabel for="password">Lösernord</h:outputLabel>
+                <h:inputText id="password" value="#{loginBean.password}" required="true"/>
+
+
+                <h:commandButton  value="Logga in" action="#{loginBean.login()}"/>
+                <h:messages/>
+            </h:form>
+
+            <!--<h:form action="LoginTest" method="post">
+                <h:outputLabel>Användarnman  </h:outputLabel>
+                <h:inputText type="username" name="username" required="true"/> <br/>
+
+                <h:outputLabel>Lösernord</h:outputLabel>
+                <h:inputText type="password" name="password" required="true"/>
+
+                <input type="submit" value="login">
+                <h:commandButton  value="Logga in"/>
+            </h:form>-->
+        </div>
+
+</h:body>
+
+</html>

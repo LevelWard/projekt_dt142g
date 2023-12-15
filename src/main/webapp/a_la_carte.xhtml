@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head> <!-- Convert to facelet !-->
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=UTF-8"/>
+    <link href="CSS/myCSS.css"
+          rel="stylesheet" type="text/css"/>
+    <title>Antons Skafferi</title>
+
+</h:head>
+<f:view>
+<h:body class="a_la_carte">
+   <div class="topnav">
+       <img src="images/nedladdning.png" alt="Logo"/>
+       <a href="index.xhtml">Home</a>
+       <a href="Dagenslunch.xhtml">Dagens Lunch</a>
+       <a href="a_la_carte.xhtml">À la carte</a>
+    </div>
+
+        <!--Box in centre containing the menu/whine block !-->
+        <div id="centre_a_la_carte">
+            <div id="right_containing_menu">
+                <div id="semi_transparent_box">
+                    <div id="menu">
+                        <div id="title_menu"><p>MENY</p></div>
+                        <div id="cluster_of_selections_menu">
+                            <div id="vertical_cluster">
+                                <div class="food_card">
+                                    <p class="Type_entree_font">Förrätter(#{database_to_web.starter_course.size()})</p>
+                                    <div class="something">
+                                        <!-- MAX 4 !-->
+                                    <ui:repeat value="#{database_to_web.starter_course}" var="one_dish" size="2">
+                                        <div class="A_la_carte_course">
+                                            <div class="A_la_carte_course_left">
+
+                                                <label>#{one_dish.title}</label>
+                                                <label>#{one_dish.description}</label>
+
+                                            </div>
+                                            <div class="A_la_carte_course_right">
+
+                                                <label>#{one_dish.price}</label>
+
+                                            </div>
+                                        </div>
+                                    </ui:repeat>
+
+                                    </div>
+                                </div>
+                                <div id="varmratt_efteratt_cluster">
+                                    <div class="food_card">
+                                        <p class="Type_entree_font">Varmrätter(#{database_to_web.middle_course.size()})</p>
+                                        <div class="something">
+                                            <!-- MAX 2 !-->
+                                            <ui:repeat value="#{database_to_web.middle_course}" var="one_dish" size="1">
+                                                <div class="A_la_carte_course">
+                                                    <div class="A_la_carte_course_left">
+
+                                                        <label>#{one_dish.title}</label>
+                                                        <label>#{one_dish.description}</label>
+
+                                                    </div>
+                                                    <div class="A_la_carte_course_right">
+
+                                                        <label>#{one_dish.price}</label>
+
+                                                    </div>
+                                                </div>
+                                            </ui:repeat>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="food_card">
+
+                                        <p class="Type_entree_font">Desserter(#{database_to_web.last_course.size()})</p>
+                                        <div class="something">
+
+                                            <ui:repeat value="#{database_to_web.last_course}" var="one_dish" size="1">
+                                                <div class="A_la_carte_course">
+                                                    <div class="A_la_carte_course_left">
+
+                                                        <label>#{one_dish.title}</label>
+                                                        <label>#{one_dish.description}</label>
+
+                                                    </div>
+                                                    <div class="A_la_carte_course_right">
+
+                                                        <label>#{one_dish.price}</label>
+
+                                                    </div>
+                                                </div>
+                                            </ui:repeat>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="left_containing_whine">
+                <div id="title_whine"><p>VIN(#{database_to_web.whine.size()})</p></div>
+                <div class="something">
+                    <ui:repeat value="#{database_to_web.whine}" var="one_dish">
+                        <div class="A_la_carte_course">
+                            <div class="A_la_carte_course_left">
+
+                                <label>#{one_dish.title}</label>
+                                <label>#{one_dish.description}</label>
+                                <label>#{one_dish.price}</label>
+
+                            </div>
+                            <div class="A_la_carte_course_right">
+
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </div>
+            </div>
+        </div>
+
+        <ui:include src="footer.xhtml"/>
+</h:body>
+</f:view>
+</html>

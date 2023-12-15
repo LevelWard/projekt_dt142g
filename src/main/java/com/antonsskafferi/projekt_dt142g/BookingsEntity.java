@@ -13,6 +13,7 @@ public class BookingsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @jakarta.persistence.Column(name = "BOOKING_ID")
+
     private int bookingId;
 
     public int getBookingId() {
@@ -24,7 +25,8 @@ public class BookingsEntity {
     }
 
     @Basic
-    @Column(name = "BOOKING_TIME")
+    @Column(name = "BOOKING_TIME", nullable = true)
+   // @Column(name = "BOOKING_TIME")
     private Time bookingTime;
 
     public Time getBookingTime() {
@@ -36,7 +38,7 @@ public class BookingsEntity {
     }
 
     @Basic
-    @Column(name = "BOOKING_DATE")
+    @Column(name = "BOOKING_DATE", nullable = true)
     private Date bookingDate;
 
     public Date getBookingDate() {
@@ -60,7 +62,8 @@ public class BookingsEntity {
     }
 
     @Basic
-    @Column(name = "PEOPLE")
+    @Column(name = "PEOPLE", nullable = true)
+    //@Column(name = "PEOPLE")
     private Byte people;
 
     public Byte getPeople() {
