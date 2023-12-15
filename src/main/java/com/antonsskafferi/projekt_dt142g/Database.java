@@ -40,28 +40,6 @@ public class Database {
         return query.getResultList();
     }
 
-    /*public List<SimpleListIntPair> getFoodOrders(){
-        //Get all the order Id's
-        List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c")
-                .getResultList();
-
-        //Make a list which can be displayed with found items
-        List<SimpleListIntPair> displayItems = Collections.<SimpleListIntPair>emptyList();
-
-        //Get the food for each order into value pair (orderId, dishes)
-        for (Integer id : orderIdList) {
-
-            List<OrderMealsEntity> resultForId = foodForOrder(id);
-
-            SimpleListIntPair values = new SimpleListIntPair(id,resultForId);
-
-            displayItems.add(values);
-
-        }
-
-        return displayItems;
-    }*/
-
     @PostConstruct
     public void createOrderIds() {
         List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c where c.status=false")

@@ -119,17 +119,4 @@ public class OrderBean implements Serializable {
         itemsList.clear();
     }
 
-
-
-    public String pingBean(){
-        testVar = "Böna nådd";
-        return "orderFormView.xhtml?faces-redirect=true";
-
-    }
-
-    private String testVar = "Ej nådd";
-
-    public String getTestVar() {
-        return testVar;
-    }
 }
