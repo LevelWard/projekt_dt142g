@@ -49,9 +49,7 @@
                 </div>
             <div class="doneWrap">
                 <h:form>
-                <h:commandButton id="doneBtn" value="Done" styleClass="buttons" outcome="orderOverview" action="#{orderBean.insertToDb()}">
-                    <f:actionListener binding="#{database.addItem(orderBean.orderId)}"/>
-                </h:commandButton>
+                    <h:commandButton id="doneBtn" value="Done" styleClass="buttons" outcome="orderOverview" action="#{orderBean.insertToDb()}"/>
                 </h:form>
             </div>
         </div>

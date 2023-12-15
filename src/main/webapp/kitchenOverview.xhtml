@@ -29,6 +29,10 @@
                     </h:form>
                 </div>
             </ui:repeat>
+            <h1>Size of list: #{database.getSize()}</h1>
+            <ui:repeat value="#{database.getOrderIds()}" var="ids">
+                <h1>#{ids}</h1>
+            </ui:repeat>
         </div>
         <div id="kitchenOverviewBack">
             <h:button styleClass="BackButton" value="Back to start" outcome="index.xhtml" />

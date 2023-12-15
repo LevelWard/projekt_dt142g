@@ -9,6 +9,7 @@ import java.util.List;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -22,9 +23,13 @@ public class OrderBean implements Serializable {
     //TODO: implement a function to send items to order_meals and order_drinks
     private List<OrderItem> itemsList = new ArrayList<>();
     private int table_number;
-    private Integer orderId;
+    private Integer orderId = -1;
     @PersistenceContext
     EntityManager em;
+
+    @Inject
+    private Database database;
+
     @PostConstruct
     public void init(){
         table_number = 1;
@@ -91,6 +96,8 @@ public class OrderBean implements Serializable {
         }
         List<OrderMealsEntity> updater = em.createQuery("SELECT d FROM OrderMealsEntity d", OrderMealsEntity.class).getResultList();
         itemsList.clear();
+
+        database.addItem(orderID);
 
         return "orderOverview.xhtml?faces-redirect=true";
     }

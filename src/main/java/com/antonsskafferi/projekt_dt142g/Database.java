@@ -20,7 +20,7 @@ public class Database {
 
 
     //If a new order is created this list must be updated and it added to the back.
-    private List<Integer> ordersList = null;
+    private List<Integer> ordersList;
 
     /**
      * What does this function do?
@@ -72,6 +72,11 @@ public class Database {
     public List<Integer> getOrderIds() {
         return ordersList;
     }
+
+    public Integer getSize(){
+        return this.ordersList.size();
+    }
+
     public List<Integer> getDoneIds() {
            return em.createQuery("SELECT c.orderId FROM DiningOrderEntity c where c.status=true")
                     .getResultList();
@@ -79,9 +84,14 @@ public class Database {
 
 
     public List<OrderMealsEntity> foodForKitchen(int id) {
+        List<OrderMealsEntity> resultListtmp = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID order by c.orderId")
+                .setParameter("ordersID", id)
+                .getResultList();
+
         List<OrderMealsEntity> resultList = em.createQuery("SELECT c FROM OrderMealsEntity c WHERE c.orderId=:ordersID order by c.orderId")
                 .setParameter("ordersID", id)
                 .getResultList();
+
         return resultList;
     }
 
