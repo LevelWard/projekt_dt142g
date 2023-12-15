@@ -18,11 +18,14 @@ public class OrderBean implements Serializable {
 
     //TODO: implement a function to send items to order_meals and order_drinks
     private List<OrderItem> itemsList = new ArrayList<>();
-
-    private int table_id;
+    private int table_number;
     private Integer orderId;
     @PersistenceContext
     EntityManager em;
+    @PostConstruct
+    public void init(){
+        table_number = 1;
+    }
 
     /**
      * Pushes unique items into itemsList. if the items name already exists them we'll increment
@@ -61,7 +64,7 @@ public class OrderBean implements Serializable {
     //TODO: look into persist(), check #resurser
         //new order created, we'll give it table_id
         DiningOrderEntity newOrder = new DiningOrderEntity();
-        newOrder.setTableNr(table_id);
+        newOrder.setTableNr(table_number);
         em.persist(newOrder); //adds entity to db
         // Takes the latest order_id
         List<DiningOrderEntity> updatedID = em.createQuery("SELECT max(d.orderId) FROM DiningOrderEntity d", DiningOrderEntity.class).getResultList();
@@ -84,6 +87,11 @@ public class OrderBean implements Serializable {
         return "index.xhtml?faces-redirect=true";
     }
 
+
+    public void setTable_number(int number){
+        table_number = number;
+    }
+
     public Integer getOrderId(){
         return orderId;
     }
@@ -92,9 +100,7 @@ public class OrderBean implements Serializable {
         itemsList.clear();
     }
 
-    public void setTable_id(int id){
-        table_id = id;
-    }
+
 
     public String pingBean(){
         testVar = "Böna nådd";
