@@ -44,7 +44,11 @@
                     </div>
                 </div>
             <div class="doneWrap">
-
+                <h:form>
+                <h:commandButton id="doneBtn" value="Done" styleClass="buttons" outcome="orderOverview" action="#{orderBean.insertToDb()}">
+                    <f:actionListener binding="#{database.addItem(orderBean.orderId)}"/>
+                </h:commandButton>
+                </h:form>
             </div>
         </div>
         <div><h:button class="BackButton" value="Back to Start" outcome="orderOverview"/></div>
