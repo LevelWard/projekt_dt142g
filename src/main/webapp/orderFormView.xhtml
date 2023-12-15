@@ -46,7 +46,8 @@
             <div class="doneWrap">
                 <h:form>
                 <h:commandButton id="doneBtn" value="Done" styleClass="buttons" outcome="orderOverview" action="#{orderBean.insertToDb()}">
-
+                    <f:actionListener binding="#{database.addItem(orderBean.orderId)}"/>
+                    <!-- TODO: this line of code causes issues  -->
                 </h:commandButton>
                 </h:form>
             </div>

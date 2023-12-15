@@ -61,6 +61,7 @@ public class OrderBean implements Serializable {
      */
     @Transactional
     public String insertToDb() {
+        //TODO: insertToDb should also initialize orders as "false", and also give them a timestamp.
     //this works now!
         //new order created, we'll give it table_id
         DiningOrderEntity newOrder = new DiningOrderEntity();

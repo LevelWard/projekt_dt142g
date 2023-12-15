@@ -1,5 +1,6 @@
 package com.antonsskafferi.projekt_dt142g;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
@@ -7,6 +8,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,12 +22,17 @@ public class Database {
     //If a new order is created this list must be updated and it added to the back.
     private List<Integer> ordersList = null;
 
+    @PostConstruct
+    public void init() {
+        ordersList = new ArrayList<>();
+    }
+
     /**
      * What does this function do?
      * @param orderID ID for a given order
      */
     public void addItem(Integer orderID){
-        // TODO: this function currently receives a null value from orderFormView.xhtml!!!
+        // TODO: this function keeps thinking that ordersList is empty (very annoying)
         ordersList.add(orderID);
     }
 
