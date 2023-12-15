@@ -29,7 +29,7 @@
     <ui:define name="content">
             <div id="readyOrders">
                 <h:commandButton class="pickUp" value="Orders ready for pickup: " type="button" onclick="removeBtn(this)"/>
-                <ui:repeat value="#{database.getDoneIds()}" var="orderID">
+                <ui:repeat value="#{employeeDB.getDoneIds()}" var="orderID">
                     <h:form>
                         <h:commandButton styleClass="rdyFood" value="Table #{kitchenDone.idToTable(orderID)}" action="#{kitchenDone.markAsNotDone(orderID)}"/>
                     </h:form>

@@ -6,15 +6,13 @@ import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
-import jakarta.transaction.Transactional;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 @ApplicationScoped
 @Named
-public class Database {
+public class EmployeeDB {
     @PersistenceContext
     EntityManager em;
 

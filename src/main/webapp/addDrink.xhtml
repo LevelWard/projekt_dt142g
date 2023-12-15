@@ -24,9 +24,9 @@
 
     <ui:define name="content">
         <div id="addingWrap">
-            <ui:repeat value="#{database.getOrderIds()}" var="drinkID">
-                <ui:repeat value="#{database.drinkForOrder(drinkID)}" var="drinkTitle">
-                    <ui:repeat value="#{database.drinkTypeForOrder(drinkTitle)}" var="subtype">
+            <ui:repeat value="#{employeeDB.getOrderIds()}" var="drinkID">
+                <ui:repeat value="#{employeeDB.drinkForOrder(drinkID)}" var="drinkTitle">
+                    <ui:repeat value="#{employeeDB.drinkTypeForOrder(drinkTitle)}" var="subtype">
                         <h:commandButton class="#{subtype}" value="#{drinkTitle}" onclick="add(this)" type="button"/>
                     </ui:repeat>
                 </ui:repeat>
