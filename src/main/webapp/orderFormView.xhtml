@@ -13,11 +13,17 @@
                 <div id="tableDiv">
                     <h:outputLabel for="table" value="Table"/>
                     <!-- TODO: This should fetch items from dinings_tables -->
+
                     <h:form>
-                        <h:selectOneMenu id="table" value="#{paramValues}">
+                        <h:selectOneMenu id="table" value="#{orderBean.table_number}">
+                            <f:selectItem itemValue="#{1}" itemLabel="table 1" />
+                            <f:selectItem itemValue="#{2}" itemLabel="table 2" />
+                            <f:selectItem itemValue="#{3}" itemLabel="table 3" />
+                            <f:ajax render="displaySelectedTable" />
                             <!-- TODO: Each selectItem should update the OrderBean's private var using setTable(int id); -->
                         </h:selectOneMenu>
                     </h:form>
+                    <h1 id="displaySelectedTable"> #{orderBean.table_number} </h1>
                 </div>
                      <div id="selectedItems">
 
@@ -28,6 +34,7 @@
                          <h:form>
                              <h:commandButton id="clear_list" value="clear orders" styleClass="buttons" action="#{orderBean.clearList()}"/>
                          </h:form>
+
                     </div>
                     <div id="orderPreview">
                         <h1>Preview of order:</h1>

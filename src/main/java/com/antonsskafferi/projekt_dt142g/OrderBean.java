@@ -88,6 +88,10 @@ public class OrderBean implements Serializable {
     }
 
 
+    public int getTable_number() {
+        return table_number;
+    }
+
     public void setTable_number(int number){
         table_number = number;
     }
