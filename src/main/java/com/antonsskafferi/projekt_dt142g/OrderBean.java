@@ -92,7 +92,7 @@ public class OrderBean implements Serializable {
         List<OrderMealsEntity> updater = em.createQuery("SELECT d FROM OrderMealsEntity d", OrderMealsEntity.class).getResultList();
         itemsList.clear();
 
-        return "index.xhtml?faces-redirect=true";
+        return "orderOverview.xhtml?faces-redirect=true";
     }
 
 

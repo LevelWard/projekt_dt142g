@@ -22,17 +22,11 @@ public class Database {
     //If a new order is created this list must be updated and it added to the back.
     private List<Integer> ordersList = null;
 
-    @PostConstruct
-    public void init() {
-        ordersList = new ArrayList<>();
-    }
-
     /**
      * What does this function do?
      * @param orderID ID for a given order
      */
     public void addItem(Integer orderID){
-        // TODO: this function keeps thinking that ordersList is empty (very annoying)
         ordersList.add(orderID);
     }
 
@@ -68,13 +62,14 @@ public class Database {
         return displayItems;
     }*/
 
+    @PostConstruct
+    public void createOrderIds() {
+        List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c where c.status=false")
+                .getResultList();
+        this.ordersList = orderIdList;
+    }
+
     public List<Integer> getOrderIds() {
-        if (this.ordersList == null) {
-            List<Integer> orderIdList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c where c.status=false")
-                    .getResultList();
-            this.ordersList = orderIdList;
-        }
-        //Get all the order Id's from stored list.
         return ordersList;
     }
     public List<Integer> getDoneIds() {
