@@ -61,15 +61,15 @@ public class OrderBean implements Serializable {
      */
     @Transactional
     public String insertToDb() {
-    //TODO: look into persist(), check #resurser
+    //this works now!
         //new order created, we'll give it table_id
         DiningOrderEntity newOrder = new DiningOrderEntity();
         newOrder.setTableNr(table_number);
         em.persist(newOrder); //adds entity to db
         // Takes the latest order_id
-        List<DiningOrderEntity> updatedID = em.createQuery("SELECT max(d.orderId) FROM DiningOrderEntity d", DiningOrderEntity.class).getResultList();
+        Object maxOrderIdObject = em.createQuery("SELECT MAX(d.orderId) FROM DiningOrderEntity d").getSingleResult();
         // Fetches the updated order_id
-        int orderID = updatedID.get(0).getOrderId();
+        Integer orderID = (maxOrderIdObject != null) ? ((Number) maxOrderIdObject).intValue() : 0; //this should return an int but error log says it's trying to make a diningOrderEntity
         orderId = orderID;
 
 
