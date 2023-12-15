@@ -32,9 +32,9 @@
                             <div id="vertical_cluster">
                                 <div class="food_card">
                                     <p class="Type_entree_font">Förrätter(#{database_to_web.starter_course.size()})</p>
-                                    <div class="something">
+                                    <div class="list_of_courses">
                                         <!-- MAX 4 !-->
-                                    <ui:repeat value="#{database_to_web.starter_course}" var="one_dish" size="2">
+                                    <ui:repeat value="#{database_to_web.starter_course}" var="one_dish" size="#{database_to_web.getNoOfFirstToShow(database_to_web.starter_course.size())}">
                                         <div class="A_la_carte_course">
                                             <div class="A_la_carte_course_left">
 
@@ -55,9 +55,9 @@
                                 <div id="varmratt_efteratt_cluster">
                                     <div class="food_card">
                                         <p class="Type_entree_font">Varmrätter(#{database_to_web.middle_course.size()})</p>
-                                        <div class="something">
+                                        <div class="list_of_courses">
                                             <!-- MAX 2 !-->
-                                            <ui:repeat value="#{database_to_web.middle_course}" var="one_dish" size="2">
+                                            <ui:repeat value="#{database_to_web.middle_course}" var="one_dish" size="#{database_to_web.getNoOfMiddleToShow(database_to_web.middle_course.size())}">
                                                 <div class="A_la_carte_course">
                                                     <div class="A_la_carte_course_left">
 
@@ -79,9 +79,9 @@
                                     <div class="food_card">
 
                                         <p class="Type_entree_font">Desserter(#{database_to_web.last_course.size()})</p>
-                                        <div class="something">
+                                        <div class="list_of_courses">
 
-                                            <ui:repeat value="#{database_to_web.last_course}" var="one_dish" size="2">
+                                            <ui:repeat value="#{database_to_web.last_course}" var="one_dish" size="#{database_to_web.getNoOfLastToShow(database_to_web.last_course.size())}">
                                                 <div class="A_la_carte_course">
                                                     <div class="A_la_carte_course_left">
 
@@ -107,19 +107,20 @@
             </div>
             <div id="left_containing_whine">
                 <div id="title_whine"><p>VIN(#{database_to_web.whine.size()})</p></div>
-                <div class="something">
-                    <ui:repeat value="#{database_to_web.whine}" var="one_dish">
+                <div class="list_of_courses">
+                    <ui:repeat value="#{database_to_web.whine}" var="one_dish" size="#{database_to_web.getNoOfWineToShow(database_to_web.whine.size())}">
                         <div class="A_la_carte_course">
                             <div class="A_la_carte_course_left">
 
                                 <label>#{one_dish.title}</label>
                                 <label>#{one_dish.description}</label>
-                                <label>#{one_dish.price}</label>
+
 
                             </div>
                             <div class="A_la_carte_course_right">
-
+                                <label>#{one_dish.price}</label>
                             </div>
+                            <hr id="grey_bar" />
                         </div>
                     </ui:repeat>
                 </div>

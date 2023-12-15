@@ -17,17 +17,19 @@ public class Database_to_web {
         return res;
     }
     public List<DishesEntity> getStarter_course(){
-
-        return getAllDishes("dishesEntity.allFirst_courses");
+        List<DishesEntity> res = getAllDishes("dishesEntity.allFirst_courses");
+        return res;
     }
     public List<DishesEntity> getMiddle_course(){
 
-        return getAllDishes("dishesEntity.allMiddle_courses");
+        List<DishesEntity> res = getAllDishes("dishesEntity.allMiddle_courses");
+        return res;
     }
 
     public List<DishesEntity> getLast_course(){
 
-        return getAllDishes("dishesEntity.allLast_courses");
+        List<DishesEntity> res = getAllDishes("dishesEntity.allLast_courses");
+        return res;
     }
 
     private List<DrinksEntity> getAllDrinks(){
@@ -43,8 +45,17 @@ public class Database_to_web {
     //Private size of first,last, middle to return so facelet can decide its maximum repeatnumbers, moreover if
     // first.size >4 then alwasy set 4.
 
-    private int NoOfFirst = 0;
-    private int NoOfMiddle = 0;
-    private int NoOfLast = 0;
+    public int getNoOfFirstToShow(int size){
+        return Math.min(size, 4);
+    }
+    public int getNoOfMiddleToShow(int size){
+        return Math.min(size, 2);
+    }
+    public int getNoOfLastToShow(int size){
+        return Math.min(size, 2);
+    }
+    public int getNoOfWineToShow(int size){
+        return Math.min(size, 4);
+    }
 }
 
