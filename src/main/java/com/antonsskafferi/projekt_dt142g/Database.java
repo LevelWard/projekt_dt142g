@@ -25,6 +25,7 @@ public class Database {
      * @param orderID ID for a given order
      */
     public void addItem(Integer orderID){
+        // TODO: this function currently receives a null value from orderFormView.xhtml!!!
         ordersList.add(orderID);
     }
 
@@ -181,6 +182,11 @@ public class Database {
         List resultList = em.createQuery("SELECT c.orderId FROM DiningOrderEntity c WHERE c.tableNr=:table")
                 .setParameter("table", table).getResultList();
 
+        return resultList;
+    }
+
+    public List<Integer> getGetTableNumbers() {
+        List resultList = em.createQuery("select c.tableNumber from DiningTableEntity c").getResultList();
         return resultList;
     }
 }
